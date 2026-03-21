@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Works | PE_ARCHITECT</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-background": "#e5e2e1",
+              "on-tertiary": "#1a1c1c",
+              "surface-container": "#201f1f",
+              "on-tertiary-container": "#000000",
+              "surface-container-low": "#1c1b1b",
+              "tertiary": "#e2e2e2",
+              "secondary-fixed": "#c8c6c5",
+              "background": "#131313",
+              "surface-tint": "#c6c6c7",
+              "on-secondary-fixed-variant": "#3b3b3b",
+              "inverse-on-surface": "#313030",
+              "secondary-container": "#474746",
+              "surface-container-lowest": "#0e0e0e",
+              "on-secondary": "#1b1c1c",
+              "primary-fixed": "#5d5f5f",
+              "surface-bright": "#393939",
+              "on-primary-fixed": "#ffffff",
+              "tertiary-container": "#909191",
+              "outline-variant": "#474747",
+              "inverse-primary": "#5d5f5f",
+              "surface-variant": "#353534",
+              "primary": "#ffffff",
+              "inverse-surface": "#e5e2e1",
+              "error-container": "#93000a",
+              "primary-fixed-dim": "#454747",
+              "on-surface": "#e5e2e1",
+              "secondary": "#c8c6c5",
+              "on-primary-container": "#000000",
+              "on-error-container": "#ffdad6",
+              "surface-container-high": "#2a2a2a",
+              "secondary-fixed-dim": "#acabaa",
+              "on-tertiary-fixed": "#ffffff",
+              "tertiary-fixed-dim": "#454747",
+              "surface": "#131313",
+              "tertiary-fixed": "#5d5f5f",
+              "on-tertiary-fixed-variant": "#e2e2e2",
+              "on-error": "#690005",
+              "surface-container-highest": "#353534",
+              "on-secondary-fixed": "#1b1c1c",
+              "on-secondary-container": "#e4e2e1",
+              "on-primary-fixed-variant": "#e2e2e2",
+              "on-surface-variant": "#c6c6c6",
+              "surface-dim": "#131313",
+              "primary-container": "#d4d4d4",
+              "error": "#ffb4ab",
+              "outline": "#919191",
+              "on-primary": "#1a1c1c"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["IBM Plex Mono"],
+              "mono": ["IBM Plex Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .blueprint-grid {
+        background-image: radial-gradient(#474747 1px, transparent 1px);
+        background-size: 40px 40px;
+        opacity: 0.05;
+      }
+      .dashed-v-line {
+        background-image: linear-gradient(to bottom, #474747 50%, transparent 50%);
+        background-size: 1px 8px;
+        width: 1px;
+      }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- Global Layout Guides -->
+<div class="fixed inset-0 pointer-events-none z-0">
+<div class="blueprint-grid h-full w-full"></div>
+<div class="max-w-6xl mx-auto h-full relative border-x border-dashed border-outline-variant/20">
+<!-- Coordinate Labels -->
+<span class="absolute top-20 -left-6 font-mono text-[10px] text-on-surface-variant">LOC:A1</span>
+<span class="absolute top-20 -right-6 font-mono text-[10px] text-on-surface-variant">LOC:B1</span>
+<span class="absolute bottom-20 -left-6 font-mono text-[10px] text-on-surface-variant">REF:X4</span>
+<span class="absolute bottom-20 -right-6 font-mono text-[10px] text-on-surface-variant">REF:Z9</span>
+</div>
+</div>
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 bg-[#201F1F]/70 backdrop-blur-xl shadow-[0px_8px_32px_rgba(0,0,0,0.4)]">
+<div class="flex justify-between items-center max-w-7xl mx-auto px-8 h-16">
+<span class="font-headline font-black text-white tracking-tighter text-xl">PE_ARCHITECT</span>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-headline font-bold tracking-tight text-sm text-[#C6C6C6] hover:text-white transition-colors duration-200 uppercase" href="#">Home</a>
+<a class="font-headline font-bold tracking-tight text-sm text-white transition-colors duration-200 uppercase border-b border-primary pb-1" href="#">Works</a>
+<a class="font-headline font-bold tracking-tight text-sm text-[#C6C6C6] hover:text-white transition-colors duration-200 uppercase" href="#">Blogs</a>
+<a class="font-headline font-bold tracking-tight text-sm text-[#C6C6C6] hover:text-white transition-colors duration-200 uppercase" href="#">About</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-white scale-95 active:scale-90 transition-transform">
+<span class="material-symbols-outlined" data-icon="terminal">terminal</span>
+</button>
+</div>
+</div>
+</nav>
+<main class="relative z-10 pt-32 pb-24 max-w-6xl mx-auto px-8">
+<!-- Header Section -->
+<header class="mb-16">
+<div class="flex items-center gap-4 mb-4">
+<span class="h-px w-12 bg-primary"></span>
+<span class="font-mono text-[11px] uppercase tracking-[0.2em] text-on-surface-variant">Selected Projects 2022—2024</span>
+</div>
+<h1 class="font-headline font-bold text-6xl md:text-8xl text-white tracking-tighter mb-6">Works</h1>
+<p class="max-w-2xl text-on-surface-variant font-body leading-relaxed">
+                Exploring the intersection of high-fidelity engineering and structural integrity. A documentation of technical systems, architectural patterns, and performance-first interfaces.
+            </p>
+</header>
+<!-- Filter Bar -->
+<section class="mb-12 border-b border-outline-variant/15 pb-8">
+<div class="flex flex-wrap gap-3 items-center">
+<span class="font-mono text-[10px] uppercase text-on-surface-variant mr-4">Filter_By:</span>
+<button class="px-4 py-1.5 bg-primary text-on-primary font-mono text-[11px] font-medium tracking-wide radius-sm transition-all">All</button>
+<button class="px-4 py-1.5 bg-surface-container-high text-on-surface-variant font-mono text-[11px] font-medium tracking-wide radius-sm hover:bg-surface-bright transition-all">Web App</button>
+<button class="px-4 py-1.5 bg-surface-container-high text-on-surface-variant font-mono text-[11px] font-medium tracking-wide radius-sm hover:bg-surface-bright transition-all">Open Source</button>
+<button class="px-4 py-1.5 bg-surface-container-high text-on-surface-variant font-mono text-[11px] font-medium tracking-wide radius-sm hover:bg-surface-bright transition-all">SaaS</button>
+<button class="px-4 py-1.5 bg-surface-container-high text-on-surface-variant font-mono text-[11px] font-medium tracking-wide radius-sm hover:bg-surface-bright transition-all">Design System</button>
+</div>
+</section>
+<!-- Project Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+<!-- Card 1 -->
+<article class="group">
+<div class="relative aspect-video mb-6 overflow-hidden bg-surface-container-lowest radius-sm">
+<img alt="Abstract 3D architectural render" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" data-alt="Abstract 3D architectural render with dark geometric shapes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyhp-8DwQIwBU4C-8Dp3nfTzI88kvlhmCR_mcwnR0J6JNwNq08uA-DPrJKz4WuyAxgDhT5-bXlNqsvBPBWGc2nevdvidhsd3AEDLN1ZFJ2TDcda8vahbOOXPDF7HWWzwFx91bBZRNgxvUttJFnO9enZ2EL-tcMIZzDBtM5gjReiW2sLUpSxjexOjeZqG-j8LqLvzfQAHLUIKMl1JQU0BD2f8H4iZUlKnuorjJWntVe5m0OltRWhMiFTbImmd0nSR5U7u-tD7uXiJjE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none"></div>
+<div class="absolute top-4 right-4 bg-surface-container-high/40 backdrop-blur-md px-2 py-1 radius-sm">
+<span class="font-mono text-[9px] text-white">BUILD_v2.0.4</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-2xl text-white tracking-tight">Obsidian_OS</h3>
+<a class="p-2 bg-surface-container-high text-white hover:bg-primary hover:text-on-primary transition-all radius-sm" href="#">
+<span class="material-symbols-outlined text-lg">arrow_outward</span>
+</a>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-[90%]">
+                        A low-latency desktop environment for creative engineers. Built on top of a custom Rust-based windowing engine.
+                    </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-2 py-0.5 bg-secondary-container/30 text-secondary text-[10px] font-mono radius-sm">Rust</span>
+<span class="px-2 py-0.5 bg-secondary-container/30 text-secondary text-[10px] font-mono radius-sm">Next.js</span>
+<span class="px-2 py-0.5 bg-secondary-container/30 text-secondary text-[10px] font-mono radius-sm">WebAssembly</span>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="group">
+<div class="relative aspect-video mb-6 overflow-hidden bg-surface-container-lowest radius-sm">
+<img alt="Monochrome technical blueprint" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" data-alt="Monochrome technical blueprint with fine grid lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpu9wtFJnWj-KEe380E_pZBVsgg-WroQlrkB-0QT2mfJB8McifRM7jb9MtSZU5ifq2efhpHu7BNIEWLacVRsa6klyIcTOhdeRpyZZ84MgqVyLxW-LOneX8UWB3GzRZbDLrWUrzRVlirElphazjz4e0mfZObRCUfl15BJQku9f4YGSnqc1AWTChIHzFn2CRxxaJsoEY7a7XGUBWrxPsDZFMvQMTvgmyAwvQANn9Gp8riB_sLPqyqArx9_bYc0k1sPq2iuu8ItMQBumH"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none"></div>
+<div class="absolute top-4 right-4 bg-surface-container-high/40 backdrop-blur-md px-2 py-1 radius-sm">
+<span class="font-mono text-[9px] text-white">STABLE_v1.2</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-2xl text-white tracking-tight">Kinetic_UI</h3>
+<a class="p-2 bg-surface-container-high text-white hover:bg-primary hover:text-on-primary transition-all radius-sm" href="#">
+<span class="material-symbols-outlined text-lg">arrow_outward</span>
+</a>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-[90%]">
+                        A component system designed for aerospace dashboards. Zero-dependency architecture focused on pixel-perfect alignment.
+                    </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-2 py-0.5 bg-secondary-container/30 text-secondary text-[10px] font-mono radius-sm">TypeScript</span>
+<span class="px-2 py-0.5 bg-secondary-container/30 text-secondary text-[10px] font-mono radius-sm">Canvas API</span>
+<span class="px-2 py-0.5 bg-secondary-container/30 text-secondary text-[10px] font-mono radius-sm">D3.js</span>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="group">
+<div class="relative aspect-video mb-6 overflow-hidden bg-surface-container-lowest radius-sm">
+<img alt="Cybernetic circuit pattern" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" data-alt="Intricate glowing circuit board patterns on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC0Oa-ENpfZNf2Iu3AjDgHR4MyjhqgFuv36i1mKKA0zCMV2jWVrWFxutLCE6KVod0LZ7Uo9te6B63-Z6uPIbXjXU2c9Q1VJMUd9rTalnPeUbSA8Bq1fPfRn8p3rVVU4QC5ejdGuBnBDkw6dfCL8WT5I0wUj9uSnB3P5LD3qS-Xyf37APn5bmLrF3IHSg--DZeKGOMkHMj0yh-0mEnFlc40m4KKQZJ5G4vSjTOjtP1C_OrR4wMuiALjqswOx314tj4mXeFt1e0mS5sYx"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none"></div>
+<div class="absolute top-4 right-4 bg-surface-container-high/40 backdrop-blur-md px-2 py-1 radius-sm">
+<span class="font-mono text-[9px] text-white">BETA_v0.9.1</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-2xl text-white tracking-tight">Aether_Node</h3>
+<a class="p-2 bg-surface-container-high text-white hover:bg-primary hover:text-on-primary transition-all radius-sm" href="#">
+<span class="material-symbols-outlined text-lg">arrow_outward</span>
+</a>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-[90%]">
+                        Distributed edge computing protocol for real-time telemetry processing in smart infrastructure.
+                    </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-2 py-0.5 bg-secondary-container/30 text-secondary text-[10px] font-mono radius-sm">Go</span>
+<span class="px-2 py-0.5 bg-secondary-container/30 text-secondary text-[10px] font-mono radius-sm">gRPC</span>
+<span class="px-2 py-0.5 bg-secondary-container/30 text-secondary text-[10px] font-mono radius-sm">Docker</span>
+</div>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="group">
+<div class="relative aspect-video mb-6 overflow-hidden bg-surface-container-lowest radius-sm">
+<img alt="Satellite view of earth city lights" class="w-full h-full object-cover opacity-60 group-hover:opacity-100 transition-opacity duration-500" data-alt="Abstract satellite imagery of glowing urban connections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm-zlOu5u2KqkQijc_yj8jekXfR6eoyNArJ-Yx-PDMrU9h4cwUNQ6ePm8cFYJCFa3xPk0hCb3BNhf0iV9q7BScWbtzrKEt8K7htJ_8CzmTK0m84L77dZtN4uxRxr4ChH-kfN3ZHcURwBIJ_N0Rsgi3MnCxkWA2KeNOpmt7b1vuvfGWlWYn3F1NN9se3RJLP4DPdtAZHpEJtY9e2C_JZRcX6xDGwCG8lLRmhUmQ_v9wqUELdEHemrDH6ITqX-PPvuMOBGth8gVtO8VS"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent pointer-events-none"></div>
+<div class="absolute top-4 right-4 bg-surface-container-high/40 backdrop-blur-md px-2 py-1 radius-sm">
+<span class="font-mono text-[9px] text-white">DEPRECATED</span>
+</div>
+</div>
+<div class="space-y-4">
+<div class="flex justify-between items-start">
+<h3 class="font-headline font-bold text-2xl text-white tracking-tight">Flux_Graph</h3>
+<a class="p-2 bg-surface-container-high text-white hover:bg-primary hover:text-on-primary transition-all radius-sm" href="#">
+<span class="material-symbols-outlined text-lg">arrow_outward</span>
+</a>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed max-w-[90%]">
+                        Visualizing complex data relations in three-dimensional space using WebGL and advanced graph algorithms.
+                    </p>
+<div class="flex flex-wrap gap-2 pt-2">
+<span class="px-2 py-0.5 bg-secondary-container/30 text-secondary text-[10px] font-mono radius-sm">Three.js</span>
+<span class="px-2 py-0.5 bg-secondary-container/30 text-secondary text-[10px] font-mono radius-sm">Python</span>
+<span class="px-2 py-0.5 bg-secondary-container/30 text-secondary text-[10px] font-mono radius-sm">Redis</span>
+</div>
+</div>
+</article>
+</section>
+<!-- CTA Section -->
+<section class="mt-32 pt-16 border-t border-dashed border-outline-variant/20 flex flex-col items-center text-center">
+<span class="font-mono text-[11px] text-on-surface-variant mb-4 tracking-[0.3em] uppercase">Ready for deployment?</span>
+<h2 class="font-headline font-bold text-4xl text-white mb-8">Collaborate on your next system.</h2>
+<button class="px-8 py-3 bg-primary text-on-primary font-headline font-bold radius-sm hover:scale-[1.02] active:scale-95 transition-all">
+                INITIATE_CONTACT
+            </button>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 border-t border-[#474747]/15 bg-[#131313]">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-7xl mx-auto px-8 gap-4">
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-primary animate-pulse"></span>
+<span class="font-mono text-[10px] uppercase tracking-widest text-[#C6C6C6]">©2024 ENGINEERED_SYSTEMS</span>
+</div>
+<div class="flex gap-8">
+<a class="font-mono text-[10px] uppercase tracking-widest text-[#C6C6C6] hover:text-white underline decoration-dotted transition-all duration-300" href="#">GITHUB</a>
+<a class="font-mono text-[10px] uppercase tracking-widest text-[#C6C6C6] hover:text-white underline decoration-dotted transition-all duration-300" href="#">LINKEDIN</a>
+<a class="font-mono text-[10px] uppercase tracking-widest text-[#C6C6C6] hover:text-white underline decoration-dotted transition-all duration-300" href="#">SOURCE</a>
+</div>
+<div class="font-mono text-[9px] text-outline text-right uppercase">
+                Latency: 24ms <br/>
+                Status: Operational
+            </div>
+</div>
+</footer>
+</body></html>

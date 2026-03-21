@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Obsidian_OS | ARCHITECT_OS</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-container": "#201f1f",
+                        "on-primary-container": "#000000",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed": "#c8c6c5",
+                        "primary-fixed": "#5d5f5f",
+                        "inverse-surface": "#e5e2e1",
+                        "on-tertiary-container": "#000000",
+                        "error-container": "#93000a",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed-dim": "#454747",
+                        "inverse-primary": "#5d5f5f",
+                        "on-primary-fixed-variant": "#e2e2e2",
+                        "on-primary-fixed": "#ffffff",
+                        "tertiary": "#e2e2e2",
+                        "primary-container": "#d4d4d4",
+                        "outline": "#919191",
+                        "on-error": "#690005",
+                        "surface-variant": "#353534",
+                        "secondary-container": "#474746",
+                        "on-secondary-fixed": "#1b1c1c",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-surface": "#e5e2e1",
+                        "surface-dim": "#131313",
+                        "tertiary-container": "#909191",
+                        "surface-container-highest": "#353534",
+                        "on-surface-variant": "#c6c6c6",
+                        "secondary": "#c8c6c5",
+                        "primary": "#ffffff",
+                        "surface": "#131313",
+                        "outline-variant": "#474747",
+                        "on-secondary-container": "#e4e2e1",
+                        "error": "#ffb4ab",
+                        "on-primary": "#1a1c1c",
+                        "background": "#131313",
+                        "tertiary-fixed-dim": "#454747",
+                        "on-secondary": "#1b1c1c",
+                        "on-tertiary-fixed-variant": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#3b3b3b",
+                        "inverse-on-surface": "#313030",
+                        "tertiary-fixed": "#5d5f5f",
+                        "secondary-fixed-dim": "#acabaa",
+                        "surface-container-low": "#1c1b1b",
+                        "on-tertiary": "#1a1c1c",
+                        "surface-bright": "#393939",
+                        "on-tertiary-fixed": "#ffffff",
+                        "surface-tint": "#c6c6c7"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"],
+                        "mono": ["ui-monospace", "SFMono-Regular", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"]
+                    },
+                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                },
+            },
+        }
+    </script>
+<style>
+        .dashed-grid-bg {
+            background-image: linear-gradient(to bottom, transparent 95%, rgba(71, 71, 71, 0.2) 95%), 
+                              linear-gradient(to right, rgba(71, 71, 71, 0.2) 1px, transparent 1px);
+            background-size: 100% 40px, calc((100% - 64px) / 12) 100%;
+        }
+        .vertical-guide {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            width: 1px;
+            background-image: linear-gradient(to bottom, #474747 50%, transparent 50%);
+            background-size: 1px 8px;
+            z-index: 10;
+            opacity: 0.3;
+        }
+        .guide-left { left: 2rem; }
+        .guide-right { right: 2rem; }
+        @media (min-width: 1536px) {
+            .guide-left { left: calc((100vw - 1536px) / 2 + 2rem); }
+            .guide-right { right: calc((100vw - 1536px) / 2 + 2rem); }
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body selection:bg-primary selection:text-on-primary">
+<!-- NAVIGATION SHELL -->
+<nav class="fixed top-0 w-full z-50 bg-[#131313]/70 backdrop-blur-xl">
+<div class="flex justify-between items-center px-8 h-16 w-full max-w-screen-2xl mx-auto">
+<div class="text-xl font-bold tracking-tighter text-white font-['Space_Grotesk'] uppercase">
+                ARCHITECT_OS
+            </div>
+<div class="hidden md:flex gap-8 items-center"><a class="text-neutral-500 font-medium font-['Space_Grotesk'] uppercase tracking-tighter hover:text-white transition-colors duration-300" href="#">Home</a>
+<a class="text-white border-b border-white pb-1 font-['Space_Grotesk'] uppercase tracking-tighter" href="#">Works</a>
+<a class="text-neutral-500 font-medium font-['Space_Grotesk'] uppercase tracking-tighter hover:text-white transition-colors duration-300" href="#">Blogs</a>
+<a class="text-neutral-500 font-medium font-['Space_Grotesk'] uppercase tracking-tighter hover:text-white transition-colors duration-300" href="#">About</a></div>
+<button class="bg-primary text-on-primary px-6 py-1.5 font-['Space_Grotesk'] uppercase tracking-tighter text-sm font-bold scale-95 duration-200 hover:scale-100">
+                Contact
+            </button>
+</div>
+</nav>
+<!-- GUIDELINES -->
+<div class="vertical-guide guide-left hidden md:block"></div>
+<div class="vertical-guide guide-right hidden md:block"></div>
+<main class="pt-24 pb-32 w-full max-w-screen-2xl mx-auto px-8 relative overflow-hidden">
+<!-- GRID COORDINATES -->
+<div class="absolute top-24 left-10 font-mono text-[10px] text-outline-variant opacity-40 uppercase tracking-widest">REF_COORD: A1</div>
+<div class="absolute top-24 right-10 font-mono text-[10px] text-outline-variant opacity-40 uppercase tracking-widest text-right">REF_COORD: B2</div>
+<!-- HERO SECTION -->
+<section class="mb-20">
+<div class="w-full aspect-[21/9] bg-surface-container-low overflow-hidden relative">
+<img alt="Obsidian_OS Desktop Environment Preview" class="w-full h-full object-cover mix-blend-luminosity hover:mix-blend-normal transition-all duration-700" data-alt="Futuristic dark UI desktop environment with glowing accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCibOOlCS8VcvPvIEE_WY-DlyzApFfF_YS-1lfjni5tCbtYfME8G8M-5khnSZR_-ezYQlhdVZDTJ14LyPquzEEFeMKt1WPQ1SX3b7TDBK_V-KG-abZuUpq21bGdGsBjrc0TDXbMRBSmREUn_co0KnohI9xZswA_GPah9q0VOMhFRN4bunfdm4X4A-6wa2oqYJ3vZlaQum-oIZ1e10Wl7JM3yhPsOJk1ClIlpOV7V8vaJoeWM-heUN_K6yTyj79Bc9SkaQASPJ9kbBf"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+</section>
+<!-- PROJECT HEADER & METADATA -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-24">
+<div class="md:col-span-8">
+<h1 class="font-headline text-6xl md:text-8xl font-bold tracking-tighter text-white mb-6 uppercase">
+                    Obsidian_OS
+                </h1>
+<p class="text-xl text-on-surface-variant font-light max-w-2xl leading-relaxed">
+                    A kernel-level desktop architecture engineered for sub-millisecond input latency and high-density creative workflows. Designed for the engineers of the next absolute.
+                </p>
+</div>
+<div class="md:col-span-4 flex flex-col justify-end gap-6 border-l border-outline-variant/15 pl-8">
+<div>
+<span class="font-mono text-[10px] text-outline uppercase tracking-widest block mb-1">ROLE:</span>
+<span class="text-white font-medium uppercase text-sm">Lead Product Architect</span>
+</div>
+<div>
+<span class="font-mono text-[10px] text-outline uppercase tracking-widest block mb-1">TOOLS:</span>
+<span class="text-white font-medium uppercase text-sm">Rust, Next.js, WebAssembly</span>
+</div>
+<div>
+<span class="font-mono text-[10px] text-outline uppercase tracking-widest block mb-1">DATE:</span>
+<span class="text-white font-medium uppercase text-sm">2024-02-15</span>
+</div>
+</div>
+</div>
+<!-- CONTENT BLOCKS -->
+<div class="space-y-32">
+<!-- THE_PROBLEM -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<div class="md:col-span-4">
+<h2 class="font-headline text-2xl font-bold text-white uppercase tracking-tighter sticky top-24">
+                        01 / THE_PROBLEM
+                    </h2>
+</div>
+<div class="md:col-span-8 prose prose-invert max-w-none">
+<p class="text-on-surface-variant text-lg leading-relaxed mb-6">
+                        Existing desktop environments are layered with decades of legacy bloat. For high-performance creative engineering, the abstraction between user intent and silicon execution remains too wide. Latency spikes during heavy compilation or rendering tasks interrupt the cognitive flow state of the technical architect.
+                    </p>
+<div class="bg-surface-container-low p-8 border-l-2 border-primary mb-6">
+<p class="font-mono text-sm text-on-surface italic">
+                            "The bottleneck isn't the hardware; it's the orchestration layer that fails to prioritize the human-machine interface under peak load."
+                        </p>
+</div>
+<p class="text-on-surface-variant text-lg leading-relaxed">
+                        We identified that standard window managers allocate resources based on generic heuristics rather than task-specific urgency. Obsidian_OS was conceived to solve this by implementing a purely reactive, Rust-based compositor.
+                    </p>
+</div>
+</section>
+<!-- THE_SOLUTION -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<div class="md:col-span-4">
+<h2 class="font-headline text-2xl font-bold text-white uppercase tracking-tighter sticky top-24">
+                        02 / THE_SOLUTION
+                    </h2>
+</div>
+<div class="md:col-span-8">
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12">
+<div class="bg-surface-container-high p-6 flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">bolt</span>
+<h3 class="font-headline font-bold text-white">NEURAL_KERNEL</h3>
+<p class="text-sm text-on-surface-variant leading-snug">Proprietary scheduling algorithm prioritizing input threads with 0.2ms resolution.</p>
+</div>
+<div class="bg-surface-container-high p-6 flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">layers</span>
+<h3 class="font-headline font-bold text-white">GLASS_UI</h3>
+<p class="text-sm text-on-surface-variant leading-snug">A GPU-accelerated rendering engine using WebAssembly for cross-platform visual consistency.</p>
+</div>
+</div>
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                        The solution leverages a "No-Line" visual philosophy, reducing cognitive load by utilizing depth and tonal shifts rather than structural boundaries. Every interaction is calculated to minimize ocular fatigue while maximizing information density.
+                    </p>
+<div class="relative w-full aspect-video bg-surface-container-lowest overflow-hidden">
+<img alt="Technical interface detail" class="w-full h-full object-cover opacity-50 grayscale hover:grayscale-0 transition-all duration-500" data-alt="Microscopic view of high-tech digital circuit boards and neon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqJ9Ll34gjEZzqp-XHl_iJ9te7aYPaNh9raReJNACl0lM64lkU9_1TU5GTdYc9vq73XZDRn_B-MTFWyKpgltEaRcessbyACEBVsw2JP89AxNcrDKRygTdi5cReR3ibbBPwsZNavDkId5aqlo0qpjKX_MtPIuKFbgcXiEq9cDAR48cLNuR_PkpDml6WlOXKfQZ4X6I8jOSY6fjQE7I7dswbcwG8mcG1_pii4pu9pgR5y0YjAL2UZdARXhRU6Cm5yu7qFCmYddFrcYVG"/>
+<div class="absolute bottom-4 left-4 font-mono text-[10px] text-white/40">SYSTEM_MODULE_V4.02</div>
+</div>
+</div>
+</section>
+<!-- TECHNICAL_RECAP -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+<div class="md:col-span-4">
+<h2 class="font-headline text-2xl font-bold text-white uppercase tracking-tighter sticky top-24">
+                        03 / TECHNICAL_RECAP
+                    </h2>
+</div>
+<div class="md:col-span-8">
+<p class="text-on-surface-variant text-lg leading-relaxed mb-8">
+                        Architecting the memory safety layers required a strict implementation of Rust's ownership model across the compositor's foreign function interface.
+                    </p>
+<!-- CODE BLOCK -->
+<div class="bg-surface-container-lowest p-6 border border-outline-variant/15 font-mono text-sm leading-relaxed overflow-x-auto relative">
+<div class="absolute top-0 right-0 p-2 bg-surface-container-high text-[10px] text-outline tracking-widest uppercase">rust_source.rs</div>
+<div class="flex gap-4">
+<div class="text-outline-variant select-none text-right">
+                                01<br/>02<br/>03<br/>04<br/>05<br/>06<br/>07<br/>08<br/>09<br/>10
+                            </div>
+<pre class="text-primary-container"><span class="text-tertiary">pub struct</span> <span class="text-white">ObsidianCompositor</span> {
+    input_channel: <span class="text-tertiary">Receiver</span>&lt;<span class="text-white">InputEvent</span>&gt;,
+    display_state: <span class="text-tertiary">Arc</span>&lt;<span class="text-white">Mutex</span>&lt;<span class="text-white">SurfaceMap</span>&gt;&gt;,
+}
+
+<span class="text-tertiary">impl</span> <span class="text-white">ObsidianCompositor</span> {
+    <span class="text-tertiary">pub fn</span> <span class="text-white">dispatch_frame</span>(&amp;<span class="text-tertiary">self</span>) -&gt; <span class="text-white">Result</span>&lt;(), <span class="text-white">KernelError</span>&gt; {
+        <span class="text-outline">// Critical path: minimize context switching</span>
+        <span class="text-tertiary">let</span> state = <span class="text-tertiary">self</span>.display_state.lock().unwrap();
+        <span class="text-white">render_pipeline::execute</span>(state)
+    }
+}</pre>
+</div>
+</div>
+<div class="mt-12 grid grid-cols-2 gap-px bg-outline-variant/15">
+<div class="bg-background p-8">
+<div class="text-3xl font-headline font-bold text-white mb-2">0.2ms</div>
+<div class="font-mono text-[10px] text-outline uppercase tracking-widest">Input Propagation Delay</div>
+</div>
+<div class="bg-background p-8">
+<div class="text-3xl font-headline font-bold text-white mb-2">99.9%</div>
+<div class="font-mono text-[10px] text-outline uppercase tracking-widest">Memory Safety Integrity</div>
+</div>
+<div class="bg-background p-8">
+<div class="text-3xl font-headline font-bold text-white mb-2">144FPS</div>
+<div class="font-mono text-[10px] text-outline uppercase tracking-widest">Native UI Refresh Rate</div>
+</div>
+<div class="bg-background p-8">
+<div class="text-3xl font-headline font-bold text-white mb-2">Zero</div>
+<div class="font-mono text-[10px] text-outline uppercase tracking-widest">Unsigned Memory Faults</div>
+</div>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- FOOTER -->
+<footer class="w-full py-12 border-t border-white/5 bg-[#131313]">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 w-full max-w-screen-2xl mx-auto">
+<div class="text-white font-bold font-mono text-[10px] uppercase tracking-widest mb-4 md:mb-0">
+                © 2024 ENGINEERED ABSOLUTE. ALL RIGHTS RESERVED.
+            </div>
+<div class="flex gap-8">
+<a class="font-mono text-[10px] uppercase tracking-widest text-neutral-600 hover:text-white transition-opacity opacity-80 hover:opacity-100" href="#">X</a>
+<a class="font-mono text-[10px] uppercase tracking-widest text-neutral-600 hover:text-white transition-opacity opacity-80 hover:opacity-100" href="#">GitHub</a>
+<a class="font-mono text-[10px] uppercase tracking-widest text-neutral-600 hover:text-white transition-opacity opacity-80 hover:opacity-100" href="#">LinkedIn</a>
+<a class="font-mono text-[10px] uppercase tracking-widest text-neutral-600 hover:text-white transition-opacity opacity-80 hover:opacity-100" href="#">ReadCV</a>
+</div>
+</div>
+</footer>
+</body></html>

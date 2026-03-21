@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-container": "#474746",
+              "error-container": "#93000a",
+              "on-secondary-container": "#e4e2e1",
+              "on-primary-fixed": "#ffffff",
+              "on-error-container": "#ffdad6",
+              "surface-variant": "#353534",
+              "on-primary-container": "#000000",
+              "on-primary-fixed-variant": "#e2e2e2",
+              "outline-variant": "#474747",
+              "on-secondary-fixed": "#1b1c1c",
+              "primary-fixed-dim": "#454747",
+              "inverse-surface": "#e5e2e1",
+              "surface-tint": "#c6c6c7",
+              "on-tertiary-container": "#000000",
+              "surface-container-low": "#1c1b1b",
+              "primary-container": "#d4d4d4",
+              "secondary-fixed": "#c8c6c5",
+              "outline": "#919191",
+              "secondary": "#c8c6c5",
+              "surface-container-highest": "#353534",
+              "on-background": "#e5e2e1",
+              "on-tertiary": "#1a1c1c",
+              "tertiary-fixed": "#5d5f5f",
+              "on-tertiary-fixed": "#ffffff",
+              "primary": "#ffffff",
+              "on-surface-variant": "#c6c6c6",
+              "tertiary-fixed-dim": "#454747",
+              "error": "#ffb4ab",
+              "on-secondary": "#1b1c1c",
+              "surface-dim": "#131313",
+              "surface-container-high": "#2a2a2a",
+              "primary-fixed": "#5d5f5f",
+              "inverse-primary": "#5d5f5f",
+              "on-primary": "#1a1c1c",
+              "on-error": "#690005",
+              "tertiary": "#e2e2e2",
+              "secondary-fixed-dim": "#acabaa",
+              "on-secondary-fixed-variant": "#3b3b3b",
+              "background": "#131313",
+              "surface": "#131313",
+              "on-tertiary-fixed-variant": "#e2e2e2",
+              "tertiary-container": "#909191",
+              "on-surface": "#e5e2e1",
+              "surface-container-lowest": "#0e0e0e",
+              "inverse-on-surface": "#313030",
+              "surface-bright": "#393939",
+              "surface-container": "#201f1f"
+            },
+            fontFamily: {
+              "headline": ["Space Grotesk"],
+              "body": ["Inter"],
+              "label": ["IBM Plex Mono"],
+              "mono": ["IBM Plex Mono"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .dashed-grid-line {
+            background-image: linear-gradient(to bottom, #474747 10%, rgba(255, 255, 255, 0) 0%);
+            background-position: left;
+            background-size: 1px 12px;
+            background-repeat: repeat-y;
+        }
+        .recessed-code {
+            box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation Shell -->
+<nav class="fixed top-0 w-full z-50 bg-zinc-900/70 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.4)]">
+<div class="flex justify-between items-center h-16 px-6 max-w-7xl mx-auto font-['Space_Grotesk'] font-bold tracking-tight">
+<div class="text-xl font-black tracking-tighter text-white uppercase">ARCHITECT_V1</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-zinc-400 font-medium hover:text-white transition-colors transition-all duration-200" href="#">HOME</a>
+<a class="text-zinc-400 font-medium hover:text-white transition-colors transition-all duration-200" href="#">WORKS</a>
+<a class="text-white border-b-2 border-white pb-1 transition-all duration-200" href="#">BLOGS</a>
+<a class="text-zinc-400 font-medium hover:text-white transition-colors transition-all duration-200" href="#">ABOUT</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-white hover:bg-white/5 transition-all duration-200 active:scale-95"><span class="material-symbols-outlined">terminal</span></button>
+<button class="p-2 text-white hover:bg-white/5 transition-all duration-200 active:scale-95"><span class="material-symbols-outlined">settings</span></button>
+</div>
+</div>
+</nav>
+<!-- Main Content Grid -->
+<main class="relative pt-32 pb-24 min-h-screen">
+<!-- Vertical Grid Markers -->
+<div class="fixed inset-0 pointer-events-none max-w-[1200px] mx-auto flex justify-between px-4 lg:px-0">
+<div class="dashed-grid-line w-px h-full opacity-20"></div>
+<div class="dashed-grid-line w-px h-full opacity-20"></div>
+</div>
+<!-- Structural Layout -->
+<div class="relative max-w-[1200px] mx-auto px-6 lg:px-0">
+<!-- Coordinates / Breadcrumbs -->
+<div class="flex justify-between items-end mb-12 opacity-50">
+<div class="font-mono text-[10px] tracking-[0.2em] uppercase">POS: 52.3676° N, 4.9041° E // SYS_ARCH_01</div>
+<div class="font-mono text-[10px] tracking-[0.2em] uppercase">REF_ID: BLOG_2024_084</div>
+</div>
+<div class="flex flex-col lg:flex-row gap-16">
+<!-- Editorial Body -->
+<article class="flex-1 max-w-3xl">
+<!-- Title Section -->
+<header class="mb-12">
+<div class="font-mono text-[10px] text-on-surface-variant mb-4 tracking-widest uppercase flex items-center gap-2">
+<span class="w-2 h-2 bg-primary"></span>
+                            CORE_ENGINEERING_DOC
+                        </div>
+<h1 class="text-5xl lg:text-7xl font-headline font-bold text-white leading-tight tracking-tighter mb-8">
+                            Optimizing React reconciliation for low-latency telemetry dashboards.
+                        </h1>
+<div class="flex flex-wrap items-center gap-x-8 gap-y-4 font-mono text-[11px] text-on-surface-variant uppercase tracking-wider border-t border-outline-variant/15 pt-6">
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">calendar_today</span> MAY 12, 2024</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">schedule</span> 12 MIN READ</div>
+<div class="flex items-center gap-2"><span class="material-symbols-outlined text-sm">visibility</span> 1.4K VIEWS</div>
+</div>
+</header>
+<!-- Feature Image -->
+<div class="aspect-[16/8] bg-surface-container mb-16 relative overflow-hidden">
+<img alt="Telemetry visualization with neon code lines" class="w-full h-full object-cover grayscale opacity-60 hover:grayscale-0 transition-all duration-700" data-alt="Digital telemetry visualization dashboard with glowing neon data lines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6w-KlOd0XDr83Lc-Ug0EYoFEzM6In0sc3d4C_uexXMajp3raT3ThROT0D8x_41OO1c3nHNIJNy8QLJRLcRXd0s9aPBu8KojRuOOIhwJqUojkNnkS9DFalcRDw7UU2HGO1i_bKhrAgs0EcnqXi17ii_z8Z1cpjdDpado1yxYFZbKndNRODIymk4ZsPZVljjeAcMN92j7EoOaibSOa6jXuIDqz8I2VEU1diazktoD0tkN3W90yQNOqEQHiEBP7wit6ZFkzO0kbn-jwZ"/>
+<div class="absolute bottom-4 left-4 bg-surface-container-lowest/80 backdrop-blur px-3 py-1 font-mono text-[9px] text-white">FIG_01: LATENCY_MAP_V2</div>
+</div>
+<!-- Article Content -->
+<div class="space-y-8 text-on-surface/90 leading-relaxed text-lg font-light">
+<p>
+                            In high-frequency trading platforms and aerospace telemetry monitoring, a millisecond delay isn't just a performance dip—it's a critical failure. Standard React reconciliation patterns often fall short when processing 60+ updates per second across thousands of DOM nodes.
+                        </p>
+<h2 class="text-3xl font-headline font-bold text-white pt-8 tracking-tight">The Bottleneck: Virtual DOM Overhead</h2>
+<p>
+                            While the Virtual DOM is efficient for typical CRUD applications, the "diffing" process becomes a liability during high-density stream ingestion. Every frame spent calculating the delta is a frame lost in visual feedback.
+                        </p>
+<!-- Code Block -->
+<div class="recessed-code bg-surface-container-lowest p-6 rounded-sm border border-outline-variant/15 my-10">
+<div class="flex justify-between items-center mb-4 border-b border-outline-variant/10 pb-2">
+<span class="font-mono text-[10px] text-on-surface-variant uppercase tracking-widest">telemetry_hook.ts</span>
+<span class="material-symbols-outlined text-sm text-on-surface-variant">content_copy</span>
+</div>
+<pre class="font-mono text-sm overflow-x-auto text-on-surface-variant leading-relaxed"><span class="text-white/40">// Optimization: Bypassing reconciliation for frequent updates</span>
+<span class="text-white">const</span> <span class="text-primary-container">useFastStream</span> = (<span class="text-primary-container">streamId</span>) =&gt; {
+  <span class="text-white">const</span> [<span class="text-primary-container">data</span>, <span class="text-primary-container">setData</span>] = useState(<span class="text-white">null</span>);
+  
+  <span class="text-primary-container">useEffect</span>(() =&gt; {
+    <span class="text-white">const</span> <span class="text-primary-container">worker</span> = <span class="text-white">new</span> <span class="text-primary-container">Worker</span>(<span class="text-white">'/stream-processor.js'</span>);
+    <span class="text-primary-container">worker</span>.<span class="text-primary-container">onmessage</span> = (<span class="text-primary-container">msg</span>) =&gt; {
+      <span class="text-white/40">// Batching logic at the hardware-accelerated level</span>
+      <span class="text-primary-container">requestAnimationFrame</span>(() =&gt; <span class="text-primary-container">setData</span>(<span class="text-primary-container">msg</span>.<span class="text-primary-container">data</span>));
+    };
+  }, [<span class="text-primary-container">streamId</span>]);
+};</pre>
+</div>
+<p>
+                            By utilizing <code class="bg-surface-container px-1.5 py-0.5 font-mono text-sm text-primary">requestAnimationFrame</code> and offloading heavy computation to Web Workers, we can decouple data processing from the UI thread entirely.
+                        </p>
+<!-- Callout -->
+<div class="bg-surface-container-low p-8 border-l-2 border-primary mt-12 mb-12">
+<h3 class="font-headline font-bold text-white mb-2 flex items-center gap-2">
+<span class="material-symbols-outlined text-primary">info</span>
+                                ARCHITECT'S NOTE
+                            </h3>
+<p class="text-base text-on-surface-variant italic">
+                                Always measure before you optimize. Use the React Profiler to identify "Committing" vs "Rendering" phases. If the commit phase is long, the issue is the DOM; if the rendering phase is long, the issue is your component logic.
+                            </p>
+</div>
+<h3 class="text-2xl font-headline font-bold text-white pt-4 tracking-tight">Memoization Strategies</h3>
+<p>
+                            Granular component decomposition allows us to isolate updates. Instead of one large <code class="bg-surface-container px-1.5 py-0.5 font-mono text-sm text-primary">DashboardContainer</code>, we implement a slot-based architecture where only the numeric data-cells re-render.
+                        </p>
+</div>
+<!-- Footer Navigation -->
+<div class="mt-24 pt-12 border-t border-outline-variant/15 flex flex-col md:flex-row justify-between gap-8">
+<a class="group max-w-xs" href="#">
+<span class="font-mono text-[10px] text-on-surface-variant block mb-2 uppercase tracking-widest">PREVIOUS_ENTRY</span>
+<span class="text-lg font-headline font-bold text-on-surface group-hover:text-primary transition-colors">Micro-frontends at scale: A case study in modular infrastructure.</span>
+</a>
+<a class="group max-w-xs md:text-right" href="#">
+<span class="font-mono text-[10px] text-on-surface-variant block mb-2 uppercase tracking-widest">NEXT_ENTRY</span>
+<span class="text-lg font-headline font-bold text-on-surface group-hover:text-primary transition-colors">Rust vs Go for backend telemetry services in 2024.</span>
+</a>
+</div>
+</article>
+<!-- Sidebar Content -->
+<aside class="w-full lg:w-72 space-y-12">
+<div class="bg-surface-container p-6">
+<h4 class="font-mono text-[11px] text-on-surface-variant uppercase tracking-[0.2em] mb-6 border-b border-outline-variant/15 pb-2">METADATA_EXTRACT</h4>
+<div class="space-y-6">
+<div>
+<span class="block font-mono text-[9px] text-white/40 mb-1 uppercase">SERIES</span>
+<span class="font-headline font-bold text-white text-sm tracking-wide">PERFORMANCE_ENGINEERING</span>
+</div>
+<div>
+<span class="block font-mono text-[9px] text-white/40 mb-1 uppercase">TAGS</span>
+<div class="flex flex-wrap gap-2 mt-2">
+<span class="bg-secondary-container px-2 py-1 font-mono text-[9px] text-on-secondary-container rounded-sm uppercase">REACT</span>
+<span class="bg-secondary-container px-2 py-1 font-mono text-[9px] text-on-secondary-container rounded-sm uppercase">PERF</span>
+<span class="bg-secondary-container px-2 py-1 font-mono text-[9px] text-on-secondary-container rounded-sm uppercase">WASM</span>
+</div>
+</div>
+<div>
+<span class="block font-mono text-[9px] text-white/40 mb-1 uppercase">STATUS</span>
+<span class="flex items-center gap-2 font-mono text-[10px] text-primary">
+<span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+                                    PUBLISHED_LIVE
+                                </span>
+</div>
+</div>
+</div>
+<div class="bg-surface-container-low p-6">
+<h4 class="font-mono text-[11px] text-on-surface-variant uppercase tracking-[0.2em] mb-6 border-b border-outline-variant/15 pb-2">CONTRIBUTORS</h4>
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest flex items-center justify-center border border-white/10">
+<span class="material-symbols-outlined text-white">person</span>
+</div>
+<div>
+<span class="block text-xs font-bold text-white">ELARA_VANCE</span>
+<span class="block font-mono text-[9px] text-on-surface-variant">SR. SYSTEMS_ARCH</span>
+</div>
+</div>
+</div>
+<!-- CTA Module -->
+<div class="p-6 bg-gradient-to-br from-primary to-primary-container text-on-primary rounded-sm shadow-xl">
+<h4 class="font-headline font-black text-xl leading-tight mb-4">WANT THE FULL SPEC?</h4>
+<p class="text-xs font-medium mb-6 opacity-80">Download the Whitepaper on Low-Latency React Architecture (PDF, 4.2MB).</p>
+<button class="w-full py-3 bg-on-primary text-primary font-mono text-[10px] font-bold tracking-widest uppercase hover:bg-zinc-800 hover:text-white transition-all active:scale-95">
+                            DOWNLOAD_ASSET_08
+                        </button>
+</div>
+</aside>
+</div>
+</div>
+<!-- Grid Intersections Architectural Labels -->
+<div class="absolute top-32 left-1/2 -translate-x-[600px] -ml-6 font-mono text-[10px] text-outline-variant/40">A1</div>
+<div class="absolute top-32 left-1/2 translate-x-[600px] ml-6 font-mono text-[10px] text-outline-variant/40">A2</div>
+<div class="absolute bottom-32 left-1/2 -translate-x-[600px] -ml-6 font-mono text-[10px] text-outline-variant/40">B1</div>
+<div class="absolute bottom-32 left-1/2 translate-x-[600px] ml-6 font-mono text-[10px] text-outline-variant/40">B2</div>
+</main>
+<!-- Footer -->
+<footer class="bg-zinc-950 w-full py-12 border-t border-white/5 tonal-shift bg-zinc-900 flat no-shadows">
+<div class="max-w-4xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-4 font-mono text-[10px] uppercase tracking-widest text-zinc-500">
+<div class="text-zinc-400 font-bold">©2024 PORTFOLIO_OS // SYSTEM_STATUS: OPERATIONAL</div>
+<div class="flex gap-6 cursor-crosshair">
+<a class="hover:text-white transition-colors" href="#">STK_MONO_V1.0</a>
+<a class="hover:text-white transition-colors" href="#">READ_TIME_METADATA</a>
+<a class="hover:text-white transition-colors" href="#">VIEW_COUNT_0842</a>
+<a class="hover:text-white transition-colors" href="#">SOURCE_CONTROL</a>
+</div>
+</div>
+</footer>
+</body></html>
