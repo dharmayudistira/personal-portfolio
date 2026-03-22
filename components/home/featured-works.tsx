@@ -7,13 +7,13 @@ const FEATURED_PROJECTS = getFeaturedWorks()
 
 export function FeaturedWorks() {
   return (
-    <section className="relative py-32">
-      <div className="mb-20 flex items-end justify-between">
+    <section className="relative py-16 sm:py-32">
+      <div className="mb-12 sm:mb-20 flex items-end justify-between">
         <div>
           <span className="mb-3 block font-mono text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
             01 // PROJECT_INDEX
           </span>
-          <h2 className="font-heading text-5xl font-bold uppercase tracking-tight">
+          <h2 className="font-heading text-3xl font-bold uppercase tracking-tight sm:text-5xl">
             Featured Works
           </h2>
         </div>

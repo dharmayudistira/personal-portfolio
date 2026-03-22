@@ -111,7 +111,7 @@ Future<List<Product>> productList(
     date: "2021-06-15",
     role: "Android Developer",
     repoUrl: "https://github.com/B21-CAP0075",
-    featured: false,
+    featured: true,
     sections: {
       problem: {
         body: "Dementia affects over 50 million people globally, with nearly 10 million new cases every year. In Indonesia alone, 1.2 million cases were recorded in 2016 — a number that doubles every 20 years. 68% of cases come from low-to-middle income families, and 61% of patients stay at home without proper treatment due to the high cost of care. The core issue is a lack of knowledge — families and caregivers often dismiss early symptoms like forgetfulness and mood swings as normal aging, delaying diagnosis until it's too late.",

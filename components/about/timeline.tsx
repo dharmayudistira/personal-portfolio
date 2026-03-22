@@ -2,9 +2,9 @@ import { EXPERIENCES } from "@/lib/data/about"
 
 export function Timeline() {
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-20">
       {/* Section header */}
-      <div className="mb-16">
+      <div className="mb-10 sm:mb-16">
         <span className="mb-2 block font-mono text-[10px] text-muted-foreground/40">
           SEC_02
         </span>
@@ -16,7 +16,7 @@ export function Timeline() {
       {/* Timeline entries */}
       <div>
         {EXPERIENCES.map((exp, i) => (
-            <div key={i} className="pb-16 last:pb-0">
+            <div key={i} className="pb-10 last:pb-0 sm:pb-16">
               {/* Content */}
               <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_4fr]">
                 {/* Date */}
@@ -25,7 +25,7 @@ export function Timeline() {
                 </div>
 
                 {/* Card */}
-                <div className="border border-foreground/5 bg-card p-8">
+                <div className="border border-foreground/5 bg-card p-5 sm:p-8">
                   <div className="mb-4 flex flex-col justify-between gap-2 md:flex-row md:items-center">
                     <h4 className="font-heading text-xl font-bold uppercase tracking-tight">
                       {exp.title}

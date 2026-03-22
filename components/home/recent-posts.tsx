@@ -16,14 +16,14 @@ function getRecentPosts() {
 
 export function RecentPosts() {
   return (
-    <section className="relative py-32">
-      <div className="mb-16 flex items-end justify-between">
+    <section className="relative py-16 sm:py-32">
+      <div className="mb-10 sm:mb-16 flex items-end justify-between">
         <div>
           <span className="mb-3 block font-mono text-[10px] uppercase tracking-[0.4em] text-muted-foreground">
             02 // KNOWLEDGE_BASE
           </span>
-          <h2 className="font-heading text-5xl font-bold uppercase tracking-tight">
-            Recent Posts
+          <h2 className="font-heading text-3xl font-bold uppercase tracking-tight sm:text-5xl">
+            Recent{" "}<br className="sm:hidden" />Posts
           </h2>
         </div>
         <Link

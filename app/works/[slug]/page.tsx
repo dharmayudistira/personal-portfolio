@@ -73,8 +73,8 @@ export default async function WorkDetailPage({ params }: Props) {
       <SectionDivider label="HDR:01" />
 
       {/* Header + Metadata */}
-      <div className="grid grid-cols-1 gap-12 py-12 md:grid-cols-12">
-        <div className="md:col-span-8">
+      <div className="grid grid-cols-1 gap-12 py-8 sm:py-12 lg:grid-cols-12">
+        <div className="lg:col-span-8">
           <Link
             href="/works"
             className="mb-8 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
@@ -82,14 +82,14 @@ export default async function WorkDetailPage({ params }: Props) {
             <ArrowLeft className="size-3.5" />
             Back_to_Works
           </Link>
-          <h1 className="mb-6 font-heading text-6xl font-bold uppercase tracking-tighter md:text-8xl">
+          <h1 className="mb-6 font-heading text-4xl font-bold uppercase tracking-tighter sm:text-6xl md:text-8xl">
             {work.title}
           </h1>
           <p className="max-w-2xl text-sm font-light leading-relaxed text-muted-foreground">
             {work.longDescription}
           </p>
         </div>
-        <div className="flex flex-col justify-end gap-6 border-l border-foreground/10 pl-8 md:col-span-4">
+        <div className="flex flex-col gap-6 md:flex-row md:flex-wrap md:items-start md:gap-x-12 md:gap-y-4 lg:col-span-4 lg:flex-col lg:gap-6 lg:self-start lg:sticky lg:top-24 lg:border lg:border-foreground/5 lg:p-6">
           <div>
             <span className="mb-1 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
               Role:
@@ -146,10 +146,11 @@ export default async function WorkDetailPage({ params }: Props) {
       <SectionDivider label="SEC:02" />
 
       {/* 01 / THE_PROBLEM */}
-      <section className="grid grid-cols-1 items-start gap-8 py-16 md:grid-cols-12">
+      <section className="grid grid-cols-1 items-start gap-8 py-10 sm:py-16 md:grid-cols-12">
         <div className="md:col-span-4">
           <h2 className="sticky top-24 font-heading text-2xl font-bold uppercase tracking-tighter">
-            01 / The_Problem
+            <span className="mb-1 block font-mono text-[10px] font-normal tracking-[0.3em] text-muted-foreground">01 /</span>
+            The_Problem
           </h2>
         </div>
         <div className="md:col-span-8">
@@ -169,10 +170,11 @@ export default async function WorkDetailPage({ params }: Props) {
       <SectionDivider label="SEC:03" />
 
       {/* 02 / THE_SOLUTION */}
-      <section className="grid grid-cols-1 items-start gap-8 py-16 md:grid-cols-12">
+      <section className="grid grid-cols-1 items-start gap-8 py-10 sm:py-16 md:grid-cols-12">
         <div className="md:col-span-4">
           <h2 className="sticky top-24 font-heading text-2xl font-bold uppercase tracking-tighter">
-            02 / The_Solution
+            <span className="mb-1 block font-mono text-[10px] font-normal tracking-[0.3em] text-muted-foreground">02 /</span>
+            The_Solution
           </h2>
         </div>
         <div className="md:col-span-8">
@@ -213,10 +215,11 @@ export default async function WorkDetailPage({ params }: Props) {
       <SectionDivider label="SEC:04" />
 
       {/* 03 / TECHNICAL_RECAP */}
-      <section className="grid grid-cols-1 items-start gap-8 py-16 md:grid-cols-12">
+      <section className="grid grid-cols-1 items-start gap-8 py-10 sm:py-16 md:grid-cols-12">
         <div className="md:col-span-4">
           <h2 className="sticky top-24 font-heading text-2xl font-bold uppercase tracking-tighter">
-            03 / Technical_Recap
+            <span className="mb-1 block font-mono text-[10px] font-normal tracking-[0.3em] text-muted-foreground">03 /</span>
+            Technical_Recap
           </h2>
         </div>
         <div className="md:col-span-8">

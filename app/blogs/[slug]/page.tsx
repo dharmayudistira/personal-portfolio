@@ -68,7 +68,7 @@ export default async function BlogDetailPage({ params }: Props) {
       <SectionDivider label="DOC:00" />
 
       {/* Header */}
-      <header className="py-20">
+      <header className="py-12 sm:py-20">
         <Link
           href="/blogs"
           className="mb-8 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-muted-foreground transition-colors hover:text-foreground"
@@ -77,7 +77,7 @@ export default async function BlogDetailPage({ params }: Props) {
           Back_to_Blogs
         </Link>
 
-        <h1 className="mb-8 max-w-4xl font-heading text-5xl font-bold tracking-tighter md:text-7xl">
+        <h1 className="mb-8 max-w-4xl font-heading text-3xl font-bold tracking-tighter sm:text-5xl md:text-7xl">
           {post.title}
         </h1>
 
@@ -102,7 +102,7 @@ export default async function BlogDetailPage({ params }: Props) {
       <SectionDivider label="IMG:01" />
 
       {/* Feature image */}
-      <section className="py-12">
+      <section className="py-8 sm:py-12">
         <div className="relative aspect-[16/8] w-full overflow-hidden bg-secondary">
           <div className="flex size-full items-center justify-center bg-gradient-to-br from-secondary via-background to-secondary grayscale transition-all duration-700 hover:grayscale-0">
             <span className="font-mono text-sm uppercase tracking-widest text-muted-foreground/40">
@@ -115,15 +115,15 @@ export default async function BlogDetailPage({ params }: Props) {
       <SectionDivider label="TXT:02" />
 
       {/* Content */}
-      <div className="grid grid-cols-1 gap-12 py-20 md:grid-cols-12">
+      <div className="grid grid-cols-1 gap-12 py-12 sm:py-20 md:grid-cols-12">
         {/* Main content */}
         <article className="md:col-span-8">
           <PostContent />
         </article>
 
         {/* Sidebar */}
-        <aside className="md:col-span-4">
-          <div className="sticky top-24 space-y-8">
+        <aside className="self-start md:col-span-4 md:sticky md:top-24">
+          <div className="space-y-8">
             {/* Metadata */}
             <div className="border border-foreground/5 p-6">
               <h4 className="mb-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">

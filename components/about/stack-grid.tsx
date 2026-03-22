@@ -2,9 +2,9 @@ import { STACK_GROUPS } from "@/lib/data/about"
 
 export function StackGrid() {
   return (
-    <section className="py-20">
+    <section className="py-12 sm:py-20">
       {/* Section header */}
-      <div className="mb-16">
+      <div className="mb-10 sm:mb-16">
         <span className="mb-2 block font-mono text-[10px] text-muted-foreground/40">
           SEC_03
         </span>

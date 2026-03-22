@@ -19,7 +19,7 @@ import { DownloadResumeButton } from "@/components/about/download-resume-button"
 export default function AboutPage() {
   return (
     <div className="px-6 lg:px-12">
-      <div className="pt-32" />
+      <div className="pt-24 sm:pt-32" />
 
       <SectionDivider label="BIO:00" />
 
@@ -36,7 +36,7 @@ export default function AboutPage() {
       <SectionDivider label="SYS:END" />
 
       {/* Resume CTA */}
-      <section className="flex flex-col items-center py-24 text-center">
+      <section className="flex flex-col items-center py-16 text-center sm:py-24">
         <span className="mb-4 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
           Ready to synchronize?
         </span>

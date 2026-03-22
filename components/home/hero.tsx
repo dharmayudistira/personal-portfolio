@@ -10,16 +10,16 @@ export function Hero() {
           Systems Architecture
         </div>
 
-        <h1 className="mb-6 font-heading text-7xl font-bold uppercase tracking-tighter md:text-9xl">
+        <h1 className="mb-6 font-heading text-5xl font-bold uppercase tracking-tighter sm:text-7xl md:text-9xl">
           DHARMA_PE
         </h1>
 
-        <div className="mb-10 flex items-center gap-3 font-mono text-2xl tracking-tight text-primary md:text-3xl">
+        <div className="mb-10 flex items-center gap-3 font-mono text-xl tracking-tight text-primary sm:text-2xl md:text-3xl">
           <span className="font-medium">Product Engineer</span>
           <span className="h-8 w-[2px] animate-pulse bg-primary" />
         </div>
 
-        <p className="mb-12 max-w-2xl text-lg font-light leading-relaxed text-muted-foreground md:text-xl">
+        <p className="mb-12 max-w-2xl text-base font-light leading-relaxed text-muted-foreground md:text-xl">
           Building products at the intersection of design and engineering.
           Full-stack, from database to pixel — systems that perform, interfaces
           that resonate.

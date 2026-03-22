@@ -18,17 +18,17 @@ export default function WorksPage() {
   return (
     <div className="px-6 lg:px-12">
       {/* Header */}
-      <header className="pb-16 pt-32">
+      <header className="pb-16 pt-24 sm:pt-32">
         <div className="mb-4 flex items-center gap-3">
           <span className="size-2 animate-pulse bg-foreground" />
           <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
             Build_Registry // Module.03
           </span>
         </div>
-        <h1 className="mb-6 font-heading text-6xl font-bold uppercase tracking-tighter md:text-8xl">
+        <h1 className="mb-6 font-heading text-5xl font-bold uppercase tracking-tighter sm:text-6xl md:text-8xl">
           Works
         </h1>
-        <p className="max-w-2xl font-light leading-relaxed text-muted-foreground">
+        <p className="max-w-2xl text-sm font-light leading-relaxed text-muted-foreground sm:text-base">
           A documentation of technical systems, architectural patterns, and
           performance-first interfaces. Each project represents a different
           problem space and engineering constraint.
@@ -45,11 +45,11 @@ export default function WorksPage() {
       <SectionDivider label="SYS:END" />
 
       {/* CTA */}
-      <section className="flex flex-col items-center py-32 text-center">
+      <section className="flex flex-col items-center py-16 sm:py-32 text-center">
         <span className="mb-4 font-mono text-[11px] uppercase tracking-[0.3em] text-muted-foreground">
           Ready_for_Deployment?
         </span>
-        <h2 className="mb-8 font-heading text-4xl font-bold text-foreground">
+        <h2 className="mb-8 font-heading text-3xl font-bold text-foreground sm:text-4xl">
           Collaborate on your next system.
         </h2>
         <Link
