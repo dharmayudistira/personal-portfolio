@@ -77,6 +77,20 @@ const components: MDXComponents = {
       {children}
     </pre>
   ),
+  img: ({ src, alt }) => (
+    <span className="my-8 block">
+      <img
+        src={src}
+        alt={alt ?? ""}
+        className="w-full border border-foreground/5 bg-secondary/20"
+      />
+      {alt && (
+        <span className="mt-2 block text-center font-mono text-[10px] uppercase tracking-widest text-muted-foreground/50">
+          {alt}
+        </span>
+      )}
+    </span>
+  ),
   hr: () => <hr className="my-12 border-foreground/5" />,
   strong: ({ children }) => (
     <strong className="font-semibold text-foreground">{children}</strong>

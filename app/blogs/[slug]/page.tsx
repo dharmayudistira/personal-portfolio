@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, Clock } from "lucide-react"
 import { getAllPosts, getPostBySlug } from "@/lib/posts"
@@ -104,11 +105,22 @@ export default async function BlogDetailPage({ params }: Props) {
       {/* Feature image */}
       <section className="py-8 sm:py-12">
         <div className="relative aspect-[16/8] w-full overflow-hidden bg-secondary">
-          <div className="flex size-full items-center justify-center bg-gradient-to-br from-secondary via-background to-secondary grayscale transition-all duration-700 hover:grayscale-0">
-            <span className="font-mono text-sm uppercase tracking-widest text-muted-foreground/40">
-              [{post.slug}_cover]
-            </span>
-          </div>
+          {post.cover ? (
+            <Image
+              src={post.cover}
+              alt={post.title}
+              fill
+              className="object-cover grayscale transition-all duration-700 hover:grayscale-0"
+              sizes="100vw"
+              priority
+            />
+          ) : (
+            <div className="flex size-full items-center justify-center bg-gradient-to-br from-secondary via-background to-secondary">
+              <span className="font-mono text-sm uppercase tracking-widest text-muted-foreground/40">
+                [{post.slug}_cover]
+              </span>
+            </div>
+          )}
         </div>
       </section>
 

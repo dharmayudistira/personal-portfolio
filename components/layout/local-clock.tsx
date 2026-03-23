@@ -29,7 +29,7 @@ export function LocalClock() {
       className="text-center md:text-right font-mono text-[10px] uppercase tracking-widest text-muted-foreground"
       suppressHydrationWarning
     >
-      <span className="tabular-nums text-foreground">{getWIBTime()}</span>
+      <span className="tabular-nums text-foreground" suppressHydrationWarning>{getWIBTime()}</span>
       <br />
       <span className="text-muted-foreground/50">Sidoarjo, Indonesia</span>
     </div>

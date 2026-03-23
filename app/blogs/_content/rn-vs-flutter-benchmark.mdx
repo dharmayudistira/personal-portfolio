@@ -1,0 +1,192 @@
+---
+title: "Performance Benchmark: React Native vs. Flutter Mobile App"
+description: "A hands-on benchmark comparing React Native (with the new architecture) and Flutter across CPU usage, memory, FPS, and startup time on Android and iOS."
+date: "2025.06.30"
+tags: ["Flutter", "React Native", "Mobile", "Performance", "Android", "iOS"]
+readTime: "8 min"
+published: true
+cover: "/blogs/rn-vs-flutter-benchmark/cover.png"
+---
+
+*Co-authored with Muhammad Rijalul Kahfi, Dyva Pandhu, Muhammad Widodo, and Johan Sutrisno at Zero One Group. Originally published on [Zero One Group Blog](https://blog.zero-one-group.com/performance-benchmark-react-native-vs-flutter-mobile-app-f879ee2ebf36).*
+
+The mobile development landscape keeps shifting. React Native recently rolled out a new architecture — Fabric, JSI, and TurboModules — promising significantly better runtime performance. Flutter, meanwhile, has long positioned itself on the strength of its ahead-of-time compiled Dart code and single-threaded rendering pipeline.
+
+We wanted to find out: with the new architecture enabled, how does React Native actually stack up against Flutter in practice?
+
+## Background
+
+React Native's legacy architecture had a well-known bottleneck: the asynchronous JavaScript bridge. Every JS-to-native call crossed that bridge, adding latency that compounded under load. The new architecture eliminates the bridge entirely — JSI enables synchronous JS-to-native calls, TurboModules enable lazy native module loading, and Fabric brings a new concurrent rendering system.
+
+Flutter never had this problem. Its rendering pipeline runs entirely in Dart, compiled ahead-of-time, with no runtime JS engine involved. The question is whether React Native's architectural improvements are enough to close the gap.
+
+## Objective
+
+We set out to compare both frameworks under controlled, real-world-like conditions across three performance dimensions:
+
+- **CPU utilization** — how hard the processor works during typical app operations
+- **Memory consumption** — how much RAM the app allocates and retains
+- **Frame rate (FPS)** — smoothness of the UI under load
+- **App startup time and bundle size** — cold start performance and binary footprint
+
+All tests ran on both Android and iOS to account for platform-specific optimizations.
+
+## Metrics Tracked
+
+We tracked the following for each scenario:
+
+- CPU usage (%)
+- Allocated memory (MB)
+- Frames per second (FPS)
+- Cold start time (ms)
+- APK / IPA size (MB)
+
+## Implementation Methodology
+
+### App Specification
+
+We built equivalent apps in both React Native and Flutter — same UX, same feature complexity, same interaction patterns. This was critical to ensure we were measuring the framework, not implementation differences.
+
+### Test Scenarios
+
+Three scenarios were benchmarked:
+
+1. **App Start** — cold start from killed state to first interactive frame
+2. **Resource-intensive Task** — heavy computation combined with UI rendering
+3. **Input Responsiveness** — rapid user interactions (taps, drags) measured for UI thread responsiveness
+
+### Profiling Tools
+
+- **Android**: Android Profiler (CPU, memory), Perfetto (startup traces)
+- **iOS**: Xcode Instruments (CPU, memory, FPS), MetricKit (startup time)
+
+### Manual Testing Approach
+
+Despite wanting full automation, we ran into significant limitations with automated profiling tools in release mode. Detox and `integration_test` introduce their own performance overhead that skews CPU and memory readings. Maestro doesn't support iOS physical devices in release mode. Appium's automation latency makes frame-rate measurements unreliable.
+
+<Callout type="warning">
+Automated benchmarking tools often instrument the app in ways that inflate CPU and memory readings. We opted for manual testing with physical devices in release mode to get numbers that reflect actual user-facing performance.
+</Callout>
+
+We used physical devices, ran each scenario multiple times, and averaged the results to reduce noise.
+
+## Benchmark Results
+
+### App Size & Startup Time
+
+On Android, Flutter's APK is significantly smaller than React Native's. Flutter also edges out React Native on cold start time for Android.
+
+On iOS, the picture flips: React Native's IPA is slightly smaller, and cold start is marginally faster — likely a result of the new architecture's optimizations on the Apple platform.
+
+![APK size comparison — Flutter vs React Native on Android](/blogs/rn-vs-flutter-benchmark/apk-comparison.webp)
+
+![IPA size comparison — Flutter vs React Native on iOS](/blogs/rn-vs-flutter-benchmark/ipa-comparison.webp)
+
+![Android cold start time comparison](/blogs/rn-vs-flutter-benchmark/android-cold-comparison.webp)
+
+![iOS cold start time comparison](/blogs/rn-vs-flutter-benchmark/ios-cold-comparison.webp)
+
+<Callout type="note">
+Bundle size differences matter in real-world distribution. A smaller APK means faster downloads, particularly on slower mobile networks — relevant for Southeast Asian markets where a large share of users are on 4G or below.
+</Callout>
+
+### Scenario 1: Idle / Initial View
+
+Under minimal load (initial render, no active computation), both frameworks performed similarly. CPU usage was low for both, FPS stayed near 60, and memory footprints were comparable.
+
+![Scenario 1 — Android CPU utilization](/blogs/rn-vs-flutter-benchmark/scenario-1-android-cpu.webp)
+
+![Scenario 1 — Android total memory](/blogs/rn-vs-flutter-benchmark/scenario-1-android-memory.webp)
+
+![Scenario 1 — Android allocated memory](/blogs/rn-vs-flutter-benchmark/scenario-1-android-allocated-memory.webp)
+
+![Scenario 1 — iOS CPU utilization](/blogs/rn-vs-flutter-benchmark/scenario-1-ios-cpu.webp)
+
+![Scenario 1 — iOS total memory](/blogs/rn-vs-flutter-benchmark/scenario-1-ios-memory.webp)
+
+![Scenario 1 — iOS FPS](/blogs/rn-vs-flutter-benchmark/scenario-1-ios-fps.webp)
+
+### Scenario 2: Resource-Intensive Task
+
+This is where the gap widened. During sustained heavy computation combined with active UI rendering:
+
+- **Android CPU**: React Native peaked around 86%, Flutter around 81%
+- **Android Memory**: React Native allocated ~11.97 MB, Flutter ~11.41 MB
+- **FPS**: Flutter maintained more stable frame rates; React Native showed more frame drops under peak load
+
+iOS results followed a similar pattern — Flutter maintained more consistent resource usage across the duration of the task.
+
+![Scenario 2 — Android CPU utilization](/blogs/rn-vs-flutter-benchmark/scenario-2-android-cpu.webp)
+
+![Scenario 2 — Android total memory](/blogs/rn-vs-flutter-benchmark/scenario-2-android-memory.webp)
+
+![Scenario 2 — Android allocated memory](/blogs/rn-vs-flutter-benchmark/scenario-2-android-allocated.webp)
+
+![Scenario 2 — iOS CPU utilization](/blogs/rn-vs-flutter-benchmark/scenario-2-ios-cpu.webp)
+
+![Scenario 2 — iOS total memory](/blogs/rn-vs-flutter-benchmark/scenario-2-ios-memory.webp)
+
+![Scenario 2 — iOS FPS](/blogs/rn-vs-flutter-benchmark/scenario-2-ios-fps.webp)
+
+### Scenario 3: Input Responsiveness
+
+Under rapid input interaction (continuous taps and drags), React Native's CPU utilization spiked more aggressively than Flutter's. Flutter's input handling stayed relatively flat, consistent with its single-threaded rendering model that avoids JS-thread contention.
+
+![Scenario 3 — Android CPU utilization](/blogs/rn-vs-flutter-benchmark/scenario-3-android-cpu.webp)
+
+![Scenario 3 — Android total memory](/blogs/rn-vs-flutter-benchmark/scenario-3-android-memory.webp)
+
+![Scenario 3 — Android allocated memory](/blogs/rn-vs-flutter-benchmark/scenario-3-android-allocated.webp)
+
+![Scenario 3 — iOS CPU utilization](/blogs/rn-vs-flutter-benchmark/scenario-3-ios-cpu.webp)
+
+![Scenario 3 — iOS total memory](/blogs/rn-vs-flutter-benchmark/scenario-3-ios-memory.webp)
+
+![Scenario 3 — iOS FPS](/blogs/rn-vs-flutter-benchmark/scenario-3-ios-fps.webp)
+
+## Automation Challenges
+
+It's worth being transparent about the limits of this benchmark:
+
+- **Framework overhead**: Many testing frameworks introduce their own CPU/memory overhead, making release-mode measurements unreliable
+- **Timing inconsistencies**: Automated inputs (taps, drags) exhibit variable execution timing, which skews latency-sensitive measurements
+- **Cross-platform parity**: Designing identical automation flows for both Flutter and React Native — on both Android and iOS — without introducing framework-specific bias is non-trivial
+
+These constraints reinforced our decision to benchmark manually on physical devices.
+
+## Conclusion
+
+Across all three scenarios, Flutter demonstrated more efficient CPU and memory utilization, particularly under resource-intensive workloads. React Native's new architecture is a meaningful improvement over the legacy bridge model, but it still carries the overhead of a JavaScript engine — which shows up under load.
+
+On startup and bundle size, the results split by platform. Flutter wins on Android (smaller APK, faster cold start). React Native has a slight edge on iOS.
+
+<Callout type="tip">
+If your primary concern is runtime performance — especially for animation-heavy or computation-heavy screens — Flutter's ahead-of-time compiled pipeline gives it a structural advantage that the new RN architecture hasn't fully erased. If iOS cold-start or ecosystem/tooling familiarity matters more, React Native's new architecture is a compelling choice.
+</Callout>
+
+## Short Analysis
+
+React Native's new architecture (Fabric + JSI + TurboModules) reduces JS-to-native communication overhead substantially. But the JS engine itself remains in the critical path for rendering and logic — and that shows under sustained load.
+
+Flutter's rendering pipeline is structurally different: Dart is compiled AOT, the rendering engine (Impeller/Skia) runs on a dedicated thread, and there's no runtime bridge. This gives Flutter a more predictable performance profile, particularly for frame rates.
+
+These findings are consistent with architectural expectations. They're preliminary — single-device benchmarks on specific scenarios — but they're directionally reliable.
+
+## Further Direction
+
+This benchmark is a starting point. For more definitive conclusions, we'd want to:
+
+- Run longer test durations with automated collection to observe performance trends over time
+- Test on a wider range of devices — especially low-end hardware where memory and CPU constraints are more pronounced
+- Measure background state performance (active vs. background vs. terminated)
+- Factor in developer experience: tooling, ecosystem maturity, community support, and hiring pool
+
+One area we deliberately excluded: comparisons with Lynx. While Lynx is sometimes mentioned in cross-platform discussions, it's primarily a document rendering engine — not directly comparable for interactive mobile app development.
+
+## Artifacts
+
+The full source code for both the Flutter and React Native benchmark apps is open:
+
+- [GitHub Repository → Benchmark Project](https://github.com/zero-one-group/flutter-react-native-benchmark)
+
+All performance recordings and raw data are available there for reproducibility.
