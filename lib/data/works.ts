@@ -32,8 +32,8 @@ export type Work = {
 
 export const WORKS: Work[] = [
   {
-    slug: "diamond-sukanda-onelink",
-    title: "Diamond Sukanda Onelink",
+    slug: "sukanda-onelink",
+    title: "Sukanda Onelink",
     image: "/works/sukanda.webp",
     description:
       "B2B e-commerce platform for PT Diamond Food Indonesia — connecting 9,000+ F&B entrepreneurs across Indonesia with raw materials, ingredients, and equipment through a unified ordering system.",
@@ -82,6 +82,32 @@ export const WORKS: Work[] = [
       "Defined and enforced coding standards and architecture conventions across the team to prevent regression and align new contributors quickly.",
       "Collaborated closely with product and backend to scope, estimate, and deliver features on a structured release cadence after the handover.",
       "App shipped to production with 1K+ downloads, a 4.8 rating on the App Store and 4.3 on Google Play — reflecting the quality uplift from the stabilisation effort.",
+    ],
+  },
+  {
+    slug: "agentai",
+    title: "AgentAI",
+    description:
+      "AI-powered marketing automation platform for real estate agents — automating content generation, listings, and workflows so agents can focus on closing deals.",
+    longDescription:
+      "AgentAI is a SaaS platform that helps real estate teams automate their marketing operations using AI. I joined as a Product Engineer on a legacy Next.js + NestJS codebase, taking ownership of both frontend and backend across a significant product evolution: UI migration from Chakra to MUI, OpenAI and LangChain integration, Stripe billing implementation, and a full B2B migration from a personal-use product to a multi-tenant architecture.",
+    image: "/works/agentai.webp",
+    category: "Web",
+    tags: ["Next.js", "TypeScript", "NestJS", "OpenAI", "LangChain", "MUI", "Stripe", "MongoDB"],
+    date: "2024-06-01",
+    role: "Product Engineer - Fullstack",
+    liveUrls: [
+      { label: "Website", url: "https://agentai.ai/" },
+    ],
+    featured: false,
+    confidential: true,
+    impacts: [
+      "Took over a legacy Next.js + NestJS codebase and led ongoing maintenance, feature development, and tech debt reduction across both frontend and backend.",
+      "Migrated the entire UI component layer from Chakra UI to Material UI (MUI), standardising the design system and improving developer ergonomics across all pages.",
+      "Researched and integrated OpenAI and LangChain to power the platform's AI agent features — enabling automated content generation and marketing workflows for real estate teams.",
+      "Implemented Stripe payment infrastructure end-to-end: billing plans, webhook handling, and subscription lifecycle management — enabling the product's revenue model.",
+      "Led the migration from a personal-use product to a B2B multi-tenant architecture, introducing user groups, roles, and organisation-level access controls.",
+      "Refactored core business logic across NestJS modules to align with framework best practices — improving code clarity, testability, and maintainability ahead of team scaling.",
     ],
   },
   {
