@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { BIO, EXPERIENCES } from "@/lib/data/about";
 
 const currentJob = EXPERIENCES.find((e) => e.current);
@@ -105,7 +102,7 @@ export function Hero() {
         {currentJob && (
           <span className="font-mono text-[10px] uppercase tracking-[0.15em] text-muted-foreground">
             {currentJob.type}
-            <span className="mx-2 text-foreground/20">//</span>
+            <span className="mx-2 text-foreground/20">{"// "}</span>
             {currentJob.company}
           </span>
         )}
