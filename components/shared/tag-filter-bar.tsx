@@ -70,7 +70,7 @@ export function TagFilterBar({
           }`}
         >
           <Layers className="size-3" />
-          Tag_Index
+          Tag Index
           {selectedTags.length > 0 && (
             <span className="flex size-4 items-center justify-center rounded-full bg-background/20 font-mono text-[9px]">
               {selectedTags.length}
