@@ -33,13 +33,21 @@ export function FeaturedWorks() {
             className="group block overflow-hidden bg-secondary transition-colors duration-300 hover:bg-muted"
           >
             <div className="aspect-video overflow-hidden bg-background">
-              <Image
-                src={project.image}
-                alt={project.title}
-                width={640}
-                height={360}
-                className="size-full object-cover opacity-60 transition-all duration-700 group-hover:scale-[1.02] group-hover:opacity-100"
-              />
+              {project.image ? (
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={640}
+                  height={360}
+                  className="size-full object-cover opacity-60 transition-all duration-700 group-hover:scale-[1.02] group-hover:opacity-100"
+                />
+              ) : (
+                <div className="flex size-full items-center justify-center bg-gradient-to-br from-secondary via-background to-secondary">
+                  <span className="font-mono text-sm uppercase tracking-widest text-muted-foreground/40">
+                    [{project.slug}]
+                  </span>
+                </div>
+              )}
             </div>
 
             <div className="p-8">

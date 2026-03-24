@@ -4,7 +4,7 @@ import { useState } from "react"
 import Image from "next/image"
 
 type WorkImageProps = {
-  src: string
+  src?: string
   alt: string
   slug: string
   sizes: string
@@ -15,7 +15,7 @@ type WorkImageProps = {
 export function WorkImage({ src, alt, slug, sizes, className, priority }: WorkImageProps) {
   const [failed, setFailed] = useState(false)
 
-  if (failed) {
+  if (!src || failed) {
     return (
       <div className="flex size-full items-center justify-center bg-gradient-to-br from-secondary via-background to-secondary">
         <span className="font-mono text-sm uppercase tracking-widest text-muted-foreground/40">

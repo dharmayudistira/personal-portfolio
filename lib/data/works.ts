@@ -32,6 +32,34 @@ export type Work = {
 
 export const WORKS: Work[] = [
   {
+    slug: "simpan",
+    title: "Simpan",
+    description:
+      "Guided investing app for everyday Indonesians — making wealth-building accessible through curated portfolios and step-by-step investment flows.",
+    longDescription:
+      "Simpan is a guided investing app for everyday Indonesian investors. My team took over the project from a previous vendor, inheriting a legacy Flutter codebase with accumulated tech debt, inconsistent patterns, and minimal test coverage. We audited, stabilised, and refactored the codebase — establishing proper BLoC architecture, introducing a test suite, and resolving critical bugs — before resuming feature delivery and shipping the app to production.",
+    image: "/works/simpan.png",
+    category: "Mobile",
+    tags: ["Flutter", "BLoC", "Dart", "Firebase"],
+    date: "2023-06-01",
+    role: "Product Engineer - Mobile",
+    liveUrls: [
+      { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.simpan.mobile.stg" },
+      { label: "App Store", url: "https://apps.apple.com/id/app/simpan-guided-investing/id6444825882" },
+    ],
+    featured: true,
+    confidential: true,
+    impacts: [
+      "Inherited a legacy Flutter codebase from a previous vendor — conducted a full audit, identified critical issues, and established a recovery plan before resuming active development.",
+      "Refactored state management to follow BLoC best practices, replacing inconsistent patterns left by the previous team and making the codebase predictable and maintainable.",
+      "Introduced unit and widget testing across core investment flows, building a test suite from near-zero coverage to support safe iteration.",
+      "Resolved long-standing bugs across onboarding, portfolio selection, and transaction screens — stabilising the app to a product-ready state.",
+      "Defined and enforced coding standards and architecture conventions across the team to prevent regression and align new contributors quickly.",
+      "Collaborated closely with product and backend to scope, estimate, and deliver features on a structured release cadence after the handover.",
+      "App shipped to production with 1K+ downloads, a 4.8 rating on the App Store and 4.3 on Google Play — reflecting the quality uplift from the stabilisation effort.",
+    ],
+  },
+  {
     slug: "kickavenue",
     title: "KickAvenue",
     description:
