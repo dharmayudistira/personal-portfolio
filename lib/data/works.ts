@@ -34,6 +34,7 @@ export const WORKS: Work[] = [
   {
     slug: "diamond-sukanda-onelink",
     title: "Diamond Sukanda Onelink",
+    image: "/works/sukanda.webp",
     description:
       "B2B e-commerce platform for PT Diamond Food Indonesia — connecting 9,000+ F&B entrepreneurs across Indonesia with raw materials, ingredients, and equipment through a unified ordering system.",
     longDescription:
@@ -71,7 +72,7 @@ export const WORKS: Work[] = [
       { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.simpan.mobile.stg" },
       { label: "App Store", url: "https://apps.apple.com/id/app/simpan-guided-investing/id6444825882" },
     ],
-    featured: true,
+    featured: false,
     confidential: true,
     impacts: [
       "Inherited a legacy Flutter codebase from a previous vendor — conducted a full audit, identified critical issues, and established a recovery plan before resuming active development.",
@@ -203,7 +204,7 @@ export function useExchangeRate() {
     date: "2021-06-15",
     role: "Android Developer",
     repoUrl: "https://github.com/B21-CAP0075",
-    featured: true,
+    featured: false,
     sections: {
       problem: {
         body: "Dementia affects over 50 million people globally, with nearly 10 million new cases every year. In Indonesia alone, 1.2 million cases were recorded in 2016 — a number that doubles every 20 years. 68% of cases come from low-to-middle income families, and 61% of patients stay at home without proper treatment due to the high cost of care. The core issue is a lack of knowledge — families and caregivers often dismiss early symptoms like forgetfulness and mood swings as normal aging, delaying diagnosis until it's too late.",
