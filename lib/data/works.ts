@@ -32,13 +32,37 @@ export type Work = {
 
 export const WORKS: Work[] = [
   {
+    slug: "diamond-sukanda-onelink",
+    title: "Diamond Sukanda Onelink",
+    description:
+      "B2B e-commerce platform for PT Diamond Food Indonesia — connecting 9,000+ F&B entrepreneurs across Indonesia with raw materials, ingredients, and equipment through a unified ordering system.",
+    longDescription:
+      "Sukanda Onelink is the digital procurement platform for PT Diamond Food Indonesia, one of Indonesia's largest F&B distributors. The platform enables restaurant owners, cafes, and food businesses to browse, order, and track raw material deliveries across 21 cities — 24/7, from any device. I joined as a Product Engineer on the web side, working across features that serve thousands of active business accounts.",
+    category: "Web",
+    tags: ["Next.js", "TypeScript", "PostgreSQL", "TanStack Query"],
+    date: "2024-01-01",
+    role: "Product Engineer - Web",
+    liveUrls: [
+      { label: "Website", url: "https://www.sukandaonelink.com/" },
+    ],
+    featured: true,
+    confidential: true,
+    impacts: [
+      "Contributed to a platform serving 9,000+ active F&B business accounts across 21 Indonesian cities, handling real-time order creation and monitoring at scale.",
+      "Built and maintained core web features including multi-outlet account management, order tracking, and promotional campaign surfaces.",
+      "Implemented data-fetching and caching layers using TanStack Query, reducing redundant API calls and improving page responsiveness across catalogue and order flows.",
+      "Collaborated with backend and design to deliver cross-platform ordering experiences consistent between the web and mobile app.",
+      "Shipped features under a structured release cadence aligned with the PT Diamond Food Indonesia product roadmap.",
+    ],
+  },
+  {
     slug: "simpan",
     title: "Simpan",
     description:
       "Guided investing app for everyday Indonesians — making wealth-building accessible through curated portfolios and step-by-step investment flows.",
     longDescription:
       "Simpan is a guided investing app for everyday Indonesian investors. My team took over the project from a previous vendor, inheriting a legacy Flutter codebase with accumulated tech debt, inconsistent patterns, and minimal test coverage. We audited, stabilised, and refactored the codebase — establishing proper BLoC architecture, introducing a test suite, and resolving critical bugs — before resuming feature delivery and shipping the app to production.",
-    image: "/works/simpan.png",
+    image: "/works/simpan.webp",
     category: "Mobile",
     tags: ["Flutter", "BLoC", "Dart", "Firebase"],
     date: "2023-06-01",
