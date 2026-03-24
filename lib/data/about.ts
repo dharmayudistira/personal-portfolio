@@ -39,7 +39,7 @@ export const EXPERIENCES: Experience[] = [
     period: "Sept 2022 — Present",
     current: true,
     bullets: [
-      "Developed a high-end e-commerce mobile app using Flutter, scaling the architecture to support 100K+ downloads.",
+      "Developed a high-end e-commerce mobile app using Flutter, scaling the architecture to support 500K+ downloads.",
       "Architected enterprise web platforms (ReactJS, Next.js) for major telecommunications and retail clients, including an AI-integrated sales dashboard.",
       "Engineered secure desktop applications (Tauri, Flutter) for the financial sector, automating complex banking data extraction.",
       "Built an AI-driven SaaS platform (Next.js, AI SDK) providing advanced operational tools for real estate professionals.",

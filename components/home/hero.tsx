@@ -145,26 +145,6 @@ export function Hero() {
           {BIO.location}
         </span>
       </div>
-
-      {/* CTAs */}
-      <div className="flex flex-wrap gap-3">
-        <Button
-          asChild
-          className="gap-2 px-8 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em]"
-        >
-          <Link href="/works">
-            View_Works
-            <ArrowUpRight className="size-3" />
-          </Link>
-        </Button>
-        <Button
-          variant="outline"
-          asChild
-          className="px-8 py-4 font-mono text-[10px] font-bold uppercase tracking-[0.2em]"
-        >
-          <Link href="/blogs">Read_Blog</Link>
-        </Button>
-      </div>
     </section>
   );
 }

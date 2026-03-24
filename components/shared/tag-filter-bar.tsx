@@ -70,7 +70,7 @@ export function TagFilterBar({
           }`}
         >
           <Layers className="size-3" />
-          Tag Index
+          Tag
           {selectedTags.length > 0 && (
             <span className="flex size-4 items-center justify-center rounded-full bg-background/20 font-mono text-[9px]">
               {selectedTags.length}
@@ -94,7 +94,9 @@ export function TagFilterBar({
                 <span className="mb-3 block font-mono text-[10px] font-bold uppercase tracking-widest text-foreground">
                   {group.label}
                 </span>
-                <div className="space-y-3">
+                <div className="relative">
+                <div className="max-h-72 space-y-3 overflow-y-auto pb-6 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+
                   {group.tags.map((tag) => (
                     <label
                       key={tag}
@@ -128,6 +130,9 @@ export function TagFilterBar({
                       {tag}
                     </label>
                   ))}
+                </div>
+                {/* fade hint — always visible, masked by scroll reaching bottom */}
+                <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-card to-transparent" />
                 </div>
               </div>
             ))}

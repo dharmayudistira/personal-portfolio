@@ -217,7 +217,7 @@ export default async function BlogDetailPage({ params }: Props) {
           </div>
         ) : null}
         {nextPost ? (
-          <div className="py-12 pl-8 text-right">
+          <div className={`py-12 pl-8 text-right ${!prevPost ? "col-start-2" : ""}`}>
             <span className="mb-2 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
               Next →
             </span>

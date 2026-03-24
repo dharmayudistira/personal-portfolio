@@ -3,15 +3,17 @@ export type Work = {
   title: string
   description: string
   longDescription: string
-  image: string
+  image?: string
   category: "Web" | "Mobile" | "Desktop" | "Open Source"
   tags: string[]
   date: string
   role: string
-  liveUrl?: string
+  liveUrls?: { label: string; url: string }[]
   repoUrl?: string
   featured: boolean
-  sections: {
+  confidential?: boolean
+  impacts?: string[]
+  sections?: {
     problem: {
       body: string
       quote?: string
@@ -41,64 +43,20 @@ export const WORKS: Work[] = [
     tags: ["Flutter", "Riverpod", "Dart", "Firebase"],
     date: "2024-02-15",
     role: "Product Engineer - Mobile",
-    liveUrl: "https://play.google.com/store/apps/details?id=com.kickavenue.androidshop",
+    liveUrls: [
+      { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.kickavenue.androidshop" },
+      { label: "App Store", url: "https://apps.apple.com/id/app/kick-avenue-shop-hype-here/id1478394222" },
+    ],
     featured: true,
-    sections: {
-      problem: {
-        body: "The existing KickAvenue app was built on a legacy native Android stack that had accumulated years of tech debt. The UI felt outdated compared to modern marketplace apps, the codebase was difficult to maintain and iterate on, and there was no iOS counterpart — limiting the platform's reach. Performance bottlenecks in product browsing and checkout flows led to high drop-off rates.",
-        quote:
-          "The app needed more than a facelift — the entire foundation had to be rebuilt to support the pace the business demanded.",
-      },
-      solution: {
-        body: "Rebuilt the entire application from scratch using Flutter for cross-platform delivery and Riverpod for scalable, testable state management. The new architecture emphasizes clean separation of concerns, reactive data flows, and a design system that aligns with modern marketplace UX patterns.",
-        features: [
-          {
-            name: "CROSS_PLATFORM",
-            description:
-              "Single Flutter codebase serving both Android and iOS, eliminating the need for separate native teams.",
-          },
-          {
-            name: "REACTIVE_STATE",
-            description:
-              "Riverpod-driven state architecture with provider scoping for predictable data flow across complex marketplace screens.",
-          },
-          {
-            name: "DESIGN_OVERHAUL",
-            description:
-              "Complete UI redesign with modern component library — improved product discovery, streamlined checkout, and refined brand identity.",
-          },
-          {
-            name: "PERF_OPTIMIZATION",
-            description:
-              "Lazy loading, image caching, and optimized list rendering for smooth browsing across thousands of product listings.",
-          },
-        ],
-        asset: null,
-      },
-      technical: {
-        body: "The architecture follows a feature-first modular structure with Riverpod providers handling async data, caching, and side effects. Repository pattern abstracts the API layer, making it trivial to swap data sources or add offline support. Navigation uses a declarative routing approach with deep link support for product sharing.",
-        code: {
-          language: "dart",
-          filename: "product_provider.dart",
-          content: `@riverpod
-Future<List<Product>> productList(
-  ProductListRef ref, {
-  required String category,
-  int page = 1,
-}) async {
-  final repository = ref.watch(productRepositoryProvider);
-  final products = await repository.getProducts(
-    category: category,
-    page: page,
-  );
-
-  // Cache invalidation on pull-to-refresh
-  ref.keepAlive();
-  return products;
-}`,
-        },
-      },
-    },
+    confidential: true,
+    impacts: [
+      "Led the ground-up rebuild from a legacy native Android codebase to a cross-platform Flutter app, delivering both Android and iOS from a single codebase.",
+      "Architected a feature-first modular structure with Riverpod for scalable, testable state management — provider scoping enforced predictable data flow across complex marketplace screens.",
+      "Implemented repository pattern to abstract the API layer, making the codebase easy to iterate on and reducing onboarding time for new engineers.",
+      "Delivered a full UI overhaul — redesigned product discovery, streamlined checkout, and refined brand identity into a modern component library.",
+      "Applied lazy loading, image caching, and optimized list rendering to handle smooth browsing across thousands of product listings.",
+      "Shipped cross-platform support contributing to the app reaching 500K+ downloads on Android and iOS.",
+    ],
   },
   {
     slug: "truequity",
@@ -112,7 +70,9 @@ Future<List<Product>> productList(
     tags: ["Next.js", "TypeScript", "Supabase", "TanStack Query", "Recharts", "Claude AI"],
     date: "2026-03-19",
     role: "Founder / Product Engineer",
-    liveUrl: "https://truequity.vercel.app/",
+    liveUrls: [
+      { label: "Live", url: "https://truequity.vercel.app/" },
+    ],
     featured: true,
     sections: {
       problem: {

@@ -116,19 +116,20 @@ export default async function WorkDetailPage({ params }: Props) {
               {work.date}
             </span>
           </div>
-          {(work.liveUrl || work.repoUrl) && (
-            <div className="flex gap-3 pt-2">
-              {work.liveUrl && (
+          {((work.liveUrls && work.liveUrls.length > 0) || work.repoUrl) && (
+            <div className="flex flex-wrap gap-2 pt-2">
+              {work.liveUrls?.map(({ label, url }) => (
                 <Link
-                  href={work.liveUrl}
+                  key={url}
+                  href={url}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 border border-foreground/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
                 >
-                  Live
+                  {label}
                   <ArrowUpRight className="size-3" />
                 </Link>
-              )}
+              ))}
               {work.repoUrl && (
                 <Link
                   href={work.repoUrl}
@@ -147,101 +148,133 @@ export default async function WorkDetailPage({ params }: Props) {
 
       <SectionDivider label="SEC:02" />
 
-      {/* 01 / THE_PROBLEM */}
-      <section className="grid grid-cols-1 items-start gap-8 py-10 sm:py-16 md:grid-cols-12">
-        <div className="md:col-span-4">
-          <h2 className="sticky top-24 font-heading text-2xl font-bold uppercase tracking-tighter">
-            <span className="mb-1 block font-mono text-[10px] font-normal tracking-[0.3em] text-muted-foreground">01 /</span>
-            The_Problem
-          </h2>
-        </div>
-        <div className="md:col-span-8">
-          <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
-            {work.sections.problem.body}
-          </p>
-          {work.sections.problem.quote && (
-            <div className="border-l-2 border-primary bg-secondary/30 p-8">
-              <p className="font-mono text-sm italic text-foreground">
-                &ldquo;{work.sections.problem.quote}&rdquo;
+      {work.sections ? (
+        <>
+          {/* 01 / THE_PROBLEM */}
+          <section className="grid grid-cols-1 items-start gap-8 py-10 sm:py-16 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <h2 className="sticky top-24 font-heading text-2xl font-bold uppercase tracking-tighter">
+                <span className="mb-1 block font-mono text-[10px] font-normal tracking-[0.3em] text-muted-foreground">01 /</span>
+                The_Problem
+              </h2>
+            </div>
+            <div className="md:col-span-8">
+              <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
+                {work.sections.problem.body}
+              </p>
+              {work.sections.problem.quote && (
+                <div className="border-l-2 border-primary bg-secondary/30 p-8">
+                  <p className="font-mono text-sm italic text-foreground">
+                    &ldquo;{work.sections.problem.quote}&rdquo;
+                  </p>
+                </div>
+              )}
+            </div>
+          </section>
+
+          <SectionDivider label="SEC:03" />
+
+          {/* 02 / THE_SOLUTION */}
+          <section className="grid grid-cols-1 items-start gap-8 py-10 sm:py-16 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <h2 className="sticky top-24 font-heading text-2xl font-bold uppercase tracking-tighter">
+                <span className="mb-1 block font-mono text-[10px] font-normal tracking-[0.3em] text-muted-foreground">02 /</span>
+                The_Solution
+              </h2>
+            </div>
+            <div className="md:col-span-8">
+              <div className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                {work.sections.solution.features.map((feature) => (
+                  <div key={feature.name} className="flex flex-col gap-3 bg-secondary p-6">
+                    <h3 className="font-heading text-sm font-bold text-foreground">{feature.name}</h3>
+                    <p className="text-sm leading-snug text-muted-foreground">{feature.description}</p>
+                  </div>
+                ))}
+              </div>
+              <p className="mb-8 text-sm leading-relaxed text-muted-foreground">
+                {work.sections.solution.body}
+              </p>
+              {work.sections.solution.asset && (
+                work.sections.solution.asset.type === "video" ? (
+                  <SolutionVideo src={work.sections.solution.asset.url} />
+                ) : (
+                  <div className="relative aspect-video w-full overflow-hidden bg-background">
+                    <WorkImage
+                      src={work.sections.solution.asset.url}
+                      alt={`${work.title} solution`}
+                      slug={`${work.slug}_solution`}
+                      sizes="(max-width: 768px) 100vw, 66vw"
+                      className="object-cover"
+                    />
+                  </div>
+                )
+              )}
+            </div>
+          </section>
+
+          <SectionDivider label="SEC:04" />
+
+          {/* 03 / TECHNICAL_RECAP */}
+          <section className="grid grid-cols-1 items-start gap-8 py-10 sm:py-16 md:grid-cols-12">
+            <div className="md:col-span-4">
+              <h2 className="sticky top-24 font-heading text-2xl font-bold uppercase tracking-tighter">
+                <span className="mb-1 block font-mono text-[10px] font-normal tracking-[0.3em] text-muted-foreground">03 /</span>
+                Technical_Recap
+              </h2>
+            </div>
+            <div className="md:col-span-8">
+              <p className="mb-8 text-sm leading-relaxed text-muted-foreground">
+                {work.sections.technical.body}
+              </p>
+              <CodeBlock
+                code={work.sections.technical.code.content}
+                language={work.sections.technical.code.language}
+                filename={work.sections.technical.code.filename}
+              />
+            </div>
+          </section>
+        </>
+      ) : (
+        /* Confidential placeholder */
+        <section className="grid grid-cols-1 items-start gap-8 py-10 sm:py-16 md:grid-cols-12">
+          <div className="md:col-span-4">
+            <h2 className="sticky top-24 font-heading text-2xl font-bold uppercase tracking-tighter">
+              <span className="mb-1 block font-mono text-[10px] font-normal tracking-[0.3em] text-muted-foreground">── /</span>
+              Confidential
+            </h2>
+          </div>
+          <div className="md:col-span-8">
+            {/* NDA notice */}
+            <div className="mb-10 border border-foreground/10 bg-secondary/30 p-6">
+              <p className="mb-1 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                NDA // Details restricted
+              </p>
+              <p className="text-sm leading-relaxed text-muted-foreground">
+                This project was built under a professional engagement. Product details, technical
+                architecture, and business logic are covered by NDA and cannot be disclosed. What
+                follows is a summary of my personal contribution and measurable impact.
               </p>
             </div>
-          )}
-        </div>
-      </section>
 
-      <SectionDivider label="SEC:03" />
-
-      {/* 02 / THE_SOLUTION */}
-      <section className="grid grid-cols-1 items-start gap-8 py-10 sm:py-16 md:grid-cols-12">
-        <div className="md:col-span-4">
-          <h2 className="sticky top-24 font-heading text-2xl font-bold uppercase tracking-tighter">
-            <span className="mb-1 block font-mono text-[10px] font-normal tracking-[0.3em] text-muted-foreground">02 /</span>
-            The_Solution
-          </h2>
-        </div>
-        <div className="md:col-span-8">
-          {/* Feature cards */}
-          <div className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2">
-            {work.sections.solution.features.map((feature) => (
-              <div
-                key={feature.name}
-                className="flex flex-col gap-3 bg-secondary p-6"
-              >
-                <h3 className="font-heading text-sm font-bold text-foreground">
-                  {feature.name}
-                </h3>
-                <p className="text-sm leading-snug text-muted-foreground">
-                  {feature.description}
-                </p>
+            {/* Impact bullets */}
+            {work.impacts && work.impacts.length > 0 && (
+              <div className="space-y-4">
+                <span className="block font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+                  My_Contributions:
+                </span>
+                <ul className="space-y-3">
+                  {work.impacts.map((impact) => (
+                    <li key={impact.slice(0, 40)} className="flex items-start gap-3 text-sm leading-relaxed text-muted-foreground">
+                      <span className="mt-1.5 size-1.5 shrink-0 bg-primary" />
+                      {impact}
+                    </li>
+                  ))}
+                </ul>
               </div>
-            ))}
+            )}
           </div>
-          <p className="mb-8 text-sm leading-relaxed text-muted-foreground">
-            {work.sections.solution.body}
-          </p>
-
-          {/* Solution asset */}
-          {work.sections.solution.asset && (
-            work.sections.solution.asset.type === "video" ? (
-              <SolutionVideo src={work.sections.solution.asset.url} />
-            ) : (
-              <div className="relative aspect-video w-full overflow-hidden bg-background">
-                <WorkImage
-                  src={work.sections.solution.asset.url}
-                  alt={`${work.title} solution`}
-                  slug={`${work.slug}_solution`}
-                  sizes="(max-width: 768px) 100vw, 66vw"
-                  className="object-cover"
-                />
-              </div>
-            )
-          )}
-        </div>
-      </section>
-
-      <SectionDivider label="SEC:04" />
-
-      {/* 03 / TECHNICAL_RECAP */}
-      <section className="grid grid-cols-1 items-start gap-8 py-10 sm:py-16 md:grid-cols-12">
-        <div className="md:col-span-4">
-          <h2 className="sticky top-24 font-heading text-2xl font-bold uppercase tracking-tighter">
-            <span className="mb-1 block font-mono text-[10px] font-normal tracking-[0.3em] text-muted-foreground">03 /</span>
-            Technical_Recap
-          </h2>
-        </div>
-        <div className="md:col-span-8">
-          <p className="mb-8 text-sm leading-relaxed text-muted-foreground">
-            {work.sections.technical.body}
-          </p>
-
-          {/* Code block */}
-          <CodeBlock
-            code={work.sections.technical.code.content}
-            language={work.sections.technical.code.language}
-            filename={work.sections.technical.code.filename}
-          />
-        </div>
-      </section>
+        </section>
+      )}
 
       <SectionDivider label="NAV:05" />
 
@@ -261,7 +294,7 @@ export default async function WorkDetailPage({ params }: Props) {
           </div>
         ) : null}
         {nextWork ? (
-          <div className="py-12 pl-8 text-right">
+          <div className={`py-12 pl-8 text-right ${!prevWork ? "col-start-2" : ""}`}>
             <span className="mb-2 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
               Next →
             </span>
