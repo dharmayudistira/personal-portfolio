@@ -34,7 +34,7 @@ export const WORKS: Work[] = [
   {
     slug: "sukanda-onelink",
     title: "Sukanda Onelink",
-    image: "/works/sukanda.webp",
+    image: "/works/sukanda.png",
     description:
       "B2B e-commerce platform for PT Diamond Food Indonesia — connecting 9,000+ F&B entrepreneurs across Indonesia with raw materials, ingredients, and equipment through a unified ordering system.",
     longDescription:
@@ -91,7 +91,7 @@ export const WORKS: Work[] = [
       "AI-powered marketing automation platform for real estate agents — automating content generation, listings, and workflows so agents can focus on closing deals.",
     longDescription:
       "AgentAI is a SaaS platform that helps real estate teams automate their marketing operations using AI. I joined as a Product Engineer on a legacy Next.js + NestJS codebase, taking ownership of both frontend and backend across a significant product evolution: UI migration from Chakra to MUI, OpenAI and LangChain integration, Stripe billing implementation, and a full B2B migration from a personal-use product to a multi-tenant architecture.",
-    image: "/works/agentai.webp",
+    image: "/works/agentai.jpeg",
     category: "Web",
     tags: ["Next.js", "TypeScript", "NestJS", "OpenAI", "LangChain", "MUI", "Stripe", "MongoDB"],
     date: "2024-06-01",
@@ -99,7 +99,7 @@ export const WORKS: Work[] = [
     liveUrls: [
       { label: "Website", url: "https://agentai.ai/" },
     ],
-    featured: false,
+    featured: true,
     confidential: true,
     impacts: [
       "Took over a legacy Next.js + NestJS codebase and led ongoing maintenance, feature development, and tech debt reduction across both frontend and backend.",
