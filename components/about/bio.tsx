@@ -47,9 +47,9 @@ export function Bio() {
           </h2>
 
           <div className="mb-8 max-w-2xl space-y-6">
-            {BIO.bio.map((paragraph, i) => (
+            {BIO.bio.map((paragraph) => (
               <p
-                key={i}
+                key={paragraph.slice(0, 32)}
                 className="text-sm leading-relaxed text-muted-foreground sm:text-base"
               >
                 {paragraph}

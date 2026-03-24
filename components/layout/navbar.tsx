@@ -3,7 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
-import { Menu, Command as CommandIcon } from "lucide-react"
+import { Menu, Command as CommandIcon, Search } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   Sheet,
@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/sheet"
 import { ThemeToggle } from "@/components/shared/theme-toggle"
 import { cn } from "@/lib/utils"
+import { useIsMac } from "@/hooks/use-is-mac"
 
 const NAV_ITEMS = [
   { label: "Home", href: "/" },
@@ -29,6 +30,7 @@ type NavbarProps = {
 export function Navbar({ onCommandOpen }: NavbarProps) {
   const pathname = usePathname()
   const [mobileOpen, setMobileOpen] = useState(false)
+  const isMac = useIsMac()
 
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href)
@@ -67,16 +69,19 @@ export function Navbar({ onCommandOpen }: NavbarProps) {
           </div>
 
           {/* Actions */}
-          <div className="flex items-center gap-1">
-            <Button
-              variant="ghost"
-              size="icon"
-              aria-label="Open command palette"
+          <div className="flex items-center gap-2">
+            {/* Search pill — desktop only */}
+            <button
               onClick={onCommandOpen}
-              className="hidden md:inline-flex"
+              aria-label="Open command palette"
+              className="hidden md:inline-flex items-center gap-2 border border-foreground/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground transition-colors hover:border-foreground/30 hover:text-foreground"
             >
-              <CommandIcon className="size-4" />
-            </Button>
+              <Search className="size-3 shrink-0" />
+              <span>Search</span>
+              <span className="ml-1 flex items-center gap-0.5 border border-foreground/10 px-1.5 py-0.5 text-[9px] text-muted-foreground/50">
+                {isMac ? <><CommandIcon className="size-2.5" />K</> : "Ctrl K"}
+              </span>
+            </button>
             <ThemeToggle />
 
             {/* Mobile hamburger */}
@@ -131,7 +136,7 @@ export function Navbar({ onCommandOpen }: NavbarProps) {
                 <CommandIcon className="size-3.5" />
                 Command palette
                 <kbd className="ml-auto rounded border border-border/60 px-1.5 py-0.5 font-mono text-[10px] text-muted-foreground">
-                  ⌘K
+                  {isMac ? "⌘K" : "Ctrl K"}
                 </kbd>
               </Button>
             </SheetClose>

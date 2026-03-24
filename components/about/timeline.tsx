@@ -15,8 +15,8 @@ export function Timeline() {
 
       {/* Timeline entries */}
       <div>
-        {EXPERIENCES.map((exp, i) => (
-            <div key={i} className="pb-10 last:pb-0 sm:pb-16">
+        {EXPERIENCES.map((exp) => (
+            <div key={`${exp.company}-${exp.title}`} className="pb-10 last:pb-0 sm:pb-16">
               {/* Content */}
               <div className="grid grid-cols-1 gap-8 md:grid-cols-[1fr_4fr]">
                 {/* Date */}
@@ -42,9 +42,9 @@ export function Timeline() {
                   </div>
 
                   <ul className="mb-6 space-y-3">
-                    {exp.bullets.map((bullet, j) => (
+                    {exp.bullets.map((bullet) => (
                       <li
-                        key={j}
+                        key={bullet.slice(0, 32)}
                         className="flex gap-3 text-sm leading-relaxed text-muted-foreground"
                       >
                         <span className="text-foreground/20">/</span>

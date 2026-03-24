@@ -1,7 +1,7 @@
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import type { Work } from "@/lib/data/works"
+import { WorkImage } from "@/components/works/work-image"
 
 type ProjectCardProps = {
   project: Work
@@ -13,12 +13,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <Link href={`/works/${project.slug}`} className="block">
         {/* Thumbnail */}
         <div className="relative mb-6 aspect-video overflow-hidden bg-background">
-          <Image
+          <WorkImage
             src={project.image}
             alt={project.title}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-105"
+            slug={project.slug}
             sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
         </div>

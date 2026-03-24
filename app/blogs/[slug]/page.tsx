@@ -44,14 +44,14 @@ export default async function BlogDetailPage({ params }: Props) {
 
   if (!post) notFound()
 
-  const posts = getAllPosts()
-  const currentIndex = posts.findIndex((p) => p.slug === slug)
-  const prevPost = currentIndex > 0 ? posts[currentIndex - 1] : null
+  const allPosts = getAllPosts()
+  const currentIndex = allPosts.findIndex((p) => p.slug === slug)
+  const prevPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null
   const nextPost =
-    currentIndex < posts.length - 1 ? posts[currentIndex + 1] : null
+    currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null
 
   // Related posts: share at least one tag
-  const related = posts
+  const related = allPosts
     .filter(
       (p) => p.slug !== slug && p.tags.some((t) => post.tags.includes(t))
     )
@@ -215,9 +215,7 @@ export default async function BlogDetailPage({ params }: Props) {
               {prevPost.title}
             </Link>
           </div>
-        ) : (
-          <div />
-        )}
+        ) : null}
         {nextPost ? (
           <div className="py-12 pl-8 text-right">
             <span className="mb-2 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
@@ -230,9 +228,7 @@ export default async function BlogDetailPage({ params }: Props) {
               {nextPost.title}
             </Link>
           </div>
-        ) : (
-          <div />
-        )}
+        ) : null}
       </div>
     </div>
   )

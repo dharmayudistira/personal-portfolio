@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Mail, Github } from "lucide-react"
+import { Mail, Linkedin } from "lucide-react"
 
 export function Connect() {
   return (
@@ -27,13 +27,13 @@ export function Connect() {
             Initialize_Comms
           </Link>
           <Link
-            href="https://github.com/dharmayudistira"
+            href="https://www.linkedin.com/in/dharmayudistira/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-3 border border-border px-8 py-4 font-heading text-[11px] font-bold uppercase tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5 sm:px-12 sm:py-5"
           >
-            <Github className="size-4" />
-            View_Github
+            <Linkedin className="size-4" />
+            View_LinkedIn
           </Link>
         </div>
       </div>

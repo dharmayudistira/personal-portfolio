@@ -1,4 +1,5 @@
 import type { MDXComponents } from "mdx/types"
+import NextImage from "next/image"
 import { CodeBlock } from "@/components/shared/code-block"
 
 type CalloutProps = {
@@ -79,11 +80,16 @@ const components: MDXComponents = {
   ),
   img: ({ src, alt }) => (
     <span className="my-8 block">
-      <img
-        src={src}
-        alt={alt ?? ""}
-        className="w-full border border-foreground/5 bg-secondary/20"
-      />
+      <span className="relative block w-full">
+        <NextImage
+          src={src ?? ""}
+          alt={alt ?? ""}
+          width={1200}
+          height={675}
+          className="w-full border border-foreground/5 bg-secondary/20"
+          style={{ height: "auto" }}
+        />
+      </span>
       {alt && (
         <span className="mt-2 block text-center font-mono text-[10px] uppercase tracking-widest text-muted-foreground/50">
           {alt}

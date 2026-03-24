@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { cn } from "@/lib/utils"
 import { getAllPosts } from "@/lib/posts"
 
 function getRecentPosts() {
@@ -35,16 +34,11 @@ export function RecentPosts() {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-        {getRecentPosts().map((post, index) => (
+        {getRecentPosts().map((post) => (
           <Link
             key={post.slug}
             href={`/blogs/${post.slug}`}
-            className={cn(
-              "group/post relative flex flex-col border-foreground/5 px-8 py-10",
-              "border-b lg:border-b-0 lg:border-r last:border-r-0 last:border-b-0",
-              index === 0 && "lg:border-l",
-              "lg:border-l"
-            )}
+            className="group/post relative flex flex-col border-foreground/5 px-8 py-10 border-b lg:border-b-0 lg:border-r lg:border-l last:border-r-0 last:border-b-0"
           >
             {/* Hover gradient */}
             <div className="pointer-events-none absolute inset-0 size-full bg-gradient-to-b from-foreground/[0.03] to-transparent opacity-0 transition duration-200 group-hover/post:opacity-100" />

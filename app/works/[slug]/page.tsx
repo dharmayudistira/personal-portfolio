@@ -1,11 +1,12 @@
 import type { Metadata } from "next"
-import Image from "next/image"
 import { notFound } from "next/navigation"
 import Link from "next/link"
 import { ArrowLeft, ArrowUpRight } from "lucide-react"
 import { WORKS, getWorkBySlug } from "@/lib/data/works"
 import { SectionDivider } from "@/components/shared/section-divider"
 import { CodeBlock } from "@/components/shared/code-block"
+import { WorkImage } from "@/components/works/work-image"
+import { SolutionVideo } from "@/components/works/solution-video"
 
 export function generateStaticParams() {
   return WORKS.map((work) => ({ slug: work.slug }))
@@ -51,20 +52,21 @@ export default async function WorkDetailPage({ params }: Props) {
       {/* Hero image */}
       <section className="py-8">
         <div className="relative aspect-[21/9] w-full overflow-hidden bg-secondary">
-          <div className="flex size-full items-center justify-center bg-gradient-to-br from-secondary via-background to-secondary">
-            <span className="font-mono text-sm uppercase tracking-widest text-muted-foreground/50">
-              [{work.slug}_hero]
-            </span>
-          </div>
-          {work.image && (
-            <Image
+          {work.image ? (
+            <WorkImage
               src={work.image}
               alt={work.title}
-              fill
+              slug={work.slug}
+              sizes="(max-width: 1024px) calc(100vw - 48px), calc(100vw - 96px)"
               className="absolute inset-0 object-cover"
-              sizes="100vw"
               priority
             />
+          ) : (
+            <div className="flex size-full items-center justify-center bg-gradient-to-br from-secondary via-background to-secondary">
+              <span className="font-mono text-sm uppercase tracking-widest text-muted-foreground/50">
+                [{work.slug}_hero]
+              </span>
+            </div>
           )}
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
@@ -198,17 +200,22 @@ export default async function WorkDetailPage({ params }: Props) {
             {work.sections.solution.body}
           </p>
 
-          {/* Solution image placeholder */}
-          <div className="relative aspect-video w-full overflow-hidden bg-background">
-            <div className="flex size-full items-center justify-center bg-gradient-to-br from-secondary/50 to-background">
-              <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground/40">
-                [{work.slug}_solution]
-              </span>
-            </div>
-            <div className="absolute bottom-4 left-4 font-mono text-[10px] text-foreground/30">
-              SYSTEM_MODULE_V4.02
-            </div>
-          </div>
+          {/* Solution asset */}
+          {work.sections.solution.asset && (
+            work.sections.solution.asset.type === "video" ? (
+              <SolutionVideo src={work.sections.solution.asset.url} />
+            ) : (
+              <div className="relative aspect-video w-full overflow-hidden bg-background">
+                <WorkImage
+                  src={work.sections.solution.asset.url}
+                  alt={`${work.title} solution`}
+                  slug={`${work.slug}_solution`}
+                  sizes="(max-width: 768px) 100vw, 66vw"
+                  className="object-cover"
+                />
+              </div>
+            )
+          )}
         </div>
       </section>
 
@@ -252,9 +259,7 @@ export default async function WorkDetailPage({ params }: Props) {
               {prevWork.title}
             </Link>
           </div>
-        ) : (
-          <div />
-        )}
+        ) : null}
         {nextWork ? (
           <div className="py-12 pl-8 text-right">
             <span className="mb-2 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
@@ -267,9 +272,7 @@ export default async function WorkDetailPage({ params }: Props) {
               {nextWork.title}
             </Link>
           </div>
-        ) : (
-          <div />
-        )}
+        ) : null}
       </div>
     </div>
   )
