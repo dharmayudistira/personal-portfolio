@@ -150,7 +150,7 @@ export const WORKS: Work[] = [
     date: "2026-03-19",
     role: "Founder / Product Engineer",
     liveUrls: [
-      { label: "Live", url: "https://truequity.vercel.app/" },
+      { label: "Website", url: "https://truequity.vercel.app/" },
     ],
     featured: true,
     sections: {
