@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { LocalClock } from "@/components/layout/local-clock"
+import { VisitorCounter } from "@/components/layout/visitor-counter"
 import { BIO } from "@/lib/data/about"
 
 const FOOTER_LINKS = [
@@ -14,7 +15,7 @@ export function Footer() {
         <div className="text-center font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground md:text-left">
           &copy; {new Date().getFullYear()} DHARMA_PE
           <br />
-          <span className="opacity-50">DHARMA_PE // PRODUCT_ENGINEER</span>
+          <VisitorCounter />
         </div>
 
         <div className="flex flex-wrap justify-center gap-10">
