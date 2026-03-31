@@ -12,11 +12,7 @@ export function Footer() {
   return (
     <footer className="w-full border-t border-foreground/5 bg-secondary/30 py-16">
       <div className="mx-auto flex max-w-5xl flex-col items-center gap-10 px-8 md:flex-row md:justify-between">
-        <div className="text-center font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground md:text-left">
-          &copy; {new Date().getFullYear()} DHARMA_PE
-          <br />
-          <VisitorCounter />
-        </div>
+        <VisitorCounter />
 
         <div className="flex flex-wrap justify-center gap-10">
           {FOOTER_LINKS.map(({ label, href }) => (
