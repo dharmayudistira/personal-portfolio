@@ -141,9 +141,9 @@ export const WORKS: Work[] = [
     slug: "truequity",
     title: "Truequity",
     description:
-      "AI-enhanced multi-asset wealth tracker for crypto, US stocks, IDX stocks, and commodities — with benchmark comparison and Claude-powered transaction extraction.",
+      "AI-enhanced multi-asset wealth tracker for crypto, US stocks, and IDX stocks — with benchmark comparison and Claude-powered transaction extraction.",
     longDescription:
-      "Truequity is a modern wealth tracking application built for individual investors managing diversified portfolios across multiple asset classes. It consolidates crypto, US equities, Indonesian (IDX) equities, and commodities into a single dashboard with real-time pricing, benchmark performance comparison against Bitcoin, S&P 500, and IHSG, and AI-powered transaction entry via Claude Vision — eliminating the tedious manual data entry that plagues most portfolio trackers. Built as a full-stack Next.js application with Supabase, TanStack Query, and Recharts.",
+      "Truequity is a modern wealth tracking application built for individual investors managing diversified portfolios across multiple asset classes. It consolidates crypto, US equities, and Indonesian (IDX) equities into a single dashboard with real-time pricing, benchmark performance comparison against Bitcoin, S&P 500, and IHSG, and AI-powered transaction entry via Claude Vision — eliminating the tedious manual data entry that plagues most portfolio trackers. Built as a full-stack Next.js application with Supabase, TanStack Query, and Recharts.",
     image: "/works/truequity.png",
     category: "Web",
     tags: ["Next.js", "TypeScript", "Supabase", "TanStack Query", "Recharts", "Claude AI"],
@@ -165,7 +165,7 @@ export const WORKS: Work[] = [
           {
             name: "UNIFIED_DASHBOARD",
             description:
-              "Consolidate crypto, US stocks, IDX stocks, and commodities into one real-time portfolio view with allocation breakdown and total P&L.",
+              "Consolidate crypto, US stocks, and IDX stocks into one real-time portfolio view with allocation breakdown and total P&L.",
           },
           {
             name: "BENCHMARK_COMPARISON",
