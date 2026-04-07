@@ -141,12 +141,12 @@ export const WORKS: Work[] = [
     slug: "truequity",
     title: "Truequity",
     description:
-      "AI-enhanced multi-asset wealth tracker for crypto, US stocks, and IDX stocks — with benchmark comparison and Claude-powered transaction extraction.",
+      "AI-enhanced multi-asset wealth tracker for crypto, US stocks, and IDX stocks — with benchmark comparison, daily PnL calendar, and Claude-powered transaction extraction.",
     longDescription:
-      "Truequity is a modern wealth tracking application built for individual investors managing diversified portfolios across multiple asset classes. It consolidates crypto, US equities, and Indonesian (IDX) equities into a single dashboard with real-time pricing, benchmark performance comparison against Bitcoin, S&P 500, and IHSG, and AI-powered transaction entry via Claude Vision — eliminating the tedious manual data entry that plagues most portfolio trackers. Built as a full-stack Next.js application with Supabase, TanStack Query, and Recharts.",
+      "Truequity is a modern wealth tracking application built for individual investors managing diversified portfolios across multiple asset classes. It consolidates crypto, US equities, and Indonesian (IDX) equities into a single dashboard with real-time pricing, benchmark performance comparison against Bitcoin, S&P 500, and IHSG, a daily realized PnL calendar computed from sell transactions using average cost method, and AI-powered transaction entry via Claude Vision — eliminating the tedious manual data entry that plagues most portfolio trackers. Installable as a PWA for a native-like mobile experience. Built as a full-stack Next.js application with Supabase, TanStack Query, and Recharts.",
     image: "/works/truequity.png",
     category: "Web",
-    tags: ["Next.js", "TypeScript", "Supabase", "TanStack Query", "Recharts", "Claude AI"],
+    tags: ["Next.js", "TypeScript", "Supabase", "TanStack Query", "Recharts", "Claude AI", "PWA"],
     date: "2026-03-19",
     role: "Founder / Product Engineer",
     liveUrls: [
@@ -182,11 +182,26 @@ export const WORKS: Work[] = [
             description:
               "Live USD/IDR conversion via Yahoo Finance. Switch display currency in one click; all values update instantly across the dashboard.",
           },
+          {
+            name: "DAILY_PNL_CALENDAR",
+            description:
+              "Heatmap calendar showing realized P&L per trading day, computed from sell transactions using the average cost method. Color intensity reflects magnitude — hover (desktop) or scroll the activity feed (mobile) for per-trade breakdown.",
+          },
+          {
+            name: "CASH_FLOW_TRACKING",
+            description:
+              "Cash history automatically captures deposits, withdrawals, and the cash impact of every buy/sell transaction — giving a complete picture of capital movement across the portfolio.",
+          },
+          {
+            name: "PWA",
+            description:
+              "Installable as a Progressive Web App on Android and iOS. Runs in standalone mode with an in-app update prompt when a new version is deployed.",
+          },
         ],
         asset: null,
       },
       technical: {
-        body: "Built on Next.js 16 App Router with Supabase handling auth, PostgreSQL, and Row Level Security. All external API calls (CoinGecko, Yahoo Finance, Anthropic) are routed through server-side API routes to protect keys and enable server-side caching. TanStack Query manages client-side caching with aggressive stale times to stay within CoinGecko's free tier limits. The benchmark performance chart builds daily portfolio values by accumulating user transactions over time, then calculates percentage returns from a shared start date — so portfolio and benchmark lines are directly comparable.",
+        body: "Built on Next.js 16 App Router with Supabase handling auth, PostgreSQL, and Row Level Security. All external API calls (CoinGecko, Yahoo Finance, Anthropic) are routed through server-side API routes to protect keys and enable server-side caching. TanStack Query manages client-side caching with aggressive stale times to stay within CoinGecko's free tier limits. The benchmark performance chart builds daily portfolio values by accumulating user transactions over time, then calculates percentage returns from a shared start date — so portfolio and benchmark lines are directly comparable. Realized P&L is computed entirely client-side using an average cost method: sell records are processed chronologically, each matched against accumulated cost basis per ticker, with all values normalised to IDR via the live exchange rate. PWA support is handled via @ducanh2912/next-pwa with a Workbox service worker; the update prompt only fires in standalone mode to avoid disrupting regular browser sessions.",
         code: {
           language: "typescript",
           filename: "use-prices.ts",
