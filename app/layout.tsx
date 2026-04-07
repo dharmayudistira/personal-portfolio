@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     template: "%s — Dharma Yudistira",
   },
   description:
-    "Product Engineer building web and mobile experiences end-to-end — from database schema to the last pixel on screen.",
+    "Product Engineer building web and mobile experiences end-to-end — from database schema to the last pixel on screen. Based in Sidoarjo, Indonesia.",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
   ),
@@ -73,6 +73,7 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   alternates: {
+    canonical: "https://www.dharma-yudistira.com",
     types: { "application/rss+xml": "/rss.xml" },
   },
   icons: {
