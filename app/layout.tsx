@@ -53,6 +53,7 @@ export const metadata: Metadata = {
   creator: "Dharma Yudistira",
   openGraph: {
     type: "website",
+    url: "https://www.dharma-yudistira.com",
     locale: "en_US",
     siteName: "Dharma Yudistira",
     title: "Dharma Yudistira — Product Engineer",
