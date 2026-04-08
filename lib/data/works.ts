@@ -198,7 +198,7 @@ export const WORKS: Work[] = [
               "Installable as a Progressive Web App on Android and iOS. Runs in standalone mode with an in-app update prompt when a new version is deployed.",
           },
         ],
-        asset: null,
+        asset: { type: "video", url: "/works/truequity.mp4" },
       },
       technical: {
         body: "Built on Next.js 16 App Router with Supabase handling auth, PostgreSQL, and Row Level Security. All external API calls (CoinGecko, Yahoo Finance, Anthropic) are routed through server-side API routes to protect keys and enable server-side caching. TanStack Query manages client-side caching with aggressive stale times to stay within CoinGecko's free tier limits. The benchmark performance chart builds daily portfolio values by accumulating user transactions over time, then calculates percentage returns from a shared start date — so portfolio and benchmark lines are directly comparable. Realized P&L is computed entirely client-side using an average cost method: sell records are processed chronologically, each matched against accumulated cost basis per ticker, with all values normalised to IDR via the live exchange rate. PWA support is handled via @ducanh2912/next-pwa with a Workbox service worker; the update prompt only fires in standalone mode to avoid disrupting regular browser sessions.",
