@@ -1,10 +1,11 @@
 "use client"
 
 import { useRef, useState } from "react"
-import { Pause, Play, Volume2, VolumeX } from "lucide-react"
+import { Maximize, Pause, Play, Volume2, VolumeX } from "lucide-react"
 
 export function SolutionVideo({ src }: { src: string }) {
   const ref = useRef<HTMLVideoElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
   const [playing, setPlaying] = useState(true)
   const [muted, setMuted] = useState(true)
   const [progress, setProgress] = useState(0)
@@ -39,8 +40,17 @@ export function SolutionVideo({ src }: { src: string }) {
     setProgress(ratio * 100)
   }
 
+  function toggleFullscreen() {
+    if (!containerRef.current) return
+    if (document.fullscreenElement) {
+      document.exitFullscreen()
+    } else {
+      containerRef.current.requestFullscreen()
+    }
+  }
+
   return (
-    <div className="group relative aspect-video w-full overflow-hidden bg-background">
+    <div ref={containerRef} className="group relative aspect-video w-full overflow-hidden bg-background">
       <video
         ref={ref}
         src={src}
@@ -66,7 +76,6 @@ export function SolutionVideo({ src }: { src: string }) {
             className="h-full bg-white transition-none"
             style={{ width: `${progress}%` }}
           />
-          {/* Scrub handle */}
           <div
             className="absolute top-1/2 size-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-white shadow"
             style={{ left: `${progress}%` }}
@@ -74,21 +83,30 @@ export function SolutionVideo({ src }: { src: string }) {
         </div>
 
         {/* Buttons */}
-        <div className="flex justify-end gap-2">
+        <div className="flex items-center justify-between">
           <button
-            onClick={toggleMute}
+            onClick={toggleFullscreen}
             className="flex size-7 items-center justify-center border border-white/20 bg-black/40 backdrop-blur-sm text-white transition-colors hover:border-white/60"
-            aria-label={muted ? "Unmute" : "Mute"}
+            aria-label="Toggle fullscreen"
           >
-            {muted ? <VolumeX className="size-3" /> : <Volume2 className="size-3" />}
+            <Maximize className="size-3" />
           </button>
-          <button
-            onClick={togglePlay}
-            className="flex size-7 items-center justify-center border border-white/20 bg-black/40 backdrop-blur-sm text-white transition-colors hover:border-white/60"
-            aria-label={playing ? "Pause" : "Play"}
-          >
-            {playing ? <Pause className="size-3" /> : <Play className="size-3" />}
-          </button>
+          <div className="flex gap-2">
+            <button
+              onClick={toggleMute}
+              className="flex size-7 items-center justify-center border border-white/20 bg-black/40 backdrop-blur-sm text-white transition-colors hover:border-white/60"
+              aria-label={muted ? "Unmute" : "Mute"}
+            >
+              {muted ? <VolumeX className="size-3" /> : <Volume2 className="size-3" />}
+            </button>
+            <button
+              onClick={togglePlay}
+              className="flex size-7 items-center justify-center border border-white/20 bg-black/40 backdrop-blur-sm text-white transition-colors hover:border-white/60"
+              aria-label={playing ? "Pause" : "Play"}
+            >
+              {playing ? <Pause className="size-3" /> : <Play className="size-3" />}
+            </button>
+          </div>
         </div>
       </div>
     </div>
