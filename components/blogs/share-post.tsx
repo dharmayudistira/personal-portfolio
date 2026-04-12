@@ -1,7 +1,21 @@
 "use client"
 
 import { useState } from "react"
-import { Check, Copy, Linkedin, Twitter } from "lucide-react"
+import { Check, Copy, Facebook, Linkedin, Twitter } from "lucide-react"
+
+// Threads has no lucide icon — minimal custom SVG
+function ThreadsIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+    >
+      <path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.474 12.01v-.02c.027-3.579.876-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.51 5.465l-2.04.555c-1.112-4.07-3.832-6.116-8.3-6.146-2.97.02-5.013.967-6.068 2.812-.66 1.165-1.01 2.749-1.04 4.73v.02c.03 1.98.38 3.564 1.04 4.73 1.055 1.842 3.1 2.79 6.068 2.81 1.55-.01 2.87-.317 3.927-.908.884-.5 1.518-1.234 1.888-2.18.255-.654.387-1.436.387-2.322 0-.025 0-.05-.001-.076a5.624 5.624 0 0 0-.387-2.113c-.37-.946-1.004-1.68-1.888-2.18-1.057-.59-2.378-.898-3.927-.908l-.078-.001c-1.246 0-2.264.25-3.026.74-.659.428-1.085 1.047-1.27 1.84l-2.04-.556c.302-1.24 1.009-2.247 2.103-2.993 1.096-.75 2.467-1.131 4.079-1.131h.077c2.04.013 3.73.44 5.033 1.268 1.38.875 2.326 2.145 2.816 3.78.29.987.437 2.033.437 3.11 0 .027 0 .054-.002.08 0 1.077-.147 2.123-.437 3.11-.49 1.635-1.436 2.905-2.816 3.78-1.303.829-2.993 1.255-5.033 1.268h-.077Z" />
+    </svg>
+  )
+}
 
 type Props = {
   title: string
@@ -9,92 +23,88 @@ type Props = {
   bare?: boolean
 }
 
-type Channel = {
-  id: string
-  label: string
-  icon: React.ReactNode
-  action: () => void
-}
-
 export function SharePost({ title, slug, bare = false }: Props) {
   const [copied, setCopied] = useState(false)
-  const [active, setActive] = useState<string | null>(null)
 
   const url =
     typeof window !== "undefined"
       ? `${window.location.origin}/blogs/${slug}`
       : `https://www.dharma-yudistira.com/blogs/${slug}`
 
-  function flash(id: string) {
-    setActive(id)
-    setTimeout(() => setActive(null), 600)
-  }
+  const shareText = `${title} by Dharma Yudistira`
 
-  const channels: Channel[] = [
+  const channels = [
     {
       id: "x",
-      label: "X / Twitter",
-      icon: <Twitter className="size-3" />,
-      action: () => {
+      label: "Share on X",
+      icon: <Twitter className="size-3.5" />,
+      action: () =>
         window.open(
-          `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}&via=justamannothero`,
+          `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}&via=justamannothero`,
           "_blank",
           "noopener,noreferrer"
-        )
-        flash("x")
-      },
+        ),
     },
     {
       id: "li",
-      label: "LinkedIn",
-      icon: <Linkedin className="size-3" />,
-      action: () => {
+      label: "Share on LinkedIn",
+      icon: <Linkedin className="size-3.5" />,
+      action: () =>
         window.open(
-          `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(`Check out this post by Dharma Yudistira: ${title}`)}`,
+          `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(shareText)}`,
           "_blank",
           "noopener,noreferrer"
-        )
-        flash("li")
-      },
+        ),
+    },
+    {
+      id: "fb",
+      label: "Share on Facebook",
+      icon: <Facebook className="size-3.5" />,
+      action: () =>
+        window.open(
+          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
+          "_blank",
+          "noopener,noreferrer"
+        ),
+    },
+    {
+      id: "threads",
+      label: "Share on Threads",
+      icon: <ThreadsIcon className="size-3.5" />,
+      action: () =>
+        window.open(
+          `https://www.threads.net/intent/post?text=${encodeURIComponent(`${shareText} ${url}`)}`,
+          "_blank",
+          "noopener,noreferrer"
+        ),
     },
     {
       id: "copy",
-      label: copied ? "Copied!" : "Copy URL",
-      icon: copied ? <Check className="size-3" /> : <Copy className="size-3" />,
+      label: copied ? "Copied!" : "Copy link",
+      icon: copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />,
       action: async () => {
         await navigator.clipboard.writeText(url)
         setCopied(true)
-        flash("copy")
         setTimeout(() => setCopied(false), 2000)
       },
     },
   ]
 
   const buttons = (
-    <div className="flex flex-col gap-2">
+    <div className="flex gap-2">
       {channels.map((ch) => (
         <button
           key={ch.id}
           onClick={ch.action}
-          className={`group flex w-full items-center gap-3 border px-3 py-2.5 font-mono text-[10px] uppercase tracking-widest transition-all duration-150 ${
-            active === ch.id
-              ? "border-foreground/30 bg-foreground/5 text-foreground"
-              : "border-foreground/10 text-muted-foreground hover:border-foreground/20 hover:text-foreground"
+          aria-label={ch.label}
+          title={ch.label}
+          className={`flex size-8 items-center justify-center border transition-colors duration-150 ${
+            ch.id === "copy" && copied
+              ? "border-foreground/40 bg-foreground text-background"
+              : "border-foreground/10 text-muted-foreground hover:border-foreground/30 hover:text-foreground"
           }`}
         >
-          <span
-            className={`flex size-5 shrink-0 items-center justify-center border transition-colors duration-150 ${
-              active === ch.id
-                ? "border-foreground/40 bg-foreground text-background"
-                : "border-foreground/15 group-hover:border-foreground/30"
-            }`}
-          >
-            {ch.icon}
-          </span>
-          <span>{ch.label}</span>
-          <span className="ml-auto opacity-30 transition-opacity group-hover:opacity-60">
-            →
-          </span>
+          {ch.icon}
         </button>
       ))}
     </div>
