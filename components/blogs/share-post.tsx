@@ -1,7 +1,15 @@
 "use client"
 
 import { useState } from "react"
-import { Check, Copy, Twitter } from "lucide-react"
+import { Check, Copy } from "lucide-react"
+
+function XIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.742l7.73-8.835L1.254 2.25H8.08l4.258 5.63 5.906-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  )
+}
 
 // Threads has no lucide icon — minimal custom SVG
 function ThreadsIcon({ className }: { className?: string }) {
@@ -37,7 +45,7 @@ export function SharePost({ title, slug, bare = false }: Props) {
     {
       id: "x",
       label: "Share on X",
-      icon: <Twitter className="size-3.5" />,
+      icon: <XIcon className="size-3.5" />,
       action: () =>
         window.open(
           `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}&via=justamannothero`,
