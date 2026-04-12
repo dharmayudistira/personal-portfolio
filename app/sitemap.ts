@@ -34,7 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const workPages: MetadataRoute.Sitemap = WORKS.map((work) => ({
     url: `${BASE_URL}/works/${work.slug}`,
-    lastModified: new Date(work.date),
+    lastModified: new Date(work.updatedAt),
     changeFrequency: "monthly" as const,
     priority: 0.6,
   }))

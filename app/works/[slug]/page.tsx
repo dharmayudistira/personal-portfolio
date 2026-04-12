@@ -113,7 +113,7 @@ export default async function WorkDetailPage({ params }: Props) {
               Date:
             </span>
             <span className="text-sm font-medium uppercase text-foreground">
-              {work.date}
+              {work.updatedAt}
             </span>
           </div>
           {((work.liveUrls && work.liveUrls.length > 0) || work.repoUrl) && (

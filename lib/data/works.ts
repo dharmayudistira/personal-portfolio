@@ -6,7 +6,8 @@ export type Work = {
   image?: string
   category: "Web" | "Mobile" | "Desktop" | "Open Source"
   tags: string[]
-  date: string
+  createdAt: string
+  updatedAt: string
   role: string
   liveUrls?: { label: string; url: string }[]
   repoUrl?: string
@@ -41,7 +42,8 @@ const _WORKS: Work[] = [
       "Sukanda Onelink is the digital procurement platform for PT Diamond Food Indonesia, one of Indonesia's largest F&B distributors. The platform enables restaurant owners, cafes, and food businesses to browse, order, and track raw material deliveries across 21 cities — 24/7, from any device. I joined as a Product Engineer on the web side, working across features that serve thousands of active business accounts.",
     category: "Web",
     tags: ["Next.js", "TypeScript", "PostgreSQL", "TanStack Query"],
-    date: "2024-01-01",
+    createdAt: "2024-01-01",
+    updatedAt: "2024-01-01",
     role: "Product Engineer - Web",
     liveUrls: [
       { label: "Website", url: "https://www.sukandaonelink.com/" },
@@ -66,7 +68,8 @@ const _WORKS: Work[] = [
     image: "/works/simpan.webp",
     category: "Mobile",
     tags: ["Flutter", "BLoC", "Dart", "Firebase"],
-    date: "2023-06-01",
+    createdAt: "2023-06-01",
+    updatedAt: "2023-06-01",
     role: "Product Engineer - Mobile",
     liveUrls: [
       { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.simpan.mobile.stg" },
@@ -94,7 +97,8 @@ const _WORKS: Work[] = [
     image: "/works/agentai.jpeg",
     category: "Web",
     tags: ["Next.js", "TypeScript", "NestJS", "OpenAI", "LangChain", "MUI", "Stripe", "MongoDB"],
-    date: "2024-06-01",
+    createdAt: "2024-06-01",
+    updatedAt: "2024-06-01",
     role: "Product Engineer - Fullstack",
     liveUrls: [
       { label: "Website", url: "https://agentai.ai/" },
@@ -120,7 +124,8 @@ const _WORKS: Work[] = [
     image: "/works/kickavenue.webp",
     category: "Mobile",
     tags: ["Flutter", "Riverpod", "Dart", "Firebase"],
-    date: "2024-02-15",
+    createdAt: "2024-02-15",
+    updatedAt: "2024-02-15",
     role: "Product Engineer - Mobile",
     liveUrls: [
       { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.kickavenue.androidshop" },
@@ -147,7 +152,8 @@ const _WORKS: Work[] = [
     image: "/works/truequity.png",
     category: "Web",
     tags: ["Next.js", "TypeScript", "Supabase", "TanStack Query", "Recharts", "Claude AI", "PWA"],
-    date: "2026-03-19",
+    createdAt: "2026-03-19",
+    updatedAt: "2026-03-19",
     role: "Founder / Product Engineer",
     liveUrls: [
       { label: "Website", url: "https://truequity.vercel.app/" },
@@ -242,7 +248,8 @@ export function useExchangeRate() {
     image: "/works/decare.png",
     category: "Mobile",
     tags: ["Kotlin", "Android", "Firebase", "TensorFlow"],
-    date: "2021-06-15",
+    createdAt: "2021-06-15",
+    updatedAt: "2021-06-15",
     role: "Android Developer",
     repoUrl: "https://github.com/B21-CAP0075",
     featured: false,
@@ -310,7 +317,7 @@ export function useExchangeRate() {
 export type TagGroup = { label: string; tags: string[] }
 
 export const WORKS: Work[] = [..._WORKS].sort(
-  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+  (a, b) => new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
 )
 
 /** Derive TAG_GROUPS from actual project tags + categories */
