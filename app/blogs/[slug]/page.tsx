@@ -6,6 +6,7 @@ import { ArrowLeft, Clock } from "lucide-react"
 import { getAllPosts, getPostBySlug } from "@/lib/posts"
 import { SectionDivider } from "@/components/shared/section-divider"
 import { ViewCounter } from "@/components/shared/view-counter"
+import { SharePost } from "@/components/blogs/share-post"
 
 export function generateStaticParams() {
   return getAllPosts().map((post) => ({ slug: post.slug }))
@@ -170,6 +171,9 @@ export default async function BlogDetailPage({ params }: Props) {
                 </div>
               </div>
             </div>
+
+            {/* Share */}
+            <SharePost title={post.title} slug={post.slug} />
 
             {/* Related posts */}
             {related.length > 0 && (
