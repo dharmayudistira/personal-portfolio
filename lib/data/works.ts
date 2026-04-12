@@ -43,7 +43,7 @@ const _WORKS: Work[] = [
     category: "Web",
     tags: ["Next.js", "TypeScript", "PostgreSQL", "TanStack Query"],
     createdAt: "2024-01-01",
-    updatedAt: "2024-01-01",
+    updatedAt: "2026-04-12",
     role: "Product Engineer - Web",
     liveUrls: [
       { label: "Website", url: "https://www.sukandaonelink.com/" },
@@ -69,7 +69,7 @@ const _WORKS: Work[] = [
     category: "Mobile",
     tags: ["Flutter", "BLoC", "Dart", "Firebase"],
     createdAt: "2023-06-01",
-    updatedAt: "2023-06-01",
+    updatedAt: "2026-04-12",
     role: "Product Engineer - Mobile",
     liveUrls: [
       { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.simpan.mobile.stg" },
@@ -98,7 +98,7 @@ const _WORKS: Work[] = [
     category: "Web",
     tags: ["Next.js", "TypeScript", "NestJS", "OpenAI", "LangChain", "MUI", "Stripe", "MongoDB"],
     createdAt: "2024-06-01",
-    updatedAt: "2024-06-01",
+    updatedAt: "2026-04-12",
     role: "Product Engineer - Fullstack",
     liveUrls: [
       { label: "Website", url: "https://agentai.ai/" },
@@ -125,7 +125,7 @@ const _WORKS: Work[] = [
     category: "Mobile",
     tags: ["Flutter", "Riverpod", "Dart", "Firebase"],
     createdAt: "2024-02-15",
-    updatedAt: "2024-02-15",
+    updatedAt: "2026-04-12",
     role: "Product Engineer - Mobile",
     liveUrls: [
       { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.kickavenue.androidshop" },
@@ -153,7 +153,7 @@ const _WORKS: Work[] = [
     category: "Web",
     tags: ["Next.js", "TypeScript", "Supabase", "TanStack Query", "Recharts", "Claude AI", "PWA"],
     createdAt: "2026-03-19",
-    updatedAt: "2026-03-19",
+    updatedAt: "2026-04-12",
     role: "Founder / Product Engineer",
     liveUrls: [
       { label: "Website", url: "https://truequity.vercel.app/" },
@@ -249,7 +249,7 @@ export function useExchangeRate() {
     category: "Mobile",
     tags: ["Kotlin", "Android", "Firebase", "TensorFlow"],
     createdAt: "2021-06-15",
-    updatedAt: "2021-06-15",
+    updatedAt: "2026-04-12",
     role: "Android Developer",
     repoUrl: "https://github.com/B21-CAP0075",
     featured: false,
