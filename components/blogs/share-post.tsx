@@ -50,7 +50,7 @@ export function SharePost({ title, slug, bare = false }: Props) {
       icon: <Linkedin className="size-3" />,
       action: () => {
         window.open(
-          `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
+          `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(`Check out this post by Dharma Yudistira: ${title}`)}`,
           "_blank",
           "noopener,noreferrer"
         )
