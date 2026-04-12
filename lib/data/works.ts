@@ -30,7 +30,7 @@ export type Work = {
   }
 }
 
-export const WORKS: Work[] = [
+const _WORKS: Work[] = [
   {
     slug: "sukanda-onelink",
     title: "Sukanda Onelink",
@@ -308,6 +308,10 @@ export function useExchangeRate() {
 ]
 
 export type TagGroup = { label: string; tags: string[] }
+
+export const WORKS: Work[] = [..._WORKS].sort(
+  (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+)
 
 /** Derive TAG_GROUPS from actual project tags + categories */
 export const TAG_GROUPS: TagGroup[] = (() => {
