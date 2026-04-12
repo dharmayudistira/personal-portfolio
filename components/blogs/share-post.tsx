@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import { Check, Copy, Facebook, Linkedin, Twitter } from "lucide-react"
+import { Check, Copy, Twitter } from "lucide-react"
 
 // Threads has no lucide icon — minimal custom SVG
 function ThreadsIcon({ className }: { className?: string }) {
@@ -41,28 +41,6 @@ export function SharePost({ title, slug, bare = false }: Props) {
       action: () =>
         window.open(
           `https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(url)}&via=justamannothero`,
-          "_blank",
-          "noopener,noreferrer"
-        ),
-    },
-    {
-      id: "li",
-      label: "Share on LinkedIn",
-      icon: <Linkedin className="size-3.5" />,
-      action: () =>
-        window.open(
-          `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}&summary=${encodeURIComponent(shareText)}`,
-          "_blank",
-          "noopener,noreferrer"
-        ),
-    },
-    {
-      id: "fb",
-      label: "Share on Facebook",
-      icon: <Facebook className="size-3.5" />,
-      action: () =>
-        window.open(
-          `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`,
           "_blank",
           "noopener,noreferrer"
         ),
