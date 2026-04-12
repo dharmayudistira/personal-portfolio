@@ -68,7 +68,6 @@ export default async function WorkDetailPage({ params }: Props) {
               </span>
             </div>
           )}
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
         </div>
       </section>
 

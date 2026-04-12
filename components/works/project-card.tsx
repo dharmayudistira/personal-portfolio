@@ -20,7 +20,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-background/80 to-transparent" />
         </div>
 
         {/* Info */}
