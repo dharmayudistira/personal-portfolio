@@ -6,6 +6,7 @@ import { Check, Copy, Linkedin, Twitter } from "lucide-react"
 type Props = {
   title: string
   slug: string
+  bare?: boolean
 }
 
 type Channel = {
@@ -15,7 +16,7 @@ type Channel = {
   action: () => void
 }
 
-export function SharePost({ title, slug }: Props) {
+export function SharePost({ title, slug, bare = false }: Props) {
   const [copied, setCopied] = useState(false)
   const [active, setActive] = useState<string | null>(null)
 
@@ -69,39 +70,44 @@ export function SharePost({ title, slug }: Props) {
     },
   ]
 
+  const buttons = (
+    <div className="flex flex-col gap-2">
+      {channels.map((ch) => (
+        <button
+          key={ch.id}
+          onClick={ch.action}
+          className={`group flex w-full items-center gap-3 border px-3 py-2.5 font-mono text-[10px] uppercase tracking-widest transition-all duration-150 ${
+            active === ch.id
+              ? "border-foreground/30 bg-foreground/5 text-foreground"
+              : "border-foreground/10 text-muted-foreground hover:border-foreground/20 hover:text-foreground"
+          }`}
+        >
+          <span
+            className={`flex size-5 shrink-0 items-center justify-center border transition-colors duration-150 ${
+              active === ch.id
+                ? "border-foreground/40 bg-foreground text-background"
+                : "border-foreground/15 group-hover:border-foreground/30"
+            }`}
+          >
+            {ch.icon}
+          </span>
+          <span>{ch.label}</span>
+          <span className="ml-auto opacity-30 transition-opacity group-hover:opacity-60">
+            →
+          </span>
+        </button>
+      ))}
+    </div>
+  )
+
+  if (bare) return buttons
+
   return (
     <div className="border border-foreground/5 p-6">
       <h4 className="mb-4 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
         Broadcast_To
       </h4>
-
-      <div className="flex flex-col gap-2">
-        {channels.map((ch) => (
-          <button
-            key={ch.id}
-            onClick={ch.action}
-            className={`group flex w-full items-center gap-3 border px-3 py-2.5 font-mono text-[10px] uppercase tracking-widest transition-all duration-150 ${
-              active === ch.id
-                ? "border-foreground/30 bg-foreground/5 text-foreground"
-                : "border-foreground/10 text-muted-foreground hover:border-foreground/20 hover:text-foreground"
-            }`}
-          >
-            <span
-              className={`flex size-5 shrink-0 items-center justify-center border transition-colors duration-150 ${
-                active === ch.id
-                  ? "border-foreground/40 bg-foreground text-background"
-                  : "border-foreground/15 group-hover:border-foreground/30"
-              }`}
-            >
-              {ch.icon}
-            </span>
-            <span>{ch.label}</span>
-            <span className="ml-auto opacity-30 transition-opacity group-hover:opacity-60">
-              →
-            </span>
-          </button>
-        ))}
-      </div>
+      {buttons}
     </div>
   )
 }

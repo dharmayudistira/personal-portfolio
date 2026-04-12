@@ -160,20 +160,12 @@ export default async function BlogDetailPage({ params }: Props) {
                 </div>
                 <div>
                   <span className="mb-1 block font-mono text-[9px] uppercase tracking-widest text-muted-foreground/50">
-                    Status:
+                    Broadcast_To:
                   </span>
-                  <div className="flex items-center gap-2">
-                    <span className="size-1.5 animate-pulse rounded-full bg-foreground" />
-                    <span className="font-mono text-[10px] uppercase tracking-widest text-foreground">
-                      Published_Live
-                    </span>
-                  </div>
+                  <SharePost title={post.title} slug={post.slug} bare />
                 </div>
               </div>
             </div>
-
-            {/* Share */}
-            <SharePost title={post.title} slug={post.slug} />
 
             {/* Related posts */}
             {related.length > 0 && (
