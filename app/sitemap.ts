@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 import { WORKS } from "@/lib/data/works"
 import { getAllPosts } from "@/lib/posts"
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+const BASE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000").replace(/\/$/, "")
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticPages: MetadataRoute.Sitemap = [

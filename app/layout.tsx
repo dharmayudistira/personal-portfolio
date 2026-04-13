@@ -62,6 +62,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: "@justamannothero",
     creator: "@justamannothero",
     title: "Dharma Yudistira — Product Engineer",
     description:
@@ -73,7 +74,6 @@ export const metadata: Metadata = {
     googleBot: { index: true, follow: true },
   },
   alternates: {
-    canonical: "https://www.dharma-yudistira.com",
     types: { "application/rss+xml": "/rss.xml" },
   },
   icons: {

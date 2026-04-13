@@ -5,10 +5,12 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Dharma Yudistira — Product Engineer based in Sidoarjo, Indonesia. Full-stack TypeScript and cross-platform mobile with Flutter and Kotlin.",
+  alternates: { canonical: "/about" },
   openGraph: {
     title: "About — Dharma Yudistira",
     description:
       "Product Engineer based in Sidoarjo, Indonesia. Full-stack TypeScript and cross-platform mobile with Flutter and Kotlin.",
+    url: "/about",
   },
 }
 import { Timeline } from "@/components/about/timeline"

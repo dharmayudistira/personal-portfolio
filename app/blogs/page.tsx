@@ -5,10 +5,12 @@ export const metadata: Metadata = {
   title: "Blogs",
   description:
     "Technical writing on frontend architecture, mobile development, and the intersection of engineering and product design.",
+  alternates: { canonical: "/blogs" },
   openGraph: {
     title: "Blogs — Dharma Yudistira",
     description:
       "Technical writing on frontend architecture, mobile development, and the intersection of engineering and product design.",
+    url: "/blogs",
   },
 }
 import { SectionDivider } from "@/components/shared/section-divider"

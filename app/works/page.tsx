@@ -5,10 +5,12 @@ export const metadata: Metadata = {
   title: "Works",
   description:
     "Selected projects spanning web and mobile — Flutter, React, Next.js, and more.",
+  alternates: { canonical: "/works" },
   openGraph: {
     title: "Works — Dharma Yudistira",
     description:
       "Selected projects spanning web and mobile — Flutter, React, Next.js, and more.",
+    url: "/works",
   },
 }
 import { ProjectGrid } from "@/components/works/project-grid"
