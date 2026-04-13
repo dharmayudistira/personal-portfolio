@@ -32,9 +32,14 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       url: `/blogs/${slug}`,
       publishedTime: post.date.replace(/\./g, "-"),
       tags: post.tags,
+      images: post.cover
+        ? [{ url: post.cover }]
+        : [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
     twitter: {
       card: "summary_large_image",
+      site: "@justamannothero",
+      creator: "@justamannothero",
       title: post.title,
       description: post.description,
     },
@@ -65,8 +70,43 @@ export default async function BlogDetailPage({ params }: Props) {
     `@/app/blogs/_content/${slug}.mdx`
   )
 
+  const BASE = "https://www.dharma-yudistira.com"
+  const postSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BlogPosting",
+        "@id": `${BASE}/blogs/${slug}#article`,
+        headline: post.title,
+        description: post.description,
+        url: `${BASE}/blogs/${slug}`,
+        datePublished: post.date.replace(/\./g, "-"),
+        dateModified: post.date.replace(/\./g, "-"),
+        author: { "@id": `${BASE}/#person` },
+        publisher: { "@id": `${BASE}/#person` },
+        image: post.cover
+          ? `${BASE}${post.cover}`
+          : `${BASE}/opengraph-image`,
+        mainEntityOfPage: { "@type": "WebPage", "@id": `${BASE}/blogs/${slug}` },
+        keywords: post.tags.join(", "),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+          { "@type": "ListItem", position: 2, name: "Blogs", item: `${BASE}/blogs` },
+          { "@type": "ListItem", position: 3, name: post.title, item: `${BASE}/blogs/${slug}` },
+        ],
+      },
+    ],
+  }
+
   return (
     <div className="px-6 lg:px-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(postSchema) }}
+      />
       <div className="pt-24" />
 
       <SectionDivider label="DOC:00" />

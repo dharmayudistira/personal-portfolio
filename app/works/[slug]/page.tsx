@@ -26,10 +26,13 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: work.description,
     alternates: { canonical: `/works/${slug}` },
     openGraph: {
+      type: "website",
       title: `${work.title} — Dharma Yudistira`,
       description: work.description,
       url: `/works/${slug}`,
-      images: work.image ? [{ url: work.image }] : undefined,
+      images: work.image
+        ? [{ url: work.image }]
+        : [{ url: "/opengraph-image", width: 1200, height: 630 }],
     },
   }
 }

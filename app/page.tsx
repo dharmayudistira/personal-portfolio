@@ -21,6 +21,7 @@ const personSchema = {
       "@id": "https://www.dharma-yudistira.com/#person",
       name: "Dharma Yudistira",
       url: "https://www.dharma-yudistira.com",
+      image: "https://www.dharma-yudistira.com/avatar.jpeg",
       jobTitle: "Product Engineer",
       description:
         "Product Engineer building web and mobile experiences end-to-end — from database schema to the last pixel on screen.",
