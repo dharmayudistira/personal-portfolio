@@ -24,7 +24,7 @@ export type Work = {
     solution: {
       body: string
       features: { name: string; description: string }[]
-      asset?: { type: "image" | "video"; url: string } | null
+      asset?: { type: "image" | "video"; url: string; poster?: string } | null
     }
     technical: {
       body: string
@@ -151,8 +151,10 @@ const _WORKS: Work[] = [
   {
     slug: "truequity",
     title: "Truequity",
+    seoTitle: "Truequity — AI Portfolio Tracker for Crypto, Stocks & IDX",
     description:
-      "AI-enhanced multi-asset wealth tracker for crypto, US stocks, and IDX stocks — with benchmark comparison, daily PnL calendar, and Claude-powered transaction extraction.",
+      "Built Truequity — a full-stack Next.js PWA that unifies crypto, US, and IDX portfolios with Claude Vision AI transaction entry, live benchmark comparison, and realized PnL tracking.",
+    ogImageDimensions: { width: 2880, height: 1732 },
     longDescription:
       "Truequity is a modern wealth tracking application built for individual investors managing diversified portfolios across multiple asset classes. It consolidates crypto, US equities, and Indonesian (IDX) equities into a single dashboard with real-time pricing, benchmark performance comparison against Bitcoin, S&P 500, and IHSG, a daily realized PnL calendar computed from sell transactions using average cost method, and AI-powered transaction entry via Claude Vision — eliminating the tedious manual data entry that plagues most portfolio trackers. Installable as a PWA for a native-like mobile experience. Built as a full-stack Next.js application with Supabase, TanStack Query, and Recharts.",
     image: "/works/truequity.png",
@@ -175,37 +177,37 @@ const _WORKS: Work[] = [
         body: "Truequity unifies all four asset classes into a single dashboard with live pricing, cost-basis analytics, and benchmark overlays. The AI extraction feature lets users upload broker screenshots — Claude Vision parses the transaction details automatically, reducing manual entry to a review step. Multi-currency support with live USD/IDR conversion ensures total portfolio value is always accurate regardless of asset denomination.",
         features: [
           {
-            name: "UNIFIED_DASHBOARD",
+            name: "Unified Dashboard",
             description:
               "Consolidate crypto, US stocks, and IDX stocks into one real-time portfolio view with allocation breakdown and total P&L.",
           },
           {
-            name: "BENCHMARK_COMPARISON",
+            name: "Benchmark Comparison",
             description:
               "Overlay portfolio returns against Bitcoin, S&P 500, and IHSG benchmarks. Both lines start at 0% on day one — no ambiguity.",
           },
           {
-            name: "AI_EXTRACTION",
+            name: "AI Transaction Extraction",
             description:
               "Upload a broker or exchange screenshot. Claude Haiku Vision parses the transaction details and auto-populates the form — supports 20+ platforms.",
           },
           {
-            name: "MULTI_CURRENCY",
+            name: "Multi-Currency Support",
             description:
               "Live USD/IDR conversion via Yahoo Finance. Switch display currency in one click; all values update instantly across the dashboard.",
           },
           {
-            name: "DAILY_PNL_CALENDAR",
+            name: "Daily PnL Calendar",
             description:
               "Heatmap calendar showing realized P&L per trading day, computed from sell transactions using the average cost method. Color intensity reflects magnitude — hover (desktop) or scroll the activity feed (mobile) for per-trade breakdown.",
           },
           {
-            name: "CASH_FLOW_TRACKING",
+            name: "Cash Flow Tracking",
             description:
               "Cash history automatically captures deposits, withdrawals, and the cash impact of every buy/sell transaction — giving a complete picture of capital movement across the portfolio.",
           },
           {
-            name: "PWA",
+            name: "Progressive Web App",
             description:
               "Installable as a Progressive Web App on Android and iOS. Runs in standalone mode with an in-app update prompt when a new version is deployed.",
           },

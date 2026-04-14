@@ -3,7 +3,7 @@
 import { useRef, useState } from "react"
 import { Maximize, Pause, Play, Volume2, VolumeX } from "lucide-react"
 
-export function SolutionVideo({ src }: { src: string }) {
+export function SolutionVideo({ src, poster }: { src: string; poster?: string }) {
   const ref = useRef<HTMLVideoElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const [playing, setPlaying] = useState(true)
@@ -58,6 +58,7 @@ export function SolutionVideo({ src }: { src: string }) {
         loop
         muted
         playsInline
+        poster={poster}
         className="size-full object-cover"
         onTimeUpdate={onTimeUpdate}
       />

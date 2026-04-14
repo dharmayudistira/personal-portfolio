@@ -68,7 +68,9 @@ export default async function WorkDetailPage({ params }: Props) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "CreativeWork",
+        "@type": "SoftwareApplication",
+        applicationCategory: "WebApplication",
+        operatingSystem: "Web",
         "@id": `${BASE}/works/${slug}#work`,
         name: work.title,
         description: work.description,
@@ -174,7 +176,7 @@ export default async function WorkDetailPage({ params }: Props) {
                   key={url}
                   href={url}
                   target="_blank"
-                  rel="noopener noreferrer nofollow"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 border border-foreground/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
                 >
                   {label}
@@ -206,7 +208,7 @@ export default async function WorkDetailPage({ params }: Props) {
             <div className="md:col-span-4">
               <h2 className="sticky top-24 font-heading text-2xl font-bold uppercase tracking-tighter">
                 <span className="mb-1 block font-mono text-[10px] font-normal tracking-[0.3em] text-muted-foreground">01 /</span>
-                The_Problem
+                The Problem
               </h2>
             </div>
             <div className="md:col-span-8">
@@ -230,7 +232,7 @@ export default async function WorkDetailPage({ params }: Props) {
             <div className="md:col-span-4">
               <h2 className="sticky top-24 font-heading text-2xl font-bold uppercase tracking-tighter">
                 <span className="mb-1 block font-mono text-[10px] font-normal tracking-[0.3em] text-muted-foreground">02 /</span>
-                The_Solution
+                The Solution
               </h2>
             </div>
             <div className="md:col-span-8">
@@ -247,7 +249,7 @@ export default async function WorkDetailPage({ params }: Props) {
               </p>
               {work.sections.solution.asset && (
                 work.sections.solution.asset.type === "video" ? (
-                  <SolutionVideo src={work.sections.solution.asset.url} />
+                  <SolutionVideo src={work.sections.solution.asset.url} poster={work.sections.solution.asset.poster} />
                 ) : (
                   <div className="relative aspect-video w-full overflow-hidden bg-background">
                     <WorkImage
@@ -270,7 +272,7 @@ export default async function WorkDetailPage({ params }: Props) {
             <div className="md:col-span-4">
               <h2 className="sticky top-24 font-heading text-2xl font-bold uppercase tracking-tighter">
                 <span className="mb-1 block font-mono text-[10px] font-normal tracking-[0.3em] text-muted-foreground">03 /</span>
-                Technical_Recap
+                Technical Recap
               </h2>
             </div>
             <div className="md:col-span-8">
