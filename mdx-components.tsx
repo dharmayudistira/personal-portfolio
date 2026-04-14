@@ -97,6 +97,28 @@ const components: MDXComponents = {
       )}
     </span>
   ),
+  table: ({ children }) => (
+    <div className="my-8 w-full overflow-x-auto">
+      <table className="w-full border-collapse font-mono text-xs">
+        {children}
+      </table>
+    </div>
+  ),
+  thead: ({ children }) => (
+    <thead className="border-b border-foreground/10">{children}</thead>
+  ),
+  tbody: ({ children }) => <tbody>{children}</tbody>,
+  tr: ({ children }) => (
+    <tr className="border-b border-foreground/5">{children}</tr>
+  ),
+  th: ({ children }) => (
+    <th className="px-4 py-2 text-left uppercase tracking-widest text-muted-foreground/60">
+      {children}
+    </th>
+  ),
+  td: ({ children }) => (
+    <td className="px-4 py-2 text-muted-foreground">{children}</td>
+  ),
   hr: () => <hr className="my-12 border-foreground/5" />,
   strong: ({ children }) => (
     <strong className="font-semibold text-foreground">{children}</strong>

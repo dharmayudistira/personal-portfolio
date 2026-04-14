@@ -1,6 +1,7 @@
 export type Work = {
   slug: string
   title: string
+  seoTitle?: string
   description: string
   longDescription: string
   image?: string
@@ -37,7 +38,7 @@ const _WORKS: Work[] = [
     title: "Sukanda Onelink",
     image: "/works/sukanda.png",
     description:
-      "B2B e-commerce platform for PT Diamond Food Indonesia — connecting 9,000+ F&B entrepreneurs across Indonesia with raw materials, ingredients, and equipment through a unified ordering system.",
+      "B2B e-commerce platform for PT Diamond Food Indonesia — connecting 9,000+ F&B entrepreneurs across 21 cities with raw materials, ingredients, and equipment.",
     longDescription:
       "Sukanda Onelink is the digital procurement platform for PT Diamond Food Indonesia, one of Indonesia's largest F&B distributors. The platform enables restaurant owners, cafes, and food businesses to browse, order, and track raw material deliveries across 21 cities — 24/7, from any device. I joined as a Product Engineer on the web side, working across features that serve thousands of active business accounts.",
     category: "Web",
@@ -61,8 +62,9 @@ const _WORKS: Work[] = [
   {
     slug: "simpan",
     title: "Simpan",
+    seoTitle: "Simpan — Flutter Investing App",
     description:
-      "Guided investing app for everyday Indonesians — making wealth-building accessible through curated portfolios and step-by-step investment flows.",
+      "Flutter case study: inherited a legacy BLoC codebase, refactored architecture, introduced tests from near-zero, and shipped the app to production with a 4.8 App Store rating.",
     longDescription:
       "Simpan is a guided investing app for everyday Indonesian investors. My team took over the project from a previous vendor, inheriting a legacy Flutter codebase with accumulated tech debt, inconsistent patterns, and minimal test coverage. We audited, stabilised, and refactored the codebase — establishing proper BLoC architecture, introducing a test suite, and resolving critical bugs — before resuming feature delivery and shipping the app to production.",
     image: "/works/simpan.webp",
@@ -90,10 +92,11 @@ const _WORKS: Work[] = [
   {
     slug: "agentai",
     title: "AgentAI",
+    seoTitle: "AgentAI — AI Marketing Automation for Real Estate",
     description:
-      "AI-powered marketing automation platform for real estate agents — automating content generation, listings, and workflows so agents can focus on closing deals.",
+      "Fullstack engineer on a real estate AI SaaS — UI migration (Chakra→MUI), OpenAI/LangChain integration, Stripe billing, and B2B multi-tenant architecture on Next.js + NestJS.",
     longDescription:
-      "AgentAI is a SaaS platform that helps real estate teams automate their marketing operations using AI. I joined as a Product Engineer on a legacy Next.js + NestJS codebase, taking ownership of both frontend and backend across a significant product evolution: UI migration from Chakra to MUI, OpenAI and LangChain integration, Stripe billing implementation, and a full B2B migration from a personal-use product to a multi-tenant architecture.",
+      "AgentAI is a SaaS platform that helps real estate teams automate their marketing operations using AI. I joined as a Product Engineer on a legacy Next.js + NestJS codebase, taking ownership of both frontend and backend across a significant product evolution: UI migration from Chakra to MUI, OpenAI and LangChain integration, Stripe billing implementation, and a full B2B migration from a personal-use product to a multi-tenant architecture. The work spanned the full product stack — from React component architecture on the frontend to NestJS module design and database modelling on the backend — with a consistent focus on reducing tech debt while shipping new capability.",
     image: "/works/agentai.jpeg",
     category: "Web",
     tags: ["Next.js", "TypeScript", "NestJS", "OpenAI", "LangChain", "MUI", "Stripe", "MongoDB"],

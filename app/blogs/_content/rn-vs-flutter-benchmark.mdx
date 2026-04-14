@@ -60,6 +60,16 @@ Three scenarios were benchmarked:
 - **Android**: Android Profiler (CPU, memory), Perfetto (startup traces)
 - **iOS**: Xcode Instruments (CPU, memory, FPS), MetricKit (startup time)
 
+### Test Environment
+
+| | Details |
+|---|---|
+| Android device | Samsung Galaxy A14 |
+| iOS device | iPhone 8 |
+| Host machine | MacBook Air M1 2020, 8 GB RAM |
+| React Native | New architecture enabled (Fabric + JSI + TurboModules) |
+| Build mode | Release (both platforms) |
+
 ### Manual Testing Approach
 
 Despite wanting full automation, we ran into significant limitations with automated profiling tools in release mode. Detox and `integration_test` introduce their own performance overhead that skews CPU and memory readings. Maestro doesn't support iOS physical devices in release mode. Appium's automation latency makes frame-rate measurements unreliable.
@@ -74,9 +84,16 @@ We used physical devices, ran each scenario multiple times, and averaged the res
 
 ### App Size & Startup Time
 
-On Android, Flutter's APK is significantly smaller than React Native's. Flutter also edges out React Native on cold start time for Android.
+On Android, Flutter's APK is significantly smaller than React Native's (19 MB vs 76 MB). Flutter also has a faster cold start on iOS (771.8 ms vs 953.4 ms).
 
-On iOS, the picture flips: React Native's IPA is slightly smaller, and cold start is marginally faster — likely a result of the new architecture's optimizations on the Apple platform.
+On Android cold start, the picture flips: React Native launches in 593 ms vs Flutter's 1,738 ms — likely due to Flutter's engine initialization overhead. On iOS, React Native's IPA is also slightly smaller (7.3 MB vs 10.5 MB).
+
+| Metric | Flutter | React Native |
+|--------|---------|--------------|
+| APK size (Android) | 19 MB | 76 MB |
+| IPA size (iOS) | 10.5 MB | 7.3 MB |
+| Cold start — Android | 1,738 ms | 593 ms |
+| Cold start — iOS | 771.8 ms | 953.4 ms |
 
 ![APK size comparison — Flutter vs React Native on Android](/blogs/rn-vs-flutter-benchmark/apk-comparison.webp)
 
@@ -92,7 +109,16 @@ Bundle size differences matter in real-world distribution. A smaller APK means f
 
 ### Scenario 1: Idle / Initial View
 
-Under minimal load (initial render, no active computation), both frameworks performed similarly. CPU usage was low for both, FPS stayed near 60, and memory footprints were comparable.
+Under minimal load (initial render, no active computation), Flutter had lower CPU usage on Android (4–8% vs 15–22% for RN). On iOS the gap was stark — React Native's CPU spiked to 90–222% (multi-core), while Flutter stayed at 21–34%. Memory consumption was higher for React Native on Android; iOS was comparable. FPS results varied by platform, with Android's higher reported rates reflecting the profiler counting all refresh events on a 120 Hz display.
+
+| Metric | Platform | Flutter | React Native |
+|--------|----------|---------|--------------|
+| CPU | Android | 4–8% | 15–22% |
+| CPU | iOS | 21–34% | 90–222% |
+| Memory | Android | 47–152 MB | 170–223 MB |
+| Memory | iOS | 49–54 MB | 68–78 MB |
+| FPS | Android | 32 | 72–132 |
+| FPS | iOS | 56 | 31 |
 
 ![Scenario 1 — Android CPU utilization](/blogs/rn-vs-flutter-benchmark/scenario-1-android-cpu.webp)
 
@@ -108,13 +134,16 @@ Under minimal load (initial render, no active computation), both frameworks perf
 
 ### Scenario 2: Resource-Intensive Task
 
-This is where the gap widened. During sustained heavy computation combined with active UI rendering:
+This is where the gap widened. Under sustained heavy computation combined with active UI rendering, Flutter held lower CPU across both platforms. On iOS, React Native's CPU hit 95–300% (multi-core) vs Flutter's 49–54%. Memory was higher in React Native on Android (223–243 MB vs 178 MB); on iOS both were similar. Flutter held a more stable FPS on iOS (54.2 vs 32).
 
-- **Android CPU**: React Native peaked around 86%, Flutter around 81%
-- **Android Memory**: React Native allocated ~11.97 MB, Flutter ~11.41 MB
-- **FPS**: Flutter maintained more stable frame rates; React Native showed more frame drops under peak load
-
-iOS results followed a similar pattern — Flutter maintained more consistent resource usage across the duration of the task.
+| Metric | Platform | Flutter | React Native |
+|--------|----------|---------|--------------|
+| CPU | Android | 7–11% | 17–29% |
+| CPU | iOS | 49–54% | 95–300% |
+| Memory | Android | 178 MB | 223–243 MB |
+| Memory | iOS | 52–53 MB | 52–57 MB |
+| FPS | Android | 54 | 105–133 |
+| FPS | iOS | 54.2 | 32 |
 
 ![Scenario 2 — Android CPU utilization](/blogs/rn-vs-flutter-benchmark/scenario-2-android-cpu.webp)
 
@@ -130,7 +159,16 @@ iOS results followed a similar pattern — Flutter maintained more consistent re
 
 ### Scenario 3: Input Responsiveness
 
-Under rapid input interaction (continuous taps and drags), React Native's CPU utilization spiked more aggressively than Flutter's. Flutter's input handling stayed relatively flat, consistent with its single-threaded rendering model that avoids JS-thread contention.
+Under rapid input interaction (continuous taps and drags), React Native's CPU spiked more aggressively — 15–32% on Android and 65–230% on iOS vs Flutter's 8–12% and 24–55% respectively. Flutter's input handling stayed relatively flat, consistent with its single-threaded rendering model that avoids JS-thread contention. FPS was comparable on iOS; Android reported higher values for RN again due to profiler behavior on high-refresh displays.
+
+| Metric | Platform | Flutter | React Native |
+|--------|----------|---------|--------------|
+| CPU | Android | 8–12% | 15–32% |
+| CPU | iOS | 24–55% | 65–230% |
+| Memory | Android | 169–174 MB | 122 MB |
+| Memory | iOS | 52–53 MB | 52–61 MB |
+| FPS | Android | 52–57 | 111–132 |
+| FPS | iOS | 55.5 | 51 |
 
 ![Scenario 3 — Android CPU utilization](/blogs/rn-vs-flutter-benchmark/scenario-3-android-cpu.webp)
 

@@ -21,18 +21,32 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const work = getWorkBySlug(slug)
   if (!work) return {}
 
+  const ogImage = work.image
+    ? [{ url: work.image, width: 1200, height: 630 }]
+    : [{ url: "/opengraph-image", width: 1200, height: 630 }]
+
+  const displayTitle = work.seoTitle ?? work.title
+
   return {
-    title: work.title,
+    title: displayTitle,
     description: work.description,
     alternates: { canonical: `/works/${slug}` },
     openGraph: {
-      type: "website",
-      title: `${work.title} — Dharma Yudistira`,
+      type: "article",
+      siteName: "Dharma Yudistira",
+      locale: "en_US",
+      title: `${displayTitle} — Dharma Yudistira`,
       description: work.description,
       url: `/works/${slug}`,
-      images: work.image
-        ? [{ url: work.image }]
-        : [{ url: "/opengraph-image", width: 1200, height: 630 }],
+      images: ogImage,
+    },
+    twitter: {
+      card: "summary_large_image",
+      site: "@justamannothero",
+      creator: "@justamannothero",
+      title: `${displayTitle} — Dharma Yudistira`,
+      description: work.description,
+      images: ogImage,
     },
   }
 }
@@ -48,8 +62,39 @@ export default async function WorkDetailPage({ params }: Props) {
   const nextWork =
     currentIndex < WORKS.length - 1 ? WORKS[currentIndex + 1] : null
 
+  const BASE = "https://www.dharma-yudistira.com"
+  const workSchema = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CreativeWork",
+        "@id": `${BASE}/works/${slug}#work`,
+        name: work.title,
+        description: work.description,
+        url: work.liveUrls?.[0]?.url ?? `${BASE}/works/${slug}`,
+        image: work.image ? `${BASE}${work.image}` : `${BASE}/opengraph-image`,
+        dateCreated: work.createdAt,
+        dateModified: work.updatedAt,
+        author: { "@id": `${BASE}/#person` },
+        keywords: work.tags.join(", "),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: BASE },
+          { "@type": "ListItem", position: 2, name: "Works", item: `${BASE}/works` },
+          { "@type": "ListItem", position: 3, name: work.title, item: `${BASE}/works/${slug}` },
+        ],
+      },
+    ],
+  }
+
   return (
     <div className="px-6 lg:px-12">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(workSchema) }}
+      />
       <div className="pt-24" />
 
       <SectionDivider label="IMG:00" />
@@ -127,7 +172,7 @@ export default async function WorkDetailPage({ params }: Props) {
                   key={url}
                   href={url}
                   target="_blank"
-                  rel="noopener noreferrer"
+                  rel="noopener noreferrer nofollow"
                   className="inline-flex items-center gap-1.5 border border-foreground/10 px-3 py-1.5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground transition-colors hover:border-foreground hover:text-foreground"
                 >
                   {label}
