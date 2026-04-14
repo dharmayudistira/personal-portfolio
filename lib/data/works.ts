@@ -3,6 +3,7 @@ export type Work = {
   title: string
   seoTitle?: string
   description: string
+  ogImageDimensions?: { width: number; height: number }
   longDescription: string
   image?: string
   category: "Web" | "Mobile" | "Desktop" | "Open Source"
@@ -120,8 +121,10 @@ const _WORKS: Work[] = [
   {
     slug: "kickavenue",
     title: "KickAvenue",
+    seoTitle: "KickAvenue — Flutter Rebuild, 500K+ Downloads",
     description:
-      "Full rebuild of Indonesia's authenticated sneaker and streetwear marketplace — 500K+ downloads — from legacy Android to Flutter.",
+      "Led a ground-up Flutter rebuild of KickAvenue — Indonesia's authenticated sneaker marketplace. Cross-platform Android + iOS, Riverpod architecture, shipped to 500K+ downloads.",
+    ogImageDimensions: { width: 1029, height: 914 },
     longDescription:
       "Led the ground-up rebuild of KickAvenue, an authenticated marketplace for sneakers, apparels, and handbags carrying brands like Jordan, Yeezy, OFF-WHITE, and Nike. Migrated the aging native Android codebase to a modern Flutter application with Riverpod state management, delivering a faster, more maintainable, and visually refined experience across Android and iOS. The app serves tens of thousands of users with features like real-time product search, a make-an-offer bidding system, and seller listing tools.",
     image: "/works/kickavenue.webp",

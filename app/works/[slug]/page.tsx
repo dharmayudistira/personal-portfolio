@@ -21,8 +21,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const work = getWorkBySlug(slug)
   if (!work) return {}
 
+  const { width: ogW = 1200, height: ogH = 630 } = work.ogImageDimensions ?? {}
   const ogImage = work.image
-    ? [{ url: work.image, width: 1200, height: 630 }]
+    ? [{ url: work.image, width: ogW, height: ogH }]
     : [{ url: "/opengraph-image", width: 1200, height: 630 }]
 
   const displayTitle = work.seoTitle ?? work.title
@@ -71,7 +72,8 @@ export default async function WorkDetailPage({ params }: Props) {
         "@id": `${BASE}/works/${slug}#work`,
         name: work.title,
         description: work.description,
-        url: work.liveUrls?.[0]?.url ?? `${BASE}/works/${slug}`,
+        url: `${BASE}/works/${slug}`,
+        ...(work.liveUrls?.length ? { sameAs: work.liveUrls.map((l) => l.url) } : {}),
         image: work.image ? `${BASE}${work.image}` : `${BASE}/opengraph-image`,
         dateCreated: work.createdAt,
         dateModified: work.updatedAt,
