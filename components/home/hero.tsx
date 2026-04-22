@@ -4,7 +4,7 @@ const currentJob = EXPERIENCES.find((e) => e.current);
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[90vh] flex-col justify-center  pb-24 pt-28">
+    <section className="relative flex min-h-[90dvh] flex-col justify-center pb-24 pt-28">
       {/* Golden ratio / Fibonacci spiral ornament */}
       <div className="pointer-events-none absolute inset-y-0 -left-6 -right-6 overflow-hidden lg:-left-12 lg:-right-12" aria-hidden="true">
         {/* Desktop / tablet — fills section, spiral right-anchored */}

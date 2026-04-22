@@ -21,7 +21,7 @@ export function Connect() {
         <div className="flex flex-col justify-center gap-6 sm:flex-row">
           <Link
             href="mailto:dharmayudistira2000@gmail.com"
-            className="inline-flex items-center justify-center gap-3 bg-primary px-8 py-4 font-heading text-[11px] font-bold uppercase tracking-[0.2em] text-primary-foreground transition-colors hover:bg-foreground sm:px-12 sm:py-5"
+            className="inline-flex items-center justify-center gap-3 bg-primary px-8 py-4 font-heading text-[11px] font-bold uppercase tracking-[0.2em] text-primary-foreground transition-all hover:scale-[1.02] hover:bg-foreground active:scale-[0.98] sm:px-12 sm:py-5"
           >
             <Mail className="size-4" />
             Initialize_Comms
@@ -30,7 +30,7 @@ export function Connect() {
             href="https://www.linkedin.com/in/dharmayudistira/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center gap-3 border border-border px-8 py-4 font-heading text-[11px] font-bold uppercase tracking-[0.2em] text-foreground transition-colors hover:bg-foreground/5 sm:px-12 sm:py-5"
+            className="inline-flex items-center justify-center gap-3 border border-border px-8 py-4 font-heading text-[11px] font-bold uppercase tracking-[0.2em] text-foreground transition-all hover:scale-[1.02] hover:bg-foreground/5 active:scale-[0.98] sm:px-12 sm:py-5"
           >
             <Linkedin className="size-4" />
             View_LinkedIn

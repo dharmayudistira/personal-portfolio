@@ -18,7 +18,7 @@ export function Bio() {
       <div className="flex flex-col items-center gap-12 md:flex-row md:items-start">
         {/* Avatar */}
         <div className="relative shrink-0">
-          <div className="size-[120px] overflow-hidden rounded-full border-2 border-foreground/10 bg-secondary">
+          <div className="size-[120px] overflow-hidden rounded-2xl border-2 border-foreground/10 bg-secondary">
             <Image
               src="/avatar.jpeg"
               alt={BIO.name}
