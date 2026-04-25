@@ -14,6 +14,7 @@ export type Work = {
   liveUrls?: { label: string; url: string }[]
   repoUrl?: string
   featured: boolean
+  featuredOrder?: number
   confidential?: boolean
   impacts?: string[]
   sections?: {
@@ -44,13 +45,14 @@ const _WORKS: Work[] = [
       "Sukanda Onelink is the digital procurement platform for PT Diamond Food Indonesia, one of Indonesia's largest F&B distributors. The platform enables restaurant owners, cafes, and food businesses to browse, order, and track raw material deliveries across 21 cities — 24/7, from any device. I joined as a Product Engineer on the web side, working across features that serve thousands of active business accounts.",
     category: "Web",
     tags: ["Next.js", "TypeScript", "PostgreSQL", "TanStack Query"],
-    createdAt: "2024-01-01",
-    updatedAt: "2026-04-14",
+    createdAt: "2025-07-07",
+    updatedAt: "2025-07-07",
     role: "Product Engineer - Web",
     liveUrls: [
       { label: "Website", url: "https://www.sukandaonelink.com/" },
     ],
     featured: true,
+    featuredOrder: 3,
     confidential: true,
     impacts: [
       "Contributed to a platform serving 9,000+ active F&B business accounts across 21 Indonesian cities, handling real-time order creation and monitoring at scale.",
@@ -71,8 +73,8 @@ const _WORKS: Work[] = [
     image: "/works/simpan.webp",
     category: "Mobile",
     tags: ["Flutter", "BLoC", "Dart", "Firebase"],
-    createdAt: "2023-06-01",
-    updatedAt: "2026-04-14",
+    createdAt: "2022-11-14",
+    updatedAt: "2022-11-14",
     role: "Product Engineer - Mobile",
     liveUrls: [
       { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.simpan.mobile.stg" },
@@ -101,13 +103,13 @@ const _WORKS: Work[] = [
     image: "/works/agentai.jpeg",
     category: "Web",
     tags: ["Next.js", "TypeScript", "NestJS", "OpenAI", "LangChain", "MUI", "Stripe", "MongoDB"],
-    createdAt: "2024-06-01",
-    updatedAt: "2026-04-14",
+    createdAt: "2026-03-05",
+    updatedAt: "2026-03-05",
     role: "Product Engineer - Fullstack",
     liveUrls: [
       { label: "Website", url: "https://agentai.ai/" },
     ],
-    featured: true,
+    featured: false,
     confidential: true,
     impacts: [
       "Took over a legacy Next.js + NestJS codebase and led ongoing maintenance, feature development, and tech debt reduction across both frontend and backend.",
@@ -130,14 +132,15 @@ const _WORKS: Work[] = [
     image: "/works/kickavenue.webp",
     category: "Mobile",
     tags: ["Flutter", "Riverpod", "Dart", "Firebase"],
-    createdAt: "2024-02-15",
-    updatedAt: "2026-04-14",
+    createdAt: "2023-05-12",
+    updatedAt: "2023-05-12",
     role: "Product Engineer - Mobile",
     liveUrls: [
       { label: "Play Store", url: "https://play.google.com/store/apps/details?id=com.kickavenue.androidshop" },
       { label: "App Store", url: "https://apps.apple.com/id/app/kick-avenue-shop-hype-here/id1478394222" },
     ],
     featured: true,
+    featuredOrder: 2,
     confidential: true,
     impacts: [
       "Led the ground-up rebuild from a legacy native Android codebase to a cross-platform Flutter app, delivering both Android and iOS from a single codebase.",
@@ -160,13 +163,14 @@ const _WORKS: Work[] = [
     image: "/works/truequity.png",
     category: "Web",
     tags: ["Next.js", "TypeScript", "Supabase", "TanStack Query", "Recharts", "Claude AI", "PWA"],
-    createdAt: "2026-03-19",
-    updatedAt: "2026-04-14",
+    createdAt: "2026-04-02",
+    updatedAt: "2026-04-02",
     role: "Founder / Product Engineer",
     liveUrls: [
       { label: "Website", url: "https://truequity.vercel.app/" },
     ],
     featured: true,
+    featuredOrder: 1,
     sections: {
       problem: {
         body: "Indonesian retail investors who hold diversified portfolios across crypto, US equities, local IDX stocks, and physical gold face a fragmented tracking problem. Positions are spread across Binance, Stockbit, Schwab, and Pegadaian with no single source of truth. Most portfolio trackers show P&L but never answer the real question: am I actually beating the market? On top of that, Indonesian investors constantly juggle IDR-denominated local assets with USD-denominated crypto and US stocks — making total portfolio valuation genuinely complex.",
@@ -257,10 +261,11 @@ export function useExchangeRate() {
     category: "Mobile",
     tags: ["Kotlin", "Android", "Firebase", "TensorFlow"],
     createdAt: "2021-06-15",
-    updatedAt: "2026-04-14",
+    updatedAt: "2021-06-15",
     role: "Android Developer",
     repoUrl: "https://github.com/B21-CAP0075",
-    featured: false,
+    featured: true,
+    featuredOrder: 4,
     sections: {
       problem: {
         body: "Dementia affects over 50 million people globally, with nearly 10 million new cases every year. In Indonesia alone, 1.2 million cases were recorded in 2016 — a number that doubles every 20 years. 68% of cases come from low-to-middle income families, and 61% of patients stay at home without proper treatment due to the high cost of care. The core issue is a lack of knowledge — families and caregivers often dismiss early symptoms like forgetfulness and mood swings as normal aging, delaying diagnosis until it's too late.",
@@ -344,5 +349,7 @@ export function getWorkBySlug(slug: string): Work | undefined {
 }
 
 export function getFeaturedWorks(): Work[] {
-  return WORKS.filter((w) => w.featured)
+  return WORKS.filter((w) => w.featured).sort(
+    (a, b) => (a.featuredOrder ?? 99) - (b.featuredOrder ?? 99)
+  )
 }

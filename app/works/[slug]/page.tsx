@@ -163,7 +163,15 @@ export default async function WorkDetailPage({ params }: Props) {
           </div>
           <div>
             <span className="mb-1 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
-              Date:
+              Built:
+            </span>
+            <span className="text-sm font-medium uppercase text-foreground">
+              {work.createdAt}
+            </span>
+          </div>
+          <div>
+            <span className="mb-1 block font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+              Updated:
             </span>
             <span className="text-sm font-medium uppercase text-foreground">
               {work.updatedAt}

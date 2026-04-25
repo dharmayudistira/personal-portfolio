@@ -187,6 +187,22 @@ export default async function BlogDetailPage({ params }: Props) {
               <div className="space-y-4">
                 <div>
                   <span className="mb-1 block font-mono text-[9px] uppercase tracking-widest text-muted-foreground/50">
+                    Published:
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-foreground">
+                    {post.date}
+                  </span>
+                </div>
+                <div>
+                  <span className="mb-1 block font-mono text-[9px] uppercase tracking-widest text-muted-foreground/50">
+                    Updated:
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-widest text-foreground">
+                    {post.updatedAt ?? post.date}
+                  </span>
+                </div>
+                <div>
+                  <span className="mb-1 block font-mono text-[9px] uppercase tracking-widest text-muted-foreground/50">
                     Tags:
                   </span>
                   <div className="flex flex-wrap gap-2">
