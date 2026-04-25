@@ -11,6 +11,7 @@ export type PostMeta = {
   title: string
   description: string
   date: string
+  updatedAt?: string
   tags: string[]
   readTime: string
   published: boolean
@@ -34,6 +35,7 @@ export function getAllPosts(): PostMeta[] {
         title: data.title,
         description: data.description,
         date: data.date,
+        updatedAt: data.updatedAt,
         tags: data.tags ?? [],
         readTime: data.readTime ?? "",
         published: data.published ?? false,
