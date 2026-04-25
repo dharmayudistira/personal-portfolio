@@ -1,14 +1,14 @@
 "use client"
 
-import { useState } from "react"
+import { useSyncExternalStore } from "react"
 
-/** Returns true if the user is on macOS (including iOS). */
+const MAC_RE = /mac|iphone|ipad|ipod/i
+const subscribe = () => () => {}
+
 export function useIsMac(): boolean {
-  const [isMac] = useState<boolean>(() =>
-    typeof navigator !== "undefined"
-      ? /mac|iphone|ipad|ipod/i.test(navigator.userAgent)
-      : false
+  return useSyncExternalStore(
+    subscribe,
+    () => MAC_RE.test(navigator.userAgent),
+    () => false,
   )
-
-  return isMac
 }

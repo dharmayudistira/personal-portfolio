@@ -13,7 +13,7 @@ export function Connect() {
           Let&apos;s Connect
         </h2>
 
-        <p className="mx-auto mb-12 max-w-xl text-base font-light leading-relaxed text-muted-foreground sm:mb-16 sm:text-lg">
+        <p className="mx-auto mb-12 max-w-xl text-base font-light leading-relaxed text-muted-foreground [text-wrap:pretty] sm:mb-16 sm:text-lg">
           Currently open for technical leadership roles and contract
           engineering projects. Let&apos;s ship something great.
         </p>

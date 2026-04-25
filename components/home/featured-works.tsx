@@ -51,29 +51,30 @@ export function FeaturedWorks() {
               )}
             </div>
 
-            <div className="grid gap-6 p-8 sm:grid-cols-[1fr_auto] sm:items-start sm:p-10">
-              <div>
-                <div className="mb-4 flex items-center gap-3">
-                  <h3 className="font-heading text-3xl font-bold uppercase tracking-tight sm:text-4xl">
-                    {heroProject.title}
-                  </h3>
-                </div>
-                <p className="max-w-2xl text-sm font-light leading-relaxed text-muted-foreground">
-                  {heroProject.description}
-                </p>
+            <div className="p-8 sm:p-10">
+              {/* Title + arrow row */}
+              <div className="mb-6 flex items-start justify-between gap-4">
+                <h3 className="font-heading text-3xl font-bold uppercase tracking-tight sm:text-4xl">
+                  {heroProject.title}
+                </h3>
+                <ArrowUpRight className="mt-1 size-6 shrink-0 text-foreground/50 transition-all group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-foreground" />
               </div>
-              <div className="flex flex-col items-start gap-4 sm:items-end">
-                <ArrowUpRight className="size-6 text-foreground/50 transition-all group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-foreground" />
-                <div className="flex flex-wrap gap-2 sm:justify-end">
-                  {heroProject.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="border border-foreground/5 bg-background/40 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-muted-foreground"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
+
+              {/* Description */}
+              <p className="mb-8 max-w-2xl text-sm font-light leading-relaxed text-muted-foreground">
+                {heroProject.description}
+              </p>
+
+              {/* Tags — bottom strip */}
+              <div className="flex flex-wrap gap-2 pt-6">
+                {heroProject.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="border border-foreground/5 bg-background/40 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-muted-foreground"
+                  >
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
           </Link>

@@ -8,7 +8,7 @@ function getRecentPosts() {
       slug: p.slug,
       title: p.title,
       excerpt: p.description,
-      date: p.date.replace(/\./g, "_"),
+      date: p.date,
       tag: p.tags[0]?.replace(/\s/g, "_") ?? "",
     }))
 }

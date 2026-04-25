@@ -57,7 +57,7 @@ export default function WorksPage() {
           Collaborate on your next system.
         </h2>
         <Link
-          href="/about"
+          href="mailto:dharmayudistira2000@gmail.com"
           className="bg-primary px-8 py-3 font-heading text-[11px] font-bold uppercase tracking-[0.2em] text-primary-foreground transition-all hover:scale-[1.02] active:scale-95"
         >
           Initiate_Contact
