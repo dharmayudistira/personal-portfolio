@@ -40,9 +40,9 @@ const _WORKS: Work[] = [
     title: "Sukanda Onelink",
     image: "/works/sukanda.png",
     description:
-      "B2B e-commerce platform for PT Diamond Food Indonesia — connecting 9,000+ F&B entrepreneurs across 21 cities with raw materials, ingredients, and equipment.",
+      "B2B procurement platform for PT Diamond Food Indonesia. Restaurants, cafes, and food businesses across 21 Indonesian cities browse the catalogue, place orders, and track deliveries from one place, around the clock.",
     longDescription:
-      "Sukanda Onelink is the digital procurement platform for PT Diamond Food Indonesia, one of Indonesia's largest F&B distributors. The platform enables restaurant owners, cafes, and food businesses to browse, order, and track raw material deliveries across 21 cities — 24/7, from any device. I joined as a Product Engineer on the web side, working across features that serve thousands of active business accounts.",
+      "Sukanda Onelink is the digital procurement arm of PT Diamond Food Indonesia, one of the country's largest F&B distributors. The platform lets restaurants, cafes, and food businesses across 21 Indonesian cities browse the catalogue, place orders, and track deliveries from any device, any time of day. I joined as a Product Engineer on the web team, shipping features that thousands of active business accounts use daily.",
     category: "Web",
     tags: ["Next.js", "TypeScript", "PostgreSQL", "TanStack Query"],
     createdAt: "2025-07-07",
@@ -55,21 +55,21 @@ const _WORKS: Work[] = [
     featuredOrder: 3,
     confidential: true,
     impacts: [
-      "Contributed to a platform serving 9,000+ active F&B business accounts across 21 Indonesian cities, handling real-time order creation and monitoring at scale.",
-      "Built and maintained core web features including multi-outlet account management, order tracking, and promotional campaign surfaces.",
-      "Implemented data-fetching and caching layers using TanStack Query, reducing redundant API calls and improving page responsiveness across catalogue and order flows.",
-      "Collaborated with backend and design to deliver cross-platform ordering experiences consistent between the web and mobile app.",
-      "Shipped features under a structured release cadence aligned with the PT Diamond Food Indonesia product roadmap.",
+      "Worked on a platform that serves 9,000+ active F&B business accounts across 21 Indonesian cities. Real-time order creation and tracking had to hold up at that scale without falling over during peak hours.",
+      "Built and maintained core web surfaces: multi-outlet account management for chains running several branches, the order tracking flow, and the promotional campaign pages that drive seasonal pushes.",
+      "Rebuilt the data-fetching and caching layer around TanStack Query. Cut redundant API calls across the catalogue and order flows and made page-to-page navigation feel noticeably more responsive.",
+      "Worked closely with backend and design to keep the web and mobile ordering experiences in sync, so customers using both never had to relearn the flow.",
+      "Shipped features on a structured release cadence aligned to PT Diamond Food Indonesia's product roadmap, coordinated with the wider product, design, and QA teams.",
     ],
   },
   {
     slug: "simpan",
     title: "Simpan",
-    seoTitle: "Simpan — Flutter Investing App",
+    seoTitle: "Simpan: Flutter Investing App for Indonesian Investors",
     description:
-      "Flutter case study: inherited a legacy BLoC codebase, refactored architecture, introduced tests from near-zero, and shipped the app to production with a 4.8 App Store rating.",
+      "Took over a legacy Flutter investing app from a previous vendor. Refactored the BLoC architecture, built a test suite from near-zero coverage, and shipped to production with a 4.8 App Store rating.",
     longDescription:
-      "Simpan is a guided investing app for everyday Indonesian investors. My team took over the project from a previous vendor, inheriting a legacy Flutter codebase with accumulated tech debt, inconsistent patterns, and minimal test coverage. We audited, stabilised, and refactored the codebase — establishing proper BLoC architecture, introducing a test suite, and resolving critical bugs — before resuming feature delivery and shipping the app to production.",
+      "Simpan is a guided investing app for everyday Indonesian investors. My team took over the project from a previous vendor, inheriting a Flutter codebase with years of accumulated tech debt, inconsistent patterns, and almost no tests. The first phase was not feature work, it was triage: audit the worst offenders, settle on a single BLoC pattern, build a test harness from near-zero coverage, and clear the bug backlog that had been blocking releases. Once the foundation held up, we resumed feature delivery and shipped the app to production.",
     image: "/works/simpan.webp",
     category: "Mobile",
     tags: ["Flutter", "BLoC", "Dart", "Firebase"],
@@ -83,23 +83,23 @@ const _WORKS: Work[] = [
     featured: false,
     confidential: true,
     impacts: [
-      "Inherited a legacy Flutter codebase from a previous vendor — conducted a full audit, identified critical issues, and established a recovery plan before resuming active development.",
-      "Refactored state management to follow BLoC best practices, replacing inconsistent patterns left by the previous team and making the codebase predictable and maintainable.",
-      "Introduced unit and widget testing across core investment flows, building a test suite from near-zero coverage to support safe iteration.",
-      "Resolved long-standing bugs across onboarding, portfolio selection, and transaction screens — stabilising the app to a product-ready state.",
-      "Defined and enforced coding standards and architecture conventions across the team to prevent regression and align new contributors quickly.",
-      "Collaborated closely with product and backend to scope, estimate, and deliver features on a structured release cadence after the handover.",
-      "App shipped to production with 1K+ downloads, a 4.8 rating on the App Store and 4.3 on Google Play — reflecting the quality uplift from the stabilisation effort.",
+      "Inherited a legacy Flutter codebase from a previous vendor. Spent the first phase auditing the worst offenders, identifying critical issues, and writing a recovery plan before any new feature work resumed.",
+      "Refactored state management to follow proper BLoC conventions, replacing the mix of patterns the previous team had left behind. Made the codebase predictable enough that new engineers could ship features without constantly asking which pattern to follow.",
+      "Built a test suite from near-zero coverage. Unit and widget tests across onboarding, portfolio selection, and transactions, so the flows that mattered most could be changed without crossing fingers on every release.",
+      "Cleared the bug backlog across onboarding, portfolio selection, and transaction screens that had been blocking releases since the handover, stabilising the app to a product-ready state.",
+      "Defined and enforced coding standards and architecture conventions across the team, so the patterns we had just spent months consolidating would not start drifting again.",
+      "Worked closely with product and backend to scope, estimate, and deliver features on a structured release cadence once the codebase was healthy enough to build on again.",
+      "App shipped to production with 1K+ downloads, a 4.8 rating on the App Store, and 4.3 on Google Play, reflecting the quality lift from the stabilisation effort.",
     ],
   },
   {
     slug: "agentai",
     title: "AgentAI",
-    seoTitle: "AgentAI — AI Marketing Automation for Real Estate",
+    seoTitle: "AgentAI: AI Marketing Automation for Real Estate Teams",
     description:
-      "Fullstack engineer on a real estate AI SaaS — UI migration (Chakra→MUI), OpenAI/LangChain integration, Stripe billing, and B2B multi-tenant architecture on Next.js + NestJS.",
+      "Joined a legacy Next.js + NestJS SaaS for real estate marketing. Migrated Chakra to MUI, wired up OpenAI and LangChain, shipped Stripe billing, and rebuilt the whole product from single-user to B2B multi-tenant.",
     longDescription:
-      "AgentAI is a SaaS platform that helps real estate teams automate their marketing operations using AI. I joined as a Product Engineer on a legacy Next.js + NestJS codebase, taking ownership of both frontend and backend across a significant product evolution: UI migration from Chakra to MUI, OpenAI and LangChain integration, Stripe billing implementation, and a full B2B migration from a personal-use product to a multi-tenant architecture. The work spanned the full product stack — from React component architecture on the frontend to NestJS module design and database modelling on the backend — with a consistent focus on reducing tech debt while shipping new capability.",
+      "AgentAI is a SaaS that helps real estate teams automate their marketing with AI. I joined as a Product Engineer when the codebase was already a few years old and carrying real tech debt, and the product needed to evolve fast on top of that: a UI overhaul, AI features, payments, and a shift from a single-user tool to a proper B2B platform. I owned both sides of the stack across that evolution. Most days were a mix of paying down debt in old NestJS modules, shipping new React surfaces in MUI, and figuring out how to drop OpenAI and LangChain into workflows that previously had no AI in them at all.",
     image: "/works/agentai.jpeg",
     category: "Web",
     tags: ["Next.js", "TypeScript", "NestJS", "OpenAI", "LangChain", "MUI", "Stripe", "MongoDB"],
@@ -112,23 +112,23 @@ const _WORKS: Work[] = [
     featured: false,
     confidential: true,
     impacts: [
-      "Took over a legacy Next.js + NestJS codebase and led ongoing maintenance, feature development, and tech debt reduction across both frontend and backend.",
-      "Migrated the entire UI component layer from Chakra UI to Material UI (MUI), standardising the design system and improving developer ergonomics across all pages.",
-      "Researched and integrated OpenAI and LangChain to power the platform's AI agent features — enabling automated content generation and marketing workflows for real estate teams.",
-      "Implemented Stripe payment infrastructure end-to-end: billing plans, webhook handling, and subscription lifecycle management — enabling the product's revenue model.",
-      "Led the migration from a personal-use product to a B2B multi-tenant architecture, introducing user groups, roles, and organisation-level access controls.",
-      "Refactored core business logic across NestJS modules to align with framework best practices — improving code clarity, testability, and maintainability ahead of team scaling.",
+      "Inherited a multi-year-old Next.js + NestJS codebase with significant accumulated debt. Audited the worst-offending modules first, then split each sprint between paying down debt and shipping the features the roadmap actually needed.",
+      "Migrated the entire UI from Chakra UI to Material UI, page by page. Set up shared theming and component primitives early so each subsequent page took less time to port than the last one.",
+      "Researched and integrated OpenAI and LangChain into the platform's core marketing workflows. The hardest part was not the API calls, it was reshaping the existing data flow so AI output had somewhere to land without breaking the parts that already worked.",
+      "Built Stripe billing from scratch: plan modelling, checkout, webhook handling, and the full subscription lifecycle (trial, upgrade, downgrade, cancel, payment failure). This was the work that turned the product into a revenue-generating one.",
+      "Drove the migration from a single-user product to multi-tenant B2B. Introduced organisations, user groups, and role-based access control across the API and the UI. Required rewriting most queries to be tenant-scoped and backfilling existing users into a default tenant without breaking the live app.",
+      "Refactored core business logic across NestJS modules to follow framework conventions instead of the improvised patterns the original team had left behind. Made the code easier to test and easier for the next engineer to onboard into.",
     ],
   },
   {
     slug: "kickavenue",
     title: "KickAvenue",
-    seoTitle: "KickAvenue — Flutter Rebuild, 500K+ Downloads",
+    seoTitle: "KickAvenue: Flutter Rebuild for Indonesia's Sneaker Marketplace",
     description:
-      "Led a ground-up Flutter rebuild of KickAvenue — Indonesia's authenticated sneaker marketplace. Cross-platform Android + iOS, Riverpod architecture, shipped to 500K+ downloads.",
+      "Ground-up Flutter rebuild of KickAvenue, Indonesia's authenticated sneaker marketplace. One codebase for Android and iOS, Riverpod under the hood, shipped to 500K+ downloads.",
     ogImageDimensions: { width: 1029, height: 914 },
     longDescription:
-      "Led the ground-up rebuild of KickAvenue, an authenticated marketplace for sneakers, apparels, and handbags carrying brands like Jordan, Yeezy, OFF-WHITE, and Nike. Migrated the aging native Android codebase to a modern Flutter application with Riverpod state management, delivering a faster, more maintainable, and visually refined experience across Android and iOS. The app serves tens of thousands of users with features like real-time product search, a make-an-offer bidding system, and seller listing tools.",
+      "KickAvenue is Indonesia's authenticated marketplace for sneakers, apparel, and handbags, carrying brands like Jordan, Yeezy, OFF-WHITE, and Nike. The aging native Android codebase had hit the point where iteration was getting expensive, so the team went for a ground-up rebuild rather than another round of patches. I led the migration to Flutter with Riverpod, shipping Android and iOS from a single codebase and giving the product a faster, calmer, more maintainable foundation. The app serves tens of thousands of users with real-time product search, a make-an-offer bidding system, and seller listing tools.",
     image: "/works/kickavenue.webp",
     category: "Mobile",
     tags: ["Flutter", "Riverpod", "Dart", "Firebase"],
@@ -143,26 +143,26 @@ const _WORKS: Work[] = [
     featuredOrder: 2,
     confidential: true,
     impacts: [
-      "Led the ground-up rebuild from a legacy native Android codebase to a cross-platform Flutter app, delivering both Android and iOS from a single codebase.",
-      "Architected a feature-first modular structure with Riverpod for scalable, testable state management — provider scoping enforced predictable data flow across complex marketplace screens.",
-      "Implemented repository pattern to abstract the API layer, making the codebase easy to iterate on and reducing onboarding time for new engineers.",
-      "Delivered a full UI overhaul — redesigned product discovery, streamlined checkout, and refined brand identity into a modern component library.",
-      "Applied lazy loading, image caching, and optimized list rendering to handle smooth browsing across thousands of product listings.",
-      "Shipped cross-platform support contributing to the app reaching 500K+ downloads on Android and iOS.",
+      "Led the ground-up rebuild from a legacy native Android codebase to a cross-platform Flutter app. Android and iOS now ship from one codebase, so every new feature lands on both platforms in a single pass.",
+      "Architected the project as feature-first modules with Riverpod handling state. Provider scoping kept data flow predictable on the screens with the most moving parts (search, listing detail with live offers, checkout) where the previous codebase had been hardest to reason about.",
+      "Wrapped the API layer in a repository pattern so screens never touch HTTP directly. New engineers could land features without having to learn the network stack first.",
+      "Delivered a full UI overhaul: redesigned product discovery, streamlined checkout, and refined the brand identity into a reusable component library that the rest of the app builds on.",
+      "Applied lazy loading, aggressive image caching, and tuned list rendering so browsing stays smooth across thousands of product listings, even on lower-end Android devices.",
+      "Shipped cross-platform support that contributed to the app reaching 500K+ combined downloads across Android and iOS.",
     ],
   },
   {
     slug: "truequity",
     title: "Truequity",
-    seoTitle: "Truequity — AI Portfolio Tracker for Crypto, Stocks & IDX",
+    seoTitle: "Truequity: AI Portfolio Tracker for IDX, US Stocks & Crypto",
     description:
-      "Built Truequity — a full-stack Next.js PWA that unifies crypto, US, and IDX portfolios with Claude Vision AI transaction entry, live benchmark comparison, and realized PnL tracking.",
+      "One dashboard for Indonesian stocks, US equities, and crypto. Drop a broker screenshot, Claude fills the form. Built it because checking my portfolio meant opening three different apps every morning.",
     ogImageDimensions: { width: 2880, height: 1732 },
     longDescription:
-      "Truequity is a modern wealth tracking application built for individual investors managing diversified portfolios across multiple asset classes. It consolidates crypto, US equities, and Indonesian (IDX) equities into a single dashboard with real-time pricing, benchmark performance comparison against Bitcoin, S&P 500, and IHSG, a daily realized PnL calendar computed from sell transactions using average cost method, and AI-powered transaction entry via Claude Vision — eliminating the tedious manual data entry that plagues most portfolio trackers. Installable as a PWA for a native-like mobile experience. Built as a full-stack Next.js application with Supabase, TanStack Query, and Recharts.",
+      "I hold positions across Indonesian stocks, US equities, and crypto. Checking how the whole thing was doing meant opening three different apps and reconciling everything in a spreadsheet I'd keep up for a few weeks then abandon. Nothing existing took IDX seriously and also felt calm enough to use daily, so I shipped one. Truequity tracks IDX stocks (with proper LOT handling), US equities, and crypto on a single dark dashboard, benchmarks the whole portfolio against IHSG, S&P 500, and Bitcoin on the same chart, and uses Claude Vision to read broker screenshots so I never have to type a trade again. Built with Next.js 16, Supabase, and TanStack Query.",
     image: "/works/truequity.png",
     category: "Web",
-    tags: ["Next.js", "TypeScript", "Supabase", "TanStack Query", "Recharts", "Claude AI", "PWA"],
+    tags: ["Next.js", "TypeScript", "Supabase", "TanStack Query", "Recharts", "Claude AI"],
     createdAt: "2026-04-02",
     updatedAt: "2026-04-02",
     role: "Founder / Product Engineer",
@@ -173,53 +173,42 @@ const _WORKS: Work[] = [
     featuredOrder: 1,
     sections: {
       problem: {
-        body: "Indonesian retail investors who hold diversified portfolios across crypto, US equities, local IDX stocks, and physical gold face a fragmented tracking problem. Positions are spread across Binance, Stockbit, Schwab, and Pegadaian with no single source of truth. Most portfolio trackers show P&L but never answer the real question: am I actually beating the market? On top of that, Indonesian investors constantly juggle IDR-denominated local assets with USD-denominated crypto and US stocks — making total portfolio valuation genuinely complex.",
-        quote:
-          "You can't manage what you can't see. Every serious investor deserves one place where the full picture is clear.",
+        body: "Indonesian retail investors who hold a mix of local stocks, US equities, and crypto have no single source of truth for their portfolio. Global trackers ignore IDX or treat it as a special case with manual workarounds. Brokerage apps each cover their own slice well but make money when users trade more, not when users reflect. Spreadsheets rot inside two months. The result is the daily fragmentation tax: open the Indonesian broker app first, then the US broker, then the crypto exchange, then do arithmetic in your head to figure out where you stand. On top of that, every Indonesian multi-asset investor is constantly translating between IDR for local positions and USD for crypto and US stocks, which makes total portfolio value genuinely hard to know without sitting down with a calculator.",
+        quote: "You can't manage what you can't see.",
       },
       solution: {
-        body: "Truequity unifies all four asset classes into a single dashboard with live pricing, cost-basis analytics, and benchmark overlays. The AI extraction feature lets users upload broker screenshots — Claude Vision parses the transaction details automatically, reducing manual entry to a review step. Multi-currency support with live USD/IDR conversion ensures total portfolio value is always accurate regardless of asset denomination.",
+        body: "Truequity is one calm dashboard with four jobs: track everything in one place, tell me whether I'm beating the market, kill the typing on transaction entry, and respect Indonesian conventions natively. It is deliberately monitoring-only. No buy buttons, no trade prompts, no gamification, no encouraging copy when the portfolio is down. The whole thing is built to answer one question without making the user work for it: how is the portfolio doing this week, and against what?",
         features: [
           {
             name: "Unified Dashboard",
             description:
-              "Consolidate crypto, US stocks, and IDX stocks into one real-time portfolio view with allocation breakdown and total P&L.",
+              "IDX stocks, US equities, crypto, and idle cash on one screen. Toggle between USD and IDR; every value updates within a second.",
           },
           {
-            name: "Benchmark Comparison",
+            name: "Benchmark Chart",
             description:
-              "Overlay portfolio returns against Bitcoin, S&P 500, and IHSG benchmarks. Both lines start at 0% on day one — no ambiguity.",
+              "Time-weighted portfolio return overlaid against IHSG, S&P 500, or Bitcoin on the same line. Both start at zero on day one so the comparison is honest, not flattering.",
           },
           {
-            name: "AI Transaction Extraction",
+            name: "AI Screenshot Extraction",
             description:
-              "Upload a broker or exchange screenshot. Claude Haiku Vision parses the transaction details and auto-populates the form — supports 20+ platforms.",
+              "Drop a broker or exchange screenshot. Claude Vision pulls ticker, quantity, price, and date in about three seconds. You check the form and save. The model never submits for you.",
           },
           {
-            name: "Multi-Currency Support",
+            name: "Realized P&L Calendar",
             description:
-              "Live USD/IDR conversion via Yahoo Finance. Switch display currency in one click; all values update instantly across the dashboard.",
+              "Heatmap of realized gains and losses per trading day, computed client-side from sell records using weighted-average cost basis. Hover (desktop) or scroll the activity feed (mobile) for the per-trade breakdown.",
           },
           {
-            name: "Daily PnL Calendar",
+            name: "Cash Ledger",
             description:
-              "Heatmap calendar showing realized P&L per trading day, computed from sell transactions using the average cost method. Color intensity reflects magnitude — hover (desktop) or scroll the activity feed (mobile) for per-trade breakdown.",
-          },
-          {
-            name: "Cash Flow Tracking",
-            description:
-              "Cash history automatically captures deposits, withdrawals, and the cash impact of every buy/sell transaction — giving a complete picture of capital movement across the portfolio.",
-          },
-          {
-            name: "Progressive Web App",
-            description:
-              "Installable as a Progressive Web App on Android and iOS. Runs in standalone mode with an in-app update prompt when a new version is deployed.",
+              "Idle cash tracked alongside positions in both currencies. Buys and sells with cash impact debit and credit automatically; everything else is a manual deposit or withdrawal.",
           },
         ],
         asset: { type: "video", url: "/works/truequity.mp4" },
       },
       technical: {
-        body: "Built on Next.js 16 App Router with Supabase handling auth, PostgreSQL, and Row Level Security. All external API calls (CoinGecko, Yahoo Finance, Anthropic) are routed through server-side API routes to protect keys and enable server-side caching. TanStack Query manages client-side caching with aggressive stale times to stay within CoinGecko's free tier limits. The benchmark performance chart builds daily portfolio values by accumulating user transactions over time, then calculates percentage returns from a shared start date — so portfolio and benchmark lines are directly comparable. Realized P&L is computed entirely client-side using an average cost method: sell records are processed chronologically, each matched against accumulated cost basis per ticker, with all values normalised to IDR via the live exchange rate. PWA support is handled via @ducanh2912/next-pwa with a Workbox service worker; the update prompt only fires in standalone mode to avoid disrupting regular browser sessions.",
+        body: "Next.js 16 App Router with Supabase handling Postgres, Auth, and Row Level Security. Every external API call (CoinGecko, Yahoo Finance, Anthropic) routes through server-side API routes so keys stay on the server and responses can be cached. TanStack Query manages client-side caching with aggressive stale times to stay inside CoinGecko's 10K/month free tier during beta. The benchmark chart accumulates user transactions into daily portfolio values, then converts both portfolio and benchmark to percentage returns from a shared start date so the two lines are directly comparable instead of the usual apples-to-oranges overlay. Realized P&L runs entirely client-side: sell records are processed chronologically, each matched against accumulated cost basis per ticker using weighted-average, with everything normalised to IDR via the live exchange rate.",
         code: {
           language: "typescript",
           filename: "use-prices.ts",
@@ -233,7 +222,7 @@ const _WORKS: Work[] = [
       })
       return res.json() as Promise<PriceMap>
     },
-    staleTime: 60_000,      // 60s — respects CoinGecko free tier
+    staleTime: 60_000,      // 60s, respects CoinGecko free tier
     refetchInterval: 60_000,
     enabled: tickers.length > 0,
   })
@@ -243,7 +232,7 @@ export function useExchangeRate() {
   return useQuery({
     queryKey: ["exchange-rate"],
     queryFn: () => fetch("/api/exchange-rate").then(r => r.json()),
-    staleTime: 24 * 60 * 60 * 1000, // 24h cache — IDR/USD is slow-moving
+    staleTime: 24 * 60 * 60 * 1000, // 24h cache, IDR/USD is slow-moving
   })
 }`,
         },
@@ -254,9 +243,9 @@ export function useExchangeRate() {
     slug: "decare",
     title: "DeCare",
     description:
-      "Android app for in-home caregivers to detect dementia early and improve patient quality of life — Bangkit Academy 2021 capstone.",
+      "Android app for in-home caregivers to detect dementia early and support patient quality of life. Built as a Bangkit Academy 2021 capstone.",
     longDescription:
-      "DeCare is an Android application built to support in-home caregivers in improving dementia patients' quality of life. Born from a deeply personal experience with a family member's undiagnosed dementia, the project addresses the lack of accessible early-detection tools — especially in low-to-middle income households where 68% of cases go untreated. Built as a capstone project for Bangkit Academy 2021, DeCare combines MMSE screening with cloud-based ML prediction, daily exercise guidance, activity reminders, health articles, and progress tracking.",
+      "DeCare is an Android app for in-home caregivers looking after dementia patients. The project came out of a personal experience: a family member whose dementia went undiagnosed because the early signs looked like normal aging, and because no one in the family knew where to look for help. Indonesia has 1.2 million recorded cases, 68% of them in low-to-middle income households where care is largely informal and detection tools are out of reach. DeCare combines MMSE screening with cloud-based ML prediction, daily exercise guidance, activity reminders, curated health articles, and progress tracking. Built as a capstone for Bangkit Academy 2021.",
     image: "/works/decare.png",
     category: "Mobile",
     tags: ["Kotlin", "Android", "Firebase", "TensorFlow"],
@@ -268,38 +257,38 @@ export function useExchangeRate() {
     featuredOrder: 4,
     sections: {
       problem: {
-        body: "Dementia affects over 50 million people globally, with nearly 10 million new cases every year. In Indonesia alone, 1.2 million cases were recorded in 2016 — a number that doubles every 20 years. 68% of cases come from low-to-middle income families, and 61% of patients stay at home without proper treatment due to the high cost of care. The core issue is a lack of knowledge — families and caregivers often dismiss early symptoms like forgetfulness and mood swings as normal aging, delaying diagnosis until it's too late.",
+        body: "Dementia affects over 50 million people globally, with nearly 10 million new cases every year. In Indonesia alone, 1.2 million cases were recorded in 2016, a number that doubles every 20 years. 68% of cases come from low-to-middle income families, and 61% of patients stay at home without proper treatment because professional care is too expensive. The deeper problem is awareness. Families and caregivers often read early symptoms like forgetfulness and mood swings as normal aging, so the diagnosis arrives years late, when interventions matter much less.",
         quote:
           "My grandma went missing for three days. When a neighbor found her far from home, she couldn't remember where she lived or her family's names. That's when we knew it was dementia.",
       },
       solution: {
-        body: "DeCare provides an accessible, in-home tool for early dementia detection and ongoing patient care. The app walks caregivers through MMSE screening, sends patient data to a cloud ML model for prediction, and offers daily tools to maintain and improve quality of life.",
+        body: "DeCare puts an early-detection tool directly in the caregiver's hands. The app walks them through the MMSE screening step by step, sends the results to a cloud ML model for a prediction, and then keeps showing up after the screening with daily exercises, activity reminders, and care guidance. Detection is the start of the relationship with the app, not the end of it.",
         features: [
           {
             name: "MMSE_SCREENING",
             description:
-              "Guided Mini-Mental State Examination flow that scores cognitive function and flags early signs of dementia.",
+              "Guided Mini-Mental State Examination flow with step-by-step prompts. Scores cognitive function and flags early warning signs.",
           },
           {
             name: "ML_PREDICTION",
             description:
-              "Cloud-based machine learning model analyzes screening results and patient data to predict dementia likelihood.",
+              "Screening results and patient data are sent to a cloud ML model that returns a likelihood score, so the caregiver does not have to interpret the MMSE on their own.",
           },
           {
             name: "DAILY_CARE",
             description:
-              "Exercise guidance, scheduled activity reminders, and curated health articles to support ongoing patient wellbeing.",
+              "Cognitive exercises, scheduled activity reminders, and a small library of caregiver-oriented articles to support the patient day to day.",
           },
           {
             name: "PROGRESS_TRACKING",
             description:
-              "Recapitulation dashboard for caregivers to monitor patient progress over time and share with professionals.",
+              "Dashboard that tracks screening scores and care activity over time. Caregivers can review progress at home and bring the same view to a doctor visit.",
           },
         ],
         asset: { type: "video", url: "/works/decare.mp4" },
       },
       technical: {
-        body: "Built natively in Kotlin with Android Jetpack components. The ML pipeline runs on Google Cloud — patient data is sent via REST API to a TensorFlow model that returns a dementia probability score. Firebase handles authentication, real-time database for patient records, and Cloud Messaging for activity reminders.",
+        body: "Built natively in Kotlin with Android Jetpack components. The ML pipeline runs on Google Cloud: patient data is sent via REST to a TensorFlow model that returns a dementia probability score. Firebase handles authentication, real-time database for patient records, and Cloud Messaging for the activity reminders.",
         code: {
           language: "kotlin",
           filename: "ScreeningViewModel.kt",
