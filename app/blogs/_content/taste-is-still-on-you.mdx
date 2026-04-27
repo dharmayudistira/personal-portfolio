@@ -1,0 +1,60 @@
+---
+title: "Taste is still on you"
+description: "Notes on Addy Osmani's The Effective Software Engineer, and what a year of writing code with AI made me admit about my own work."
+date: "2026.04.27"
+updatedAt: "2026.04.28"
+tags: ["AI", "Career", "Reflection", "Effective Engineering", "Book"]
+readTime: "4 min"
+published: true
+cover: "/blogs/taste-is-still-on-you/cover.png"
+---
+
+The first time AI really shifted my work, it was on tests.
+
+For three years, writing tests was the part of my job I respected and disliked in equal measure. Repetitive, easy to get wrong, the kind of work you knew mattered but never felt clever doing. Then I started letting AI scaffold the scenarios, hold the discipline, and draft the docs. Suddenly tests were not a tax. They were leverage.
+
+I rode that wave for months. Then one weekend I tried the same trick on a design-to-code task, and it bit me back.
+
+That weekend ended with a component that worked, looked right, and inside was three layers of useMemo and a dependency cycle I had to unwind by hand. Dead code I had not noticed until the next morning. The kind of code I would have failed in review two years ago, written by me, four hours earlier. I caught it before it shipped, but only because three years of muscle memory still flinches at things AI does not flinch at.
+
+That gap between "tests" and "design-to-code" is the gap I did not have a name for, until I read Addy Osmani's *The Effective Software Engineer*.
+
+## The book in one line
+
+Osmani builds the whole book around a Peter Drucker quote: *Efficiency is doing things right; effectiveness is doing the right things.* (Drucker, quoted in Osmani's Preface, p. vii.) Good engineers obsess over the first. Great ones obsess over the second.
+
+I expected another AI productivity book. It is not. It is a book about judgment, with AI as one of the loudest examples of why judgment matters more now, not less.
+
+## What the book confirmed
+
+Osmani calls AI "an extremely knowledgeable but naive intern" (Osmani, p. 230). That single line is the cleanest summary of my last year I have read.
+
+The intern is incredible at the work I used to dread. Tests, scaffolding, summarizing a long PR, drafting a doc. Anything where the shape is clear and the volume is high. That is where my testing turning point came from. The intern just never gets bored.
+
+The intern is also, confidently, wrong. It will hand you a refactor that introduces circular deps and call it cleaner. It will rewrite a hook into something that compiles, passes, and quietly recomputes on every render. If you have not built the muscle to feel that something is off, you will ship it. I almost did. The only reason I did not is that I spent three years writing this stuff by hand before AI could write any of it.
+
+The book does not soften this part. AI raises the floor. It does not raise your taste. Taste is still on you.
+
+## What the book reframed
+
+The part I did not see coming was the career part.
+
+For most of my work I have been a frontend engineer, web and mobile, deep in design systems, state, and complex UI logic. I treated backend and infra as someone else's job, less out of laziness and more out of a quiet belief that depth in one place was the safer career bet than breadth across many.
+
+Osmani did not exactly disagree. What he did was reframe AI as the thing that makes breadth cheap. Somewhere along the way I started thinking of AI less as a code generator and more as a discussion partner. On the backend questions I used to dance around, the intern is good enough to argue with. Good enough to pressure-test my assumptions. Good enough that I now ship features end to end where a year ago I would have waited for someone else.
+
+So the trade is no longer depth versus breadth. It is depth in the things that are uniquely yours, and AI-shaped breadth across everything else.
+
+## What I do with the saved time
+
+Osmani is firm about this. Clearing drudgery is not so you can write more code. It is so you can spend the saved time on the things only you can do.
+
+Honestly, I am still figuring out my own version of this. Some of it goes into design thinking, which used to get squeezed at the end of every sprint and now gets the front seat. Some goes into side projects. Some into reading, which I had quietly stopped in 2023 and started again this year. Some of it, I will admit, goes nowhere productive at all. The book does not pretend you fill every recovered hour with deep work. It just asks you to notice where the hours are going.
+
+## The line I keep coming back to
+
+> "The future of software engineering isn't AI replacing engineers. It's engineers who know how to effectively harness AI replacing those who don't." (Osmani, p. 231.)
+
+I used to read sentences like that as marketing. After a year of using AI seriously, and one weekend of cleaning up after it, I read it differently. The differentiator is not who prompts the fastest. It is who has the judgment to know what is worth building, and the taste to recognize when the intern got it wrong.
+
+That part of the job is still mine. The book is a reminder that I should treat it like the most important part.
