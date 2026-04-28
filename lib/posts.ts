@@ -16,6 +16,7 @@ export type PostMeta = {
   readTime: string
   published: boolean
   cover?: string
+  kicker?: string
 }
 
 export type PostTagGroup = { label: string; tags: string[] }
@@ -40,6 +41,7 @@ export function getAllPosts(): PostMeta[] {
         readTime: data.readTime ?? "",
         published: data.published ?? false,
         cover: data.cover,
+        kicker: data.kicker,
       } satisfies PostMeta
     })
     .filter((p) => p.published)
