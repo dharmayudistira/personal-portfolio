@@ -65,8 +65,8 @@ export function PostGrid({ posts, tagGroups }: PostGridProps) {
       </section>
 
       <section className="grid grid-cols-1 gap-x-12 gap-y-16 md:grid-cols-2">
-        {visible.map((post) => (
-          <PostCard key={post.slug} post={post} />
+        {visible.map((post, i) => (
+          <PostCard key={post.slug} post={post} priority={i < 2} />
         ))}
         {filtered.length === 0 && (
           <div className="col-span-full py-24 text-center">

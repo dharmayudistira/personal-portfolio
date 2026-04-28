@@ -10,6 +10,7 @@ function getRecentPosts() {
       excerpt: p.description,
       date: p.date,
       tag: p.tags[0]?.replace(/\s/g, "_") ?? "",
+      kicker: p.kicker?.replace(/\s/g, "_") ?? "",
     }))
 }
 
@@ -43,9 +44,15 @@ export function RecentPosts() {
             {/* Hover gradient */}
             <div className="pointer-events-none absolute inset-0 size-full bg-gradient-to-b from-foreground/[0.03] to-transparent opacity-0 transition duration-200 group-hover/post:opacity-100" />
 
-            {/* Date */}
-            <div className="relative z-10 mb-6 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/50">
-              {post.date}
+            {/* Date + kicker */}
+            <div className="relative z-10 mb-6 flex items-center gap-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground/50">
+              <span>{post.date}</span>
+              {post.kicker ? (
+                <>
+                  <span className="text-muted-foreground/30">{"//"}</span>
+                  <span className="text-foreground/70">{post.kicker}</span>
+                </>
+              ) : null}
             </div>
 
             {/* Title with accent bar */}

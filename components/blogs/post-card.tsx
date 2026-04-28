@@ -5,9 +5,10 @@ import type { PostMeta } from "@/lib/posts"
 
 type PostCardProps = {
   post: PostMeta
+  priority?: boolean
 }
 
-export function PostCard({ post }: PostCardProps) {
+export function PostCard({ post, priority = false }: PostCardProps) {
   return (
     <article className="group pb-8">
       <Link href={`/blogs/${post.slug}`} className="block">
@@ -18,11 +19,12 @@ export function PostCard({ post }: PostCardProps) {
               src={post.cover}
               alt={post.title}
               fill
-              className="object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
+              className="object-cover"
               sizes="(max-width: 768px) 100vw, 50vw"
+              priority={priority}
             />
           ) : (
-            <div className="flex size-full items-center justify-center bg-gradient-to-br from-secondary to-background grayscale transition-all duration-500 group-hover:grayscale-0">
+            <div className="flex size-full items-center justify-center bg-gradient-to-br from-secondary to-background">
               <span className="font-mono text-xs uppercase tracking-widest text-muted-foreground/40">
                 [{post.slug}]
               </span>
@@ -35,19 +37,16 @@ export function PostCard({ post }: PostCardProps) {
           <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
             {post.date}
           </span>
-          {post.tags.slice(0, 3).map((tag) => (
-            <span
-              key={tag}
-              className="border border-foreground/5 bg-secondary/30 px-2 py-0.5 font-mono text-[9px] uppercase tracking-widest text-muted-foreground"
-            >
-              {tag}
-            </span>
-          ))}
-          {post.tags.length > 3 && (
-            <span className="font-mono text-[9px] uppercase tracking-widest text-muted-foreground/50">
-              +{post.tags.length - 3}
-            </span>
-          )}
+          {post.kicker ? (
+            <>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-muted-foreground/40">
+                {"//"}
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-widest text-foreground">
+                {post.kicker.replace(/\s/g, "_")}
+              </span>
+            </>
+          ) : null}
         </div>
 
         {/* Title */}
@@ -60,12 +59,25 @@ export function PostCard({ post }: PostCardProps) {
           {post.description}
         </p>
 
-        {/* Read time */}
-        <div className="flex items-center gap-5 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
+        {/* Read time + tags */}
+        <div className="flex flex-wrap items-center gap-3 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
           <span className="flex items-center gap-1.5">
             <Clock className="size-3" />
             {post.readTime}
           </span>
+          {post.tags.slice(0, 3).map((tag) => (
+            <span
+              key={tag}
+              className="border border-foreground/5 bg-secondary/30 px-2 py-0.5 text-[9px]"
+            >
+              {tag}
+            </span>
+          ))}
+          {post.tags.length > 3 && (
+            <span className="text-[9px] text-muted-foreground/50">
+              +{post.tags.length - 3}
+            </span>
+          )}
         </div>
       </Link>
     </article>

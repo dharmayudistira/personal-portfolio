@@ -153,7 +153,7 @@ export default async function BlogDetailPage({ params }: Props) {
               src={post.cover}
               alt={post.title}
               fill
-              className="object-cover grayscale transition-all duration-700 hover:grayscale-0"
+              className="object-cover"
               sizes="100vw"
               priority
             />
