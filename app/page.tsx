@@ -1,5 +1,10 @@
 import type { Metadata } from "next"
 import { Hero } from "@/components/home/hero"
+import { TechMarquee } from "@/components/home/tech-marquee"
+import { FeaturedWorks } from "@/components/home/featured-works"
+import { RecentPosts } from "@/components/home/recent-posts"
+import { Connect } from "@/components/home/connect"
+import { SectionDivider } from "@/components/shared/section-divider"
 
 export const metadata: Metadata = {
   title: "Dharma Yudistira — Product Engineer",
@@ -7,11 +12,6 @@ export const metadata: Metadata = {
     "Product Engineer building web and mobile experiences end-to-end — from database schema to the last pixel on screen.",
   alternates: { canonical: "/" },
 }
-import { TechMarquee } from "@/components/home/tech-marquee"
-import { FeaturedWorks } from "@/components/home/featured-works"
-import { RecentPosts } from "@/components/home/recent-posts"
-import { Connect } from "@/components/home/connect"
-import { SectionDivider } from "@/components/shared/section-divider"
 
 const personSchema = {
   "@context": "https://schema.org",

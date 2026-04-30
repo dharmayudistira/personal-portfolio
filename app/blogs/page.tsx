@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import { PostGrid } from "@/components/blogs/post-grid"
+import { SectionDivider } from "@/components/shared/section-divider"
+import { getAllPosts, getPostTagGroups } from "@/lib/posts"
 
 export const metadata: Metadata = {
   title: "Blogs",
@@ -15,8 +17,6 @@ export const metadata: Metadata = {
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 }
-import { SectionDivider } from "@/components/shared/section-divider"
-import { getAllPosts, getPostTagGroups } from "@/lib/posts"
 
 export default function BlogsPage() {
   const posts = getAllPosts()

@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import Link from "next/link"
+import { ProjectGrid } from "@/components/works/project-grid"
+import { SectionDivider } from "@/components/shared/section-divider"
 
 export const metadata: Metadata = {
   title: "Works",
@@ -15,8 +17,6 @@ export const metadata: Metadata = {
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },
 }
-import { ProjectGrid } from "@/components/works/project-grid"
-import { SectionDivider } from "@/components/shared/section-divider"
 
 export default function WorksPage() {
   return (
