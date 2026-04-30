@@ -31,6 +31,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       url: `/blogs/${slug}`,
       publishedTime: post.date.replace(/\./g, "-"),
+      modifiedTime: (post.updatedAt ?? post.date).replace(/\./g, "-"),
       tags: post.tags,
       images: post.cover
         ? [{ url: post.cover }]
@@ -81,7 +82,7 @@ export default async function BlogDetailPage({ params }: Props) {
         description: post.description,
         url: `${BASE}/blogs/${slug}`,
         datePublished: post.date.replace(/\./g, "-"),
-        dateModified: post.date.replace(/\./g, "-"),
+        dateModified: (post.updatedAt ?? post.date).replace(/\./g, "-"),
         author: { "@id": `${BASE}/#person` },
         publisher: { "@id": `${BASE}/#person` },
         image: post.cover

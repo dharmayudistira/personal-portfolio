@@ -5,6 +5,7 @@ import matter from "gray-matter"
 const CONTENT_DIR = path.join(process.cwd(), "app/blogs/_content")
 
 let _cache: PostMeta[] | null = null
+const CACHE_ENABLED = process.env.NODE_ENV === "production"
 
 export type PostMeta = {
   slug: string
@@ -21,13 +22,13 @@ export type PostMeta = {
 
 export type PostTagGroup = { label: string; tags: string[] }
 
-/** Read all .mdx files and extract frontmatter metadata. Cached after first call. */
+/** Read all .mdx files and extract frontmatter metadata. Cached in production only. */
 export function getAllPosts(): PostMeta[] {
-  if (_cache) return _cache
+  if (CACHE_ENABLED && _cache) return _cache
 
   const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".mdx"))
 
-  _cache = files
+  const posts = files
     .map((file) => {
       const raw = fs.readFileSync(path.join(CONTENT_DIR, file), "utf-8")
       const { data } = matter(raw)
@@ -47,7 +48,8 @@ export function getAllPosts(): PostMeta[] {
     .filter((p) => p.published)
     .sort((a, b) => b.date.localeCompare(a.date))
 
-  return _cache
+  if (CACHE_ENABLED) _cache = posts
+  return posts
 }
 
 export function getPostBySlug(slug: string): PostMeta | undefined {

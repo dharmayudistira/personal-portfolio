@@ -21,15 +21,18 @@ const incrementViews = async (slug: string): Promise<number> => {
   return data.views ?? 0
 }
 
+const sessionKey = (slug: string) => `view:${slug}`
+
 export function ViewCounter({ slug, increment = false }: ViewCounterProps) {
   const queryClient = useQueryClient()
 
   const { data: views } = useQuery({
     queryKey: ["views", slug],
     queryFn: () => fetchViews(slug),
+    enabled: !increment,
   })
 
-  const { mutate } = useMutation({
+  const { mutate, data: mutatedViews } = useMutation({
     mutationFn: () => incrementViews(slug),
     onSuccess: (newViews: number) => {
       queryClient.setQueryData(["views", slug], newViews)
@@ -37,13 +40,25 @@ export function ViewCounter({ slug, increment = false }: ViewCounterProps) {
   })
 
   useEffect(() => {
-    if (increment) mutate()
-  }, [increment, mutate])
+    if (!increment) return
+    if (typeof window === "undefined") return
+    if (sessionStorage.getItem(sessionKey(slug))) {
+      // Already incremented this session — just read current count.
+      fetchViews(slug).then((v) =>
+        queryClient.setQueryData(["views", slug], v)
+      )
+      return
+    }
+    sessionStorage.setItem(sessionKey(slug), "1")
+    mutate()
+  }, [increment, slug, mutate, queryClient])
+
+  const displayed = views ?? mutatedViews
 
   return (
     <span className="flex items-center gap-1.5">
       <Eye className="size-3" />
-      {views != null ? `${formatViews(views)}_Views` : "—"}
+      {displayed != null ? `${formatViews(displayed)}_Views` : "—"}
     </span>
   )
 }
