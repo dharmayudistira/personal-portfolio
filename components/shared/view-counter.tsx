@@ -43,7 +43,7 @@ export function ViewCounter({ slug, increment = false }: ViewCounterProps) {
     if (!increment) return
     if (typeof window === "undefined") return
     if (sessionStorage.getItem(sessionKey(slug))) {
-      // Already incremented this session — just read current count.
+      // Already incremented this session - just read current count.
       fetchViews(slug).then((v) =>
         queryClient.setQueryData(["views", slug], v)
       )
@@ -58,7 +58,7 @@ export function ViewCounter({ slug, increment = false }: ViewCounterProps) {
   return (
     <span className="flex items-center gap-1.5">
       <Eye className="size-3" />
-      {displayed != null ? `${formatViews(displayed)}_Views` : "—"}
+      {displayed != null ? `${formatViews(displayed)}_Views` : "-"}
     </span>
   )
 }

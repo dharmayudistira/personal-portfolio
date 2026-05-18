@@ -31,11 +31,11 @@ const ibmPlexMono = IBM_Plex_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Dharma Yudistira — Product Engineer",
-    template: "%s — Dharma Yudistira",
+    default: "Dharma Yudistira - Product Engineer",
+    template: "%s - Dharma Yudistira",
   },
   description:
-    "Product Engineer building web and mobile experiences end-to-end — from database schema to the last pixel on screen. Based in Sidoarjo, Indonesia.",
+    "Product Engineer building web and mobile experiences end-to-end - from database schema to the last pixel on screen. Based in Sidoarjo, Indonesia.",
   metadataBase: new URL(
     process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
   ),
@@ -56,17 +56,17 @@ export const metadata: Metadata = {
     url: "https://www.dharma-yudistira.com",
     locale: "en_US",
     siteName: "Dharma Yudistira",
-    title: "Dharma Yudistira — Product Engineer",
+    title: "Dharma Yudistira - Product Engineer",
     description:
-      "Product Engineer building web and mobile experiences end-to-end — from database schema to the last pixel on screen.",
+      "Product Engineer building web and mobile experiences end-to-end - from database schema to the last pixel on screen.",
   },
   twitter: {
     card: "summary_large_image",
     site: "@justamannothero",
     creator: "@justamannothero",
-    title: "Dharma Yudistira — Product Engineer",
+    title: "Dharma Yudistira - Product Engineer",
     description:
-      "Product Engineer building web and mobile experiences end-to-end — from database schema to the last pixel on screen.",
+      "Product Engineer building web and mobile experiences end-to-end - from database schema to the last pixel on screen.",
   },
   robots: {
     index: true,
@@ -95,7 +95,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-background text-foreground overflow-x-clip">
-        {/* Grain noise overlay — breaks flat digital feel */}
+        {/* Grain noise overlay - breaks flat digital feel */}
         <div
           className="pointer-events-none fixed inset-0 z-[9990] opacity-[0.035] dark:opacity-[0.055]"
           style={{

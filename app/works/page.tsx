@@ -6,13 +6,13 @@ import { SectionDivider } from "@/components/shared/section-divider"
 export const metadata: Metadata = {
   title: "Works",
   description:
-    "Selected projects spanning web and mobile — Flutter, React, Next.js, and more.",
+    "Selected projects spanning web and mobile - Flutter, React, Next.js, and more.",
   alternates: { canonical: "/works" },
   openGraph: {
     type: "website",
-    title: "Works — Dharma Yudistira",
+    title: "Works - Dharma Yudistira",
     description:
-      "Selected projects spanning web and mobile — Flutter, React, Next.js, and more.",
+      "Selected projects spanning web and mobile - Flutter, React, Next.js, and more.",
     url: "/works",
     images: [{ url: "/opengraph-image", width: 1200, height: 630 }],
   },

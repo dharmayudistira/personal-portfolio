@@ -13,7 +13,7 @@ export function SolutionVideo({ src, poster }: { src: string; poster?: string })
   function togglePlay() {
     if (!ref.current) return
     if (ref.current.paused) {
-      ref.current.play()
+      ref.current.play().catch(() => setPlaying(false))
       setPlaying(true)
     } else {
       ref.current.pause()
@@ -71,7 +71,7 @@ export function SolutionVideo({ src, poster }: { src: string; poster?: string })
         }`}
       />
 
-      {/* Center play button — only when paused */}
+      {/* Center play button - only when paused */}
       {!playing && (
         <button
           onClick={togglePlay}

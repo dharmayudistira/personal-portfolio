@@ -1,36 +1,39 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# personal-portfolio
 
-## Getting Started
+Personal portfolio of Dharma Yudistira. Static-first Next.js site with works (TS data), blogs (MDX), and live counters backed by Upstash Redis.
 
-First, run the development server:
+## Stack
+
+- Next.js 16 App Router (Turbopack), React 19, TypeScript 5 strict
+- Tailwind v4 + shadcn/ui (CSS-first config in `app/globals.css`)
+- MDX via `@next/mdx` + Shiki for syntax highlighting
+- TanStack Query v5 for live counters
+- Upstash Redis + `@upstash/ratelimit` for view tracking
+- Vercel hosting + Analytics
+
+## Scripts
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm dev      # localhost:3000
+pnpm build    # production build (verifies types + SSG)
+pnpm start    # serve production build locally
+pnpm lint     # ESLint flat config
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Package manager: pnpm. No test suite. CI is the Vercel build.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+NEXT_PUBLIC_SITE_URL        # Canonical site URL
+UPSTASH_REDIS_REST_URL      # Upstash Redis REST endpoint
+UPSTASH_REDIS_REST_TOKEN    # Upstash Redis REST token
+```
 
-## Learn More
+## Adding content
 
-To learn more about Next.js, take a look at the following resources:
+- **Work:** edit `lib/data/works.ts`. Drop hero image under `public/works/`. Set `createdAt = updatedAt = today`.
+- **Blog post:** create `app/blogs/_content/<slug>.mdx` with YAML frontmatter (`published: true`, `date`, `updatedAt`, `tags`, etc.).
+- Bump only the touched entry's `updatedAt`. Sitemap, RSS, and JSON-LD derive from it.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See `CLAUDE.md` (philosophy + do/don't) and `.claude/` (stack, content, design, API, SEO references) for details.

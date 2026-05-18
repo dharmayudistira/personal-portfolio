@@ -27,7 +27,7 @@ export function FeaturedWorks() {
       </div>
 
       <div className="space-y-10">
-        {/* Hero project — full width */}
+        {/* Hero project - full width */}
         {heroProject && (
           <Link
             href={`/works/${heroProject.slug}`}
@@ -65,7 +65,7 @@ export function FeaturedWorks() {
                 {heroProject.description}
               </p>
 
-              {/* Tags — bottom strip */}
+              {/* Tags - bottom strip */}
               <div className="flex flex-wrap gap-2 pt-6">
                 {heroProject.tags.map((tag) => (
                   <span
@@ -80,7 +80,7 @@ export function FeaturedWorks() {
           </Link>
         )}
 
-        {/* Secondary projects — 3-col grid */}
+        {/* Secondary projects - 3-col grid */}
         {secondaryProjects.length > 0 && (
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
             {secondaryProjects.map((project) => (

@@ -1,6 +1,3 @@
-"use client"
-
-import { useState } from "react"
 import Image from "next/image"
 
 type WorkImageProps = {
@@ -13,9 +10,7 @@ type WorkImageProps = {
 }
 
 export function WorkImage({ src, alt, slug, sizes, className, priority }: WorkImageProps) {
-  const [failed, setFailed] = useState(false)
-
-  if (!src || failed) {
+  if (!src) {
     return (
       <div className="flex size-full items-center justify-center bg-gradient-to-br from-secondary via-background to-secondary">
         <span className="font-mono text-sm uppercase tracking-widest text-muted-foreground/40">
@@ -33,7 +28,6 @@ export function WorkImage({ src, alt, slug, sizes, className, priority }: WorkIm
       className={className}
       sizes={sizes}
       priority={priority}
-      onError={() => setFailed(true)}
     />
   )
 }

@@ -7,9 +7,9 @@ import { Connect } from "@/components/home/connect"
 import { SectionDivider } from "@/components/shared/section-divider"
 
 export const metadata: Metadata = {
-  title: "Dharma Yudistira — Product Engineer",
+  title: "Dharma Yudistira - Product Engineer",
   description:
-    "Product Engineer building web and mobile experiences end-to-end — from database schema to the last pixel on screen.",
+    "Product Engineer building web and mobile experiences end-to-end - from database schema to the last pixel on screen.",
   alternates: { canonical: "/" },
 }
 
@@ -24,7 +24,7 @@ const personSchema = {
       image: "https://www.dharma-yudistira.com/avatar.jpeg",
       jobTitle: "Product Engineer",
       description:
-        "Product Engineer building web and mobile experiences end-to-end — from database schema to the last pixel on screen.",
+        "Product Engineer building web and mobile experiences end-to-end - from database schema to the last pixel on screen.",
       address: {
         "@type": "PostalAddress",
         addressLocality: "Sidoarjo",
@@ -51,7 +51,7 @@ const personSchema = {
       url: "https://www.dharma-yudistira.com",
       name: "Dharma Yudistira",
       description:
-        "Product Engineer building web and mobile experiences end-to-end — from database schema to the last pixel on screen.",
+        "Product Engineer building web and mobile experiences end-to-end - from database schema to the last pixel on screen.",
       author: { "@id": "https://www.dharma-yudistira.com/#person" },
     },
   ],
