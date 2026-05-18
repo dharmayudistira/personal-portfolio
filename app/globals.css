@@ -50,7 +50,7 @@
 }
 
 /* ─── Light mode (default) ─── */
-/* Design system: monochromatic — White primary, #2A2A2A secondary, #131313 neutral */
+/* Design system: monochromatic - White primary, #2A2A2A secondary, #131313 neutral */
 :root {
   --background: #f9f9f9;
   --foreground: #131313;

@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       siteName: "Dharma Yudistira",
       locale: "en_US",
-      title: `${displayTitle} — Dharma Yudistira`,
+      title: `${displayTitle} - Dharma Yudistira`,
       description: work.description,
       url: `/works/${slug}`,
       images: ogImage,
@@ -45,7 +45,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       site: "@justamannothero",
       creator: "@justamannothero",
-      title: `${displayTitle} — Dharma Yudistira`,
+      title: `${displayTitle} - Dharma Yudistira`,
       description: work.description,
       images: ogImage,
     },
@@ -63,7 +63,7 @@ export default async function WorkDetailPage({ params }: Props) {
   const nextWork =
     currentIndex < WORKS.length - 1 ? WORKS[currentIndex + 1] : null
 
-  const BASE = "https://www.dharma-yudistira.com"
+  const BASE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.dharma-yudistira.com").replace(/\/$/, "")
   const workSchema = {
     "@context": "https://schema.org",
     "@graph": [

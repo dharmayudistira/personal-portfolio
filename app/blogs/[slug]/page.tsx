@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     description: post.description,
     alternates: { canonical: `/blogs/${slug}` },
     openGraph: {
-      title: `${post.title} — Dharma Yudistira`,
+      title: `${post.title} - Dharma Yudistira`,
       description: post.description,
       type: "article",
       url: `/blogs/${slug}`,
@@ -71,7 +71,7 @@ export default async function BlogDetailPage({ params }: Props) {
     `@/app/blogs/_content/${slug}.mdx`
   )
 
-  const BASE = "https://www.dharma-yudistira.com"
+  const BASE = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.dharma-yudistira.com").replace(/\/$/, "")
   const postSchema = {
     "@context": "https://schema.org",
     "@graph": [

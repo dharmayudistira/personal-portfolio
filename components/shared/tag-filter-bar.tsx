@@ -42,13 +42,13 @@ export function TagFilterBar({
 
   return (
     <div ref={dropdownRef} className="relative flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-      {/* Filter controls — always on one row, no wrapping */}
+      {/* Filter controls - always on one row, no wrapping */}
       <div className="flex items-center justify-between gap-2 sm:justify-start">
         <span className="shrink-0 font-mono text-[10px] uppercase tracking-widest text-muted-foreground">
           Filter_By:
         </span>
 
-        {/* All button — hidden on mobile */}
+        {/* All button - hidden on mobile */}
         <button
           onClick={handleClear}
           className={`hidden shrink-0 px-4 py-1.5 font-mono text-[11px] font-medium tracking-wide transition-all sm:block ${
@@ -82,7 +82,7 @@ export function TagFilterBar({
         </button>
       </div>
 
-      {/* Dropdown — anchored to outer wrapper so it spans full width on mobile */}
+      {/* Dropdown - anchored to outer wrapper so it spans full width on mobile */}
       {dropdownOpen && (
         <div
           onClick={(e) => e.stopPropagation()}
@@ -131,7 +131,7 @@ export function TagFilterBar({
                     </label>
                   ))}
                 </div>
-                {/* fade hint — always visible, masked by scroll reaching bottom */}
+                {/* fade hint - always visible, masked by scroll reaching bottom */}
                 <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-card to-transparent" />
                 </div>
               </div>
@@ -153,7 +153,7 @@ export function TagFilterBar({
         </div>
       )}
 
-      {/* Search — full width on mobile */}
+      {/* Search - full width on mobile */}
       <div className="relative">
         <Search className="absolute left-3 top-1/2 size-3.5 -translate-y-1/2 text-muted-foreground" />
         <input

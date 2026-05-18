@@ -1,6 +1,8 @@
 import type { MDXComponents } from "mdx/types"
+import { isValidElement, type ReactNode } from "react"
 import NextImage from "next/image"
 import { CodeBlock } from "@/components/shared/code-block"
+import { highlightCode } from "@/lib/highlight"
 
 type CalloutProps = {
   type: "note" | "warning" | "tip"
@@ -24,6 +26,29 @@ function Callout({ type, children }: CalloutProps) {
         {children}
       </div>
     </div>
+  )
+}
+
+type CodeElementProps = { className?: string; children?: ReactNode }
+
+async function HighlightedPre({ children }: { children?: ReactNode }) {
+  if (isValidElement(children)) {
+    const props = children.props as CodeElementProps
+    const langMatch = props.className?.match(/language-(\w+)/)
+    if (langMatch && typeof props.children === "string") {
+      const html = await highlightCode(props.children.replace(/\n$/, ""), langMatch[1])
+      return (
+        <div
+          className="my-6 overflow-x-auto border border-foreground/5 bg-[#0d1117] p-6 font-mono text-sm leading-relaxed [&_pre]:!bg-transparent [&_code]:!bg-transparent"
+          dangerouslySetInnerHTML={{ __html: html }}
+        />
+      )
+    }
+  }
+  return (
+    <pre className="my-6 overflow-x-auto border border-foreground/5 bg-[#0d1117] p-6 font-mono text-sm leading-relaxed">
+      {children}
+    </pre>
   )
 }
 
@@ -68,35 +93,38 @@ const components: MDXComponents = {
       {children}
     </blockquote>
   ),
-  code: ({ children }) => (
-    <code className="rounded bg-secondary px-1.5 py-0.5 font-mono text-xs text-foreground">
-      {children}
-    </code>
-  ),
-  pre: ({ children }) => (
-    <pre className="my-6 overflow-x-auto border border-foreground/5 bg-[#0d1117] p-6 font-mono text-sm leading-relaxed">
-      {children}
-    </pre>
-  ),
-  img: ({ src, alt }) => (
-    <span className="my-8 block">
-      <span className="relative block w-full">
-        <NextImage
-          src={src ?? ""}
-          alt={alt ?? ""}
-          width={1200}
-          height={675}
-          className="w-full border border-foreground/5 bg-secondary/20"
-          style={{ height: "auto" }}
-        />
-      </span>
-      {alt && (
-        <span className="mt-2 block text-center font-mono text-[10px] uppercase tracking-widest text-muted-foreground/50">
-          {alt}
+  code: ({ children, className }) => {
+    // Fenced code is rendered by the `pre` component; only style inline code here.
+    if (className?.startsWith("language-")) return <>{children}</>
+    return (
+      <code className="rounded bg-secondary px-1.5 py-0.5 font-mono text-xs text-foreground">
+        {children}
+      </code>
+    )
+  },
+  pre: HighlightedPre,
+  img: ({ src, alt }) => {
+    if (!src) return null
+    return (
+      <span className="my-8 block">
+        <span className="relative block w-full">
+          <NextImage
+            src={src}
+            alt={alt ?? ""}
+            width={1200}
+            height={675}
+            className="w-full border border-foreground/5 bg-secondary/20"
+            style={{ height: "auto" }}
+          />
         </span>
-      )}
-    </span>
-  ),
+        {alt && (
+          <span className="mt-2 block text-center font-mono text-[10px] uppercase tracking-widest text-muted-foreground/50">
+            {alt}
+          </span>
+        )}
+      </span>
+    )
+  },
   table: ({ children }) => (
     <div className="my-8 w-full overflow-x-auto">
       <table className="w-full border-collapse font-mono text-xs">

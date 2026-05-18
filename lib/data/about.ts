@@ -19,8 +19,8 @@ export const BIO = {
   role: "Product Engineer",
   location: "Sidoarjo, Indonesia",
   bio: [
-    "I build products end-to-end — from database schema to the last pixel on screen. My work sits at the intersection of engineering and design, where system performance meets user experience.",
-    "Fluent in full-stack TypeScript and cross-platform mobile with Flutter and Kotlin, I ship web and mobile experiences that are fast, accessible, and built to scale. I care about the details that make software feel solid — type safety, clean abstractions, and render performance.",
+    "I build products end-to-end - from database schema to the last pixel on screen. My work sits at the intersection of engineering and design, where system performance meets user experience.",
+    "Fluent in full-stack TypeScript and cross-platform mobile with Flutter and Kotlin, I ship web and mobile experiences that are fast, accessible, and built to scale. I care about the details that make software feel solid - type safety, clean abstractions, and render performance.",
   ],
   socials: [
     { label: "Github", href: "https://github.com/dharmayudistira" },
@@ -36,7 +36,7 @@ export const EXPERIENCES: Experience[] = [
     title: "Product Engineer",
     company: "Zero One Group",
     type: "Full-time",
-    period: "Sept 2022 — Present",
+    period: "Sept 2022 - Present",
     current: true,
     bullets: [
       "Developed a high-end e-commerce mobile app using Flutter, scaling the architecture to support 500K+ downloads.",
@@ -51,7 +51,7 @@ export const EXPERIENCES: Experience[] = [
     title: "Software Engineer - Mobile",
     company: "Neurafarm",
     type: "Internship",
-    period: "Jun 2021 — Sept 2021",
+    period: "Jun 2021 - Sept 2021",
     current: false,
     bullets: [
       "Engineered \"Sobat Tania\", an internal cross-platform application built with Flutter, successfully deploying the final product across Web, Android, and iOS environments.",

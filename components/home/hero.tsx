@@ -7,7 +7,7 @@ export function Hero() {
     <section className="relative flex min-h-[90dvh] flex-col justify-center pb-24 pt-28">
       {/* Golden ratio / Fibonacci spiral ornament */}
       <div className="pointer-events-none absolute inset-y-0 -left-6 -right-6 overflow-hidden lg:-left-12 lg:-right-12" aria-hidden="true">
-        {/* Desktop / tablet — fills section, spiral right-anchored */}
+        {/* Desktop / tablet - fills section, spiral right-anchored */}
         <svg
           className="absolute inset-0 hidden h-full w-full text-foreground/[0.055] md:block"
           viewBox="0 0 340 210"
@@ -46,7 +46,7 @@ export function Hero() {
           </g>
         </svg>
 
-        {/* Mobile — fills section, spiral bottom-center anchored */}
+        {/* Mobile - fills section, spiral bottom-center anchored */}
         <svg
           className="absolute inset-0 h-full w-full text-foreground/[0.055] md:hidden"
           viewBox="0 0 210 340"
@@ -87,7 +87,7 @@ export function Hero() {
         </svg>
       </div>
 
-      {/* Status bar — availability + current job */}
+      {/* Status bar - availability + current job */}
       <div className="mb-10 flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-2.5">
           <span className="relative flex size-2 shrink-0">
@@ -108,7 +108,7 @@ export function Hero() {
         )}
       </div>
 
-      {/* Name — split across two lines for impact */}
+      {/* Name - split across two lines for impact */}
       <div className="mb-6 overflow-hidden">
         <h1 className="font-heading font-bold uppercase leading-[0.9] tracking-tighter">
           <span className="block text-[clamp(3.5rem,12vw,9rem)]">Dharma</span>

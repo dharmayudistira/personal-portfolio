@@ -68,7 +68,7 @@ export function RecentPosts() {
               {post.excerpt}
             </p>
 
-            {/* Tag — pushed to bottom */}
+            {/* Tag - pushed to bottom */}
             <div className="relative z-10 mt-auto flex items-center justify-end">
               <span className="border border-foreground/10 px-2.5 py-1 font-mono text-[8px] uppercase tracking-widest text-muted-foreground">
                 {post.tag}

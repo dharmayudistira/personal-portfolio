@@ -70,7 +70,7 @@ export function Navbar({ onCommandOpen }: NavbarProps) {
 
           {/* Actions */}
           <div className="flex items-center gap-2">
-            {/* Search pill — desktop only */}
+            {/* Search pill - desktop only */}
             <button
               onClick={onCommandOpen}
               aria-label="Open command palette"

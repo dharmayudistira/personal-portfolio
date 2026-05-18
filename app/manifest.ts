@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next"
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Dharma Yudistira — Product Engineer",
+    name: "Dharma Yudistira - Product Engineer",
     short_name: "Dharma_PE",
     description:
       "Product Engineer building full-stack systems from database to pixel.",

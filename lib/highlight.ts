@@ -35,6 +35,8 @@ export async function highlightCode(
   lang: string
 ): Promise<string> {
   const hl = await getHighlighter()
-  const known = (LANGS as readonly string[]).includes(lang) ? lang : "text"
+  // Check against Shiki's actual loaded languages so canonical names
+  // (e.g. "typescript") and aliases (e.g. "ts", "mts") both resolve.
+  const known = hl.getLoadedLanguages().includes(lang) ? lang : "text"
   return hl.codeToHtml(code, { lang: known, theme: THEME })
 }

@@ -2,6 +2,8 @@ import { getAllPosts } from "@/lib/posts"
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
 
+export const dynamic = "force-static"
+
 export function GET() {
   const items = getAllPosts()
     .map(
@@ -19,7 +21,7 @@ export function GET() {
   const feed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dharma Yudistira — Blog</title>
+    <title>Dharma Yudistira - Blog</title>
     <link>${BASE_URL}</link>
     <description>Technical writing on distributed systems, frontend architecture, and engineering.</description>
     <language>en</language>

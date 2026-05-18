@@ -14,7 +14,7 @@ function CrosshairIcon() {
 export function SectionDivider({ label }: SectionDividerProps) {
   return (
     <div className="relative h-6">
-      {/* Full-width horizontal line — extends to viewport edges */}
+      {/* Full-width horizontal line - extends to viewport edges */}
       <div className="absolute left-1/2 top-1/2 h-px w-screen -translate-x-1/2 grid-line-h opacity-60" />
 
       {/* Left intersection: + marker + label */}

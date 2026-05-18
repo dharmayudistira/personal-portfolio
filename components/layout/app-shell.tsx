@@ -39,7 +39,7 @@ export function AppShell({ children, searchItems = [] }: AppShellProps) {
         <div className="pointer-events-none absolute inset-y-0 left-0 w-px grid-line-v opacity-60" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-px grid-line-v opacity-60" />
 
-        {/* Grid intersection coordinates — hidden on mobile to prevent horizontal overflow */}
+        {/* Grid intersection coordinates - hidden on mobile to prevent horizontal overflow */}
         <div className="pointer-events-none absolute top-14 left-0 -translate-x-full pr-2 font-mono text-[10px] leading-none text-muted-foreground/50 hidden lg:block">
           0,0
         </div>

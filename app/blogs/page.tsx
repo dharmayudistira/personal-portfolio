@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/blogs" },
   openGraph: {
     type: "website",
-    title: "Blogs — Dharma Yudistira",
+    title: "Blogs - Dharma Yudistira",
     description:
       "Technical writing on frontend architecture, mobile development, and the intersection of engineering and product design.",
     url: "/blogs",
